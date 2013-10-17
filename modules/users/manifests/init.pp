@@ -4,7 +4,7 @@ class users {
     ensure     => present,
     managehome => true,
     home       => '/home/deployer',
-    shell      => '/bin/bash',
+    shell      => '/bin/zsh',
     gid        => 'www-data',
     groups     => [ 'admin' ],
     require    => Group['admin']

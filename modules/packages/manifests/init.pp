@@ -18,4 +18,8 @@ class packages {
   package { 'postgresql':
     ensure => present
   }
+
+  package { 'zsh':
+    ensure => present
+  }
 }
