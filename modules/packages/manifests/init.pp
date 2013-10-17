@@ -11,6 +11,10 @@ class packages {
     ensure => present
   }
 
+  package { 'libreadline-dev':
+    ensure => present
+  }
+
   package { 'ntp':
     ensure => present
   }
