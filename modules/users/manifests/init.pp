@@ -9,4 +9,7 @@ class users {
     groups     => [ 'admin' ],
     require    => Group['admin']
   }
+
+  include vim
+  include rbenv
 }

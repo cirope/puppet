@@ -10,3 +10,5 @@ rm $PACKAGE
 apt-get update
 apt-get -y dist-upgrade
 apt-get install -y puppet
+
+source modules/vendor.sh

@@ -3,10 +3,6 @@ class packages {
     ensure => present
   }
 
-  package { 'git-core':
-    ensure => present
-  }
-
   package { 'htop':
     ensure => present
   }
@@ -20,6 +16,10 @@ class packages {
   }
 
   package { 'postgresql':
+    ensure => present
+  }
+
+  package { 'vim-nox':
     ensure => present
   }
 
