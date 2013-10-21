@@ -5,7 +5,7 @@ class swap {
     exec { 'create_swap_file':
       command => "fallocate -l ${0}m ${file}; mkswap ${file}; swapon ${file}",
       user    => 'root',
-      unless  => "test -f $file"
+      creates => $file
     }
   }
 

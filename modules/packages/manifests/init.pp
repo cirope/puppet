@@ -19,11 +19,11 @@ class packages {
     ensure => present
   }
 
-  package { 'vim-nox':
+  package { 'screen':
     ensure => present
   }
 
-  package { 'zsh':
+  package { 'vim-nox':
     ensure => present
   }
 }

@@ -2,11 +2,12 @@ class rbenv {
   $ruby_version = '2.0.0-p247'
 
   rbenv::install { 'deployer':
-    require => User['deployer']
+    require => User[$deployer::user]
   }
 
   rbenv::compile { $ruby_version:
-    user => 'deployer',
+    user    => $deployer::user,
+    global  => true,
     require => Rbenv::Install['deployer']
   }
 }
