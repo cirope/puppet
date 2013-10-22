@@ -10,7 +10,7 @@ Via `curl`
 
 Via `wget`
 
-    wget --no-check-certificate https://raw.github.com/cirope/puppet/master/tools/install.sh -O - | sh
+    wget https://raw.github.com/cirope/puppet/master/tools/install.sh -O - | sh
 
 ## (The MIT License)
 
