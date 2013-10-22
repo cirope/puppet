@@ -8,6 +8,7 @@ class rbenv {
 
   rbenv::compile { $ruby_version:
     user    => $deployer::user,
+    group   => $deployer::group,
     global  => true,
     require => Rbenv::Install['deployer']
   }
