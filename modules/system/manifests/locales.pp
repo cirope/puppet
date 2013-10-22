@@ -8,7 +8,8 @@ class locales {
     require => Package['locales']
   }
 
-  file { '/var/lib/locales/supported.d/local':
+  file { 'local':
+    path    => '/var/lib/locales/supported.d/local',
     source  => 'puppet:///modules/system/local',
     owner   => root,
     group   => root,
@@ -27,8 +28,8 @@ class locales {
   exec { 'locale-gen':
     user        => root,
     refreshonly => true,
-    subscribe   => File['/etc/locale.gen'],
-    require     => [Package['locales'], File['/etc/locale.gen']]
+    subscribe   => File['local'],
+    require     => [Package['locales'], File['local']]
   }
 
   exec { 'update-locale':
