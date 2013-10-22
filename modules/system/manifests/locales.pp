@@ -11,6 +11,14 @@ class locales {
     require => Package['locales']
   }
 
+  file { '/etc/default/locale':
+    source  => 'puppet:///modules/system/locale',
+    owner   => root,
+    group   => root,
+    mode    => 0644,
+    require => Package['locales']
+  }
+
   exec { '/usr/sbin/locale-gen':
     subscribe   => File['/etc/locale.gen'],
     user        => 'root',
