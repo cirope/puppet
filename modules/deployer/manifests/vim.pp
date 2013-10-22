@@ -8,7 +8,7 @@ class vim {
     source  => 'puppet:///modules/deployer/vim/.vimrc'
   }
 
-  file { 'vimdir'
+  file { 'vimdir':
     path    => "$deployer::home/.vim",
     ensure  => directory,
     owner   => $deployer::user,
