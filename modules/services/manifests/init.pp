@@ -1,9 +1,5 @@
 class services {
-  service { 'postgresql':
-    enable  => true,
-    ensure  => running,
-    require => Package['postgresql']
-  }
+  include postgresql
 
   service { 'ntp':
     enable  => true,
