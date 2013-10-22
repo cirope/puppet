@@ -4,7 +4,7 @@ class vim {
     owner   => $deployer::user,
     group   => $deployer::group,
     require => Package['vim-nox'],
-    source  => "puppet:///modules/deployer/vim/.vimrc"
+    source  => 'puppet:///modules/deployer/vim/.vimrc'
   }
 
   file { "$deployer::home/.vim/backup":

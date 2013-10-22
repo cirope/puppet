@@ -5,7 +5,7 @@ class zsh {
     path    => "$deployer::home/.zshrc",
     ensure  => file,
     require => User[$deployer::user],
-    source  => "puppet:///modules/deployer/zsh/.zshrc"
+    source  => 'puppet:///modules/deployer/zsh/.zshrc',
   }
 
   exec { 'ohmyzsh':
