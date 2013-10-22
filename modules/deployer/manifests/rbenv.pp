@@ -3,7 +3,7 @@ class rbenv {
 
   rbenv::install { 'deployer':
     group   => $deployer::group,
-    require => User[$deployer::user]
+    require => [File['zshrc'], Exec['ohmyzsh']]
   }
 
   rbenv::compile { $ruby_version:

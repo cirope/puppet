@@ -1,7 +1,8 @@
 class zsh {
   $oh_my_zsh_path = "$deployer::home/.oh-my-zsh"
+  $oh_my_zsh_repo = 'git://github.com/robbyrussell/oh-my-zsh.git'
 
-  file { '.zshrc':
+  file { 'zshrc':
     path    => "$deployer::home/.zshrc",
     ensure  => file,
     require => User[$deployer::user],
@@ -9,7 +10,7 @@ class zsh {
   }
 
   exec { 'ohmyzsh':
-    command => "git clone git://github.com/robbyrussell/oh-my-zsh.git $oh_my_zsh_path",
+    command => "git clone $oh_my_zsh_repo $oh_my_zsh_path",
     user    => $deployer::user,
     creates => $oh_my_zsh_path,
     timeout => 100,
