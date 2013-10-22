@@ -31,7 +31,7 @@ class locales {
     require     => [Package['locales'], File['/etc/locale.gen']]
   }
 
-  exec { 'update-locale'
+  exec { 'update-locale':
     user        => root,
     refreshonly => true,
     subscribe   => File['/etc/default/locale'],
