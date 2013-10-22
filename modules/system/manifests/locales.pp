@@ -3,6 +3,11 @@ class locales {
     ensure => present
   }
 
+  package { 'language-pack-es':
+    ensure  => present,
+    require => Package['locales']
+  }
+
   file { '/etc/locale.gen':
     source  => 'puppet:///modules/system/locale.gen',
     owner   => root,
