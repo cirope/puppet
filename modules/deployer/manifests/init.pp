@@ -10,7 +10,7 @@ class deployer {
     shell      => '/bin/zsh',
     gid        => $group,
     groups     => [ 'admin' ],
-    require    => Group['admin']
+    require    => Group[$group, 'admin']
   }
 
   include zsh
