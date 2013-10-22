@@ -1,12 +1,11 @@
 class swap {
   $file = '/mnt/swapfile'
+  $size = $memorysize_mb ? { /^\d+/ => $0, default => 1024 }
 
-  if $memorysize_mb =~ /^\d+/ {
-    exec { 'create_swap_file':
-      command => "fallocate -l ${0}m ${file}; mkswap ${file}; swapon ${file}",
-      user    => 'root',
-      creates => $file
-    }
+  exec { 'create_swap_file':
+    command => "fallocate -l ${size}m $file; mkswap $file; swapon $file",
+    user    => 'root',
+    creates => $file
   }
 
   file { $file:
