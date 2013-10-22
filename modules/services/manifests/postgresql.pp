@@ -1,4 +1,6 @@
 class postgresql {
+  $config_path = '/etc/postgresql/9.1/main'
+
   service { 'postgresql':
     enable    => true,
     ensure    => running,
@@ -6,7 +8,7 @@ class postgresql {
   }
 
   file { 'postgresql.conf':
-    path    => '/etc/postgresql/9.1/main/postgresql.conf',
+    path    => "$config_path/postgresql.conf",
     ensure  => file,
     owner   => postgres,
     group   => postgres,
@@ -17,7 +19,7 @@ class postgresql {
   }
 
   file { 'pg_hba.conf':
-    path    => '/etc/postgresql/9.1/main/pg_hba.conf',
+    path    => "$config_path/pg_hba.conf",
     ensure  => file,
     owner   => postgres,
     group   => postgres,
