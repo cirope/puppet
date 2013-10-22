@@ -6,4 +6,10 @@ class sysctl {
     mode    => 0644,
     content => template('system/sysctl.conf.erb')
   }
+
+  exec { 'sysctl':
+    command     => 'sysctl -p',
+    refreshonly => true,
+    subscribe   => File['/etc/sysctl.conf']
+  }
 }
