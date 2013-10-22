@@ -4,7 +4,7 @@ Puppet configurations used in Cirope's servers. All running Rails (or at least R
 
 ## Installation
 
-  curl -L https://raw.github.com/cirope/puppet/master/tools/install.sh | sh
+    curl -L https://raw.github.com/cirope/puppet/master/tools/install.sh | sh
 
 ## (The MIT License)
 
