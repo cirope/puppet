@@ -25,10 +25,16 @@ class locales {
   }
 
   exec { 'locale-gen':
-    command     => '/usr/sbin/locale-gen',
-    subscribe   => File['/etc/locale.gen'],
-    user        => 'root',
+    user        => root,
     refreshonly => true,
+    subscribe   => File['/etc/locale.gen'],
     require     => [Package['locales'], File['/etc/locale.gen']]
+  }
+
+  exec { 'update-locale'
+    user        => root,
+    refreshonly => true,
+    subscribe   => File['/etc/default/locale'],
+    require     => [Exec['locale-gen'], File['/etc/default/locale']]
   }
 }
