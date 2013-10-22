@@ -4,7 +4,7 @@ class locales {
   }
 
   file { '/etc/locale.gen':
-    source  => 'puppet:///system/locale.gen',
+    source  => 'puppet:///modules/system/locale.gen',
     owner   => root,
     group   => root,
     mode    => 0644,
