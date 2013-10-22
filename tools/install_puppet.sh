@@ -1,4 +1,4 @@
-if [ ! puppet > /dev/null 2>&1 ]; then
+if [ ! -f /usr/bin/puppet ]; then
   PACKAGE=puppetlabs-release-precise.deb
   SERVER=http://apt.puppetlabs.com/ 
 
