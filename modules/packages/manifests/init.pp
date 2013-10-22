@@ -16,7 +16,8 @@ class packages {
   }
 
   package { 'postgresql':
-    ensure => present
+    ensure  => present,
+    require => Exec['locale-gen']
   }
 
   package { 'screen':

@@ -19,7 +19,8 @@ class locales {
     require => Package['locales']
   }
 
-  exec { '/usr/sbin/locale-gen':
+  exec { 'locale-gen':
+    command     => '/usr/sbin/locale-gen',
     subscribe   => File['/etc/locale.gen'],
     user        => 'root',
     refreshonly => true,
