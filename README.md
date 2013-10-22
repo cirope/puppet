@@ -2,6 +2,12 @@
 
 Puppet configurations used in Cirope's servers. All running Rails (or at least Rack) applications.
 
+## Installation
+
+´´´
+curl -L https://raw.github.com/cirope/puppet/master/tools/install.sh | sh
+´´´
+
 ## (The MIT License)
 
 Copyright (c) 2013 Cirope S.A.
