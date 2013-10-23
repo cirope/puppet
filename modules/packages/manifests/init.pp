@@ -15,11 +15,6 @@ class packages {
     ensure => present
   }
 
-  package { 'postgresql':
-    ensure  => present,
-    require => Exec['root-profile-refresh']
-  }
-
   package { 'screen':
     ensure => present
   }
