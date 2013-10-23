@@ -1,6 +1,4 @@
 class services {
-  include postgresql
-
   service { 'ntp':
     enable  => true,
     ensure  => running,
