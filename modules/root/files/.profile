@@ -8,3 +8,6 @@ if [ "$BASH" ]; then
 fi
 
 mesg n
+
+LANG=es_AR.UTF-8
+LANGUAGE=es_AR:es
