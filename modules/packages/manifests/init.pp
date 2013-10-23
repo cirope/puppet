@@ -27,4 +27,8 @@ class packages {
   package { 'vim-nox':
     ensure => present
   }
+
+  package { 'zsh':
+    ensure => present
+  }
 }
