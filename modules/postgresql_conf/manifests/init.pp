@@ -1,10 +1,10 @@
 class postgresql_conf {
   $memory = inline_template("<%= @memorysize_mb.to_i %>")
 
-  class { 'postgresql::global':
+  class { 'postgresql::globals':
     encoding => 'UTF8',
     locale   => 'es_AR'
-  }->
+  }
 
   class { 'postgresql::server': }
 
