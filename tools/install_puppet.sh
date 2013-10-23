@@ -3,7 +3,7 @@ if [ ! -f /usr/bin/puppet ]; then
   SERVER=http://apt.puppetlabs.com/ 
 
   wget $SERVER$PACKAGE
-  dpkg -i $PACKAGE
+  dpkg -i --force-confold $PACKAGE
   rm $PACKAGE
 
   apt-get update
