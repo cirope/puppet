@@ -10,6 +10,6 @@ class rbenv {
     user    => $deployer::user,
     group   => $deployer::group,
     global  => true,
-    require => Rbenv::Install['deployer']
+    require => [Rbenv::Install['deployer'], Package['libreadline-dev']]
   }
 }
