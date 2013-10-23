@@ -3,5 +3,5 @@ if [ ! -d /etc/puppet/rbenv ]; then
 fi
 
 if [ ! -d /etc/puppet/postgresql ]; then
-  puppet module install --target-dir /etc/puppet/postgresql puppetlabs/postgresql
+  puppet module install puppetlabs/postgresql 
 fi
