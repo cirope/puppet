@@ -1,4 +1,4 @@
-class postgresql {
+class postgresql_conf {
   $memory = inline_template("<%= @memorysize_mb.to_i %>")
 
   class { 'postgresql::server':

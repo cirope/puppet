@@ -9,5 +9,5 @@ node default {
   include ssh
   include packages
   include services
-  include postgresql
+  include postgresql_conf
 }
