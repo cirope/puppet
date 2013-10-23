@@ -10,13 +10,6 @@ class rbenv {
     user    => $deployer::user,
     group   => $deployer::group,
     global  => true,
-    bundler => absent,
     require => Rbenv::Install['deployer']
-  }
-
-  rbenv::gem { 'bundler':
-    ensure => present,
-    user   => $deployer::user,
-    ruby   => $ruby_version
   }
 }
