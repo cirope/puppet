@@ -17,7 +17,7 @@ class packages {
 
   package { 'postgresql':
     ensure  => present,
-    require => Exec['locale-gen']
+    require => Exec['root-profile-refresh']
   }
 
   package { 'screen':

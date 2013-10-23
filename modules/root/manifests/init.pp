@@ -9,7 +9,8 @@ class root {
     require => Exec['update-locale']
   }
 
-  exec { ". $profile":
+  exec { 'root-profile-refresh':
+    command     => ". $profile",
     user        => root,
     refreshonly => true,
     subscribe   => File[$profile],
