@@ -14,7 +14,7 @@ class locales {
     owner   => root,
     group   => root,
     mode    => 0644,
-    require => Package['locales']
+    require => Package['language-pack-es']
   }
 
   file { '/etc/default/locale':
@@ -22,14 +22,14 @@ class locales {
     owner   => root,
     group   => root,
     mode    => 0644,
-    require => Package['locales']
+    require => Package['language-pack-es']
   }
 
   exec { 'locale-gen':
     user        => root,
     refreshonly => true,
     subscribe   => File['local'],
-    require     => [Package['locales'], File['local']]
+    require     => [Package['language-pack-es'], File['local']]
   }
 
   exec { 'update-locale':
