@@ -10,7 +10,7 @@ class root {
   }
 
   exec { 'root-profile-refresh':
-    command     => "source $profile",
+    command     => "bash -c 'source $profile'",
     user        => root,
     refreshonly => true,
     subscribe   => File[$profile],
