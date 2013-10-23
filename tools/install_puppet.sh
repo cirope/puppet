@@ -3,9 +3,9 @@ if [ ! -f /usr/bin/puppet ]; then
   SERVER=http://apt.puppetlabs.com/ 
 
   wget $SERVER$PACKAGE
-  dpkg -i --force-confold $PACKAGE
+  dpkg -i $PACKAGE
   rm $PACKAGE
 
   apt-get update
-  apt-get install -y puppet
+  apt-get install -y -o Dpkg::Options::="--force-confold" puppet
 fi
