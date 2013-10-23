@@ -1,5 +1,6 @@
 class postgresql_conf {
   $memory = inline_template("<%= @memorysize_mb.to_i %>")
+  $locale = 'es_AR.UTF-8'
 
   class { 'postgresql::globals':
     encoding => 'UTF8',
@@ -56,7 +57,7 @@ class postgresql_conf {
   }
 
   postgresql::server::config_entry { 'log_line_prefix':
-    value => "'%t:%r:%u@%d:[%p]: '"
+    value => '%t:%r:%u@%d:[%p]: '
   }
 
   postgresql::server::config_entry { 'log_temp_files':
@@ -64,22 +65,22 @@ class postgresql_conf {
   }
 
   postgresql::server::config_entry { 'lc_messages':
-    value => "'$locale'"
+    value => $locale
   }
 
   postgresql::server::config_entry { 'lc_monetary':
-    value => "'$locale'"
+    value => $locale
   }
 
   postgresql::server::config_entry { 'lc_numeric':
-    value => "'$locale'"
+    value => $locale
   }
 
   postgresql::server::config_entry { 'lc_time':
-    value => "'$locale'"
+    value => $locale
   }
 
   postgresql::server::config_entry { 'default_text_search_config':
-    value => "'pg_catalog.spanish'"
+    value => 'pg_catalog.spanish'
   }
 }
