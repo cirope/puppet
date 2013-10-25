@@ -61,7 +61,7 @@
 # If there is a kernel panic, then reboot
 kernel.panic = 15
 # Max segment size
-kernel.shmmax = <%= @memorysize_mb.to_i / 3 * 1024 * 1024 %>
+kernel.shmmax = <%= scope.lookupvar('vars::memory') / 3 * 1024 * 1024 %>
 # Max pages
 kernel.shmall = 2097152
 

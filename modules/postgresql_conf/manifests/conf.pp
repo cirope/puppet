@@ -1,21 +1,18 @@
 class conf {
-  $memory = inline_template("<%= @memorysize_mb.to_i %>")
-  $locale = 'es_AR.UTF-8'
-
   postgresql::server::config_entry { 'max_connections':
     value => '50'
   }
 
   postgresql::server::config_entry { 'shared_buffers':
-    value => "${$memory / 4}MB"
+    value => "${$vars::memory / 4}MB"
   }
 
   postgresql::server::config_entry { 'work_mem':
-    value => "${$memory / 512}MB"
+    value => "${$vars::memory / 512}MB"
   }
 
   postgresql::server::config_entry { 'maintenance_work_mem':
-    value => "${$memory / 64}MB"
+    value => "${$vars::memory / 64}MB"
   }
 
   postgresql::server::config_entry { 'checkpoint_segments':
@@ -31,7 +28,7 @@ class conf {
   }
 
   postgresql::server::config_entry { 'effective_cache_size':
-    value => "${$memory / 2}MB"
+    value => "${$vars::memory / 2}MB"
   }
 
   postgresql::server::config_entry { 'log_min_error_statement':
@@ -51,19 +48,19 @@ class conf {
   }
 
   postgresql::server::config_entry { 'lc_messages':
-    value => $locale
+    value => $vars::locale
   }
 
   postgresql::server::config_entry { 'lc_monetary':
-    value => $locale
+    value => $vars::locale
   }
 
   postgresql::server::config_entry { 'lc_numeric':
-    value => $locale
+    value => $vars::locale
   }
 
   postgresql::server::config_entry { 'lc_time':
-    value => $locale
+    value => $vars::locale
   }
 
   postgresql::server::config_entry { 'default_text_search_config':

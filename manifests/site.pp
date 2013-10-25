@@ -1,6 +1,7 @@
 Exec { path => [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/' ] }
 
 node default {
+  include vars
   include system
   include root
   include swap
