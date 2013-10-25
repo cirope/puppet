@@ -5,7 +5,7 @@ class postgresql_conf {
   }->
 
   class { 'postgresql::server':
-    require => Package['language-pack-es']
+    require => [Exec['sysctl'], Package['language-pack-es']]
   }
 
   include hba
