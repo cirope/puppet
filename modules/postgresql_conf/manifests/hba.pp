@@ -4,6 +4,6 @@ class hba {
     database    => 'all',
     user        => 'all',
     auth_method => 'md5',
-    order       => '001'
+    order       => '002'
   }
 }
