@@ -11,4 +11,5 @@ node default {
   include packages
   include services
   include postgresql_conf
+  include nginx_conf
 }

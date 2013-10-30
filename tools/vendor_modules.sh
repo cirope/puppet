@@ -1,7 +1,9 @@
-if [ ! -d /etc/puppet/modules/rbenv ]; then
-  puppet module install alup/rbenv
-fi
+install_module () {
+  if [ ! -d /etc/puppet/modules/$1 ]; then
+    puppet module install $2
+  fi
+}
 
-if [ ! -d /etc/puppet/modules/postgresql ]; then
-  puppet module install puppetlabs/postgresql 
-fi
+install_module rbenv alup/rbenv
+install_module postgresql puppetlabs/postgresql 
+install_module nginx puppetlabs/nginx
