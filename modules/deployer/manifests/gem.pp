@@ -1,5 +1,6 @@
 class gem {
-  file { "$deployer::home/.gemrc":
+  file { 'gemrc':
+    path    => "$deployer::home/.gemrc",
     ensure  => file,
     owner   => $deployer::user,
     group   => $deployer::group,
