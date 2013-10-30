@@ -11,6 +11,10 @@ class packages {
     ensure => present
   }
 
+  package { 'nmap':
+    ensure => present
+  }
+
   package { 'ntp':
     ensure => present
   }
