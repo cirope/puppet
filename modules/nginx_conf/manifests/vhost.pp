@@ -10,7 +10,6 @@ class vhost {
     ssl_key                   => "/var/lib/$fqdn/ssl/private_keys/$fqdn.pem",
     ssl_port                  => 443,
     ssl_cache                 => 'shared:SSL:128m',
-    ssl_ciphers               => 'SSLv2:-LOW:-EXPORT:RC4+RSA',
     ssl_session_timeout       => '5m',
     ssl_protocols             => 'TLSv1 TLSv1.1 TLSv1.2',
     ssl_prefer_server_ciphers => 'on',
