@@ -21,7 +21,6 @@ class vhost {
     gzip_proxied              => 'any',
     gzip_comp_level           => '6',
     gzip_buffers              => '16 8k',
-    gzip_types                => 'text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript',
     vhost_cfg_append          => {
       'passenger_enabled' => 'on',
       'passenger_ruby'    => "$deployer::home/.rbenv/versions/$rbenv::ruby_version/bin/ruby"
