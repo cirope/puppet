@@ -46,7 +46,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # backing providers for Vagrant. These expose provider-specific options.
   # Example for VirtualBox:
   #
-  config.vm.provider :virtualbox do |vb|
+  config.vm.provider 'virtualbox' do |vb|
+    vb.name = 'Cirope precise64'
     vb.customize ['modifyvm', :id, '--memory', '1024']
   end
   #
