@@ -6,6 +6,7 @@ class nginx_conf {
     owner   => root,
     group   => root,
     mode    => 0644,
+    require => Class['nginx'],
     content => template('nginx_conf/nginx.conf.erb')
   }
 }
