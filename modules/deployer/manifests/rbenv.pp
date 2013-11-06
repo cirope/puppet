@@ -18,10 +18,4 @@ class rbenv {
     ruby    => $ruby_version,
     require => Rbenv::Compile[$ruby_version]
   }
-
-  rbenv::gem { 'pg':
-    user    => $deployer::user,
-    ruby    => $ruby_version,
-    require => [Rbenv::Compile[$ruby_version], Package['libpq-dev']]
-  }
 }
