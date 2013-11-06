@@ -12,4 +12,16 @@ class rbenv {
     global  => true,
     require => [Rbenv::Install['deployer'], Package['libreadline-dev']]
   }
+
+  rbenv::gem { 'unicorn':
+    user    => $deployer::user,
+    ruby    => $ruby_version,
+    require => Rbenv::Compile[$ruby_version]
+  }
+
+  rbenv::gem { 'pg':
+    user    => $deployer::user,
+    ruby    => $ruby_version,
+    require => [Rbenv::Compile[$ruby_version], Package['libpq-dev']]
+  }
 }

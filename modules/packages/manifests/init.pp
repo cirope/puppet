@@ -7,6 +7,10 @@ class packages {
     ensure => present
   }
 
+  package { 'libpq-dev':
+    ensure => present
+  }
+
   package { 'libreadline-dev':
     ensure => present
   }
