@@ -6,4 +6,4 @@ install_module () {
 
 install_module rbenv alup/rbenv
 install_module postgresql puppetlabs/postgresql 
-install_module nginx jfryman/nginx
+install_module apt puppetlabs/apt
