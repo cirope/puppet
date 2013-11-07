@@ -1,4 +1,4 @@
-class nginx_conf {
+class nginx {
   class { 'apt': }
 
   apt::ppa { 'ppa:nginx/stable': }

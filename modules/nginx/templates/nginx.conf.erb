@@ -31,7 +31,7 @@ http {
              application/atom+xml application/json;
 
   upstream app_server {
-    server unix:/path/to/.unicorn.sock fail_timeout=0;
+    server unix:/tmp/unicorn.todo.sock fail_timeout=0;
   }
 
   server {
