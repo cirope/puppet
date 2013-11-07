@@ -14,6 +14,6 @@ class nginx {
     group   => root,
     mode    => 0644,
     require => Package['nginx'],
-    content => template('nginx_conf/nginx.conf.erb')
+    content => template('nginx/nginx.conf.erb')
   }
 }
