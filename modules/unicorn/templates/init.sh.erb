@@ -17,6 +17,8 @@ old_pid="$PID.oldbin"
 
 cd $APP_ROOT || exit 1
 
+mkdir -p $APP_ROOT/tmp/pids
+
 sig () {
   test -s "$PID" && kill -$1 `cat $PID`
 }
