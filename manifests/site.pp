@@ -12,4 +12,5 @@ node default {
   include services
   include postgresql_conf
   include nginx
+  include unicorn
 }
