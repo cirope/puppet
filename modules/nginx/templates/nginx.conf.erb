@@ -43,7 +43,7 @@ http {
     keepalive_timeout 5;
 
     # path for static files
-    root <%= scope.lookupvar('deployer::home') %>/apps/<%= @fqdn %>/public;
+    root <%= scope.lookupvar('deployer::home') %>/apps/<%= @fqdn %>/current/public;
 
     try_files $uri/index.html $uri.html $uri @app;
 
