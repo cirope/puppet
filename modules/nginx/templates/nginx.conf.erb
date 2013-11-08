@@ -30,7 +30,7 @@ http {
              text/javascript application/x-javascript
              application/atom+xml application/json;
 
-  upstream app_server {
+  upstream unicorn {
     server unix:/tmp/unicorn.sock fail_timeout=0;
   }
 
