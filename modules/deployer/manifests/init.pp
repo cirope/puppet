@@ -13,6 +13,7 @@ class deployer {
     require    => [Group[$group, 'admin'], Package['zsh']]
   }
 
+  include apps_root
   include gem
   include rbenv
   include vim
