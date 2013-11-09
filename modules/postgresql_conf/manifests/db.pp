@@ -1,7 +1,7 @@
 class db {
   $user     = $hostname
   $password = $hostname
-  $db       = $hostname
+  $db       = "${hostname}_production"
 
   postgresql::server::db { $db:
     user     => $user,
