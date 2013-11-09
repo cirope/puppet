@@ -1,19 +1,23 @@
 #!/bin/sh
 set -e
-# Example init script, this can be used with nginx, too,
-# since nginx and unicorn accept the same signals
-
-# Feel free to change any of the following variables for your app:
-TIMEOUT=${TIMEOUT-60}
-APP_ROOT=<%= scope.lookupvar('deployer::home') %>/apps/<%= @fqdn %>/current
-PID=/tmp/unicorn.pid
-CMD="$APP_ROOT/bin/unicorn -D -c $APP_ROOT/config/unicorn.rb -E production"
-<% run_cmd = "su -c \"$CMD\" - #{scope.lookupvar('deployer::user')}" %>
-action="$1"
-
 set -u
 
+# Example init script, this can be used with nginx, too,
+# since nginx and unicorn accept the same signals
+#
+USER_HOME=<%= scope.lookupvar('deployer::home') %>
+BUNDLE=$USER_HOME/.rbenv/shims/bundle
+
+TIMEOUT=${TIMEOUT-60}
+APP_ROOT=$USER_HOME/apps/<%= @fqdn %>/current
+PID=/tmp/unicorn.pid
+CMD="cd $APP_ROOT; $BUNDLE exec $APP_ROOT/bin/unicorn -D -c $APP_ROOT/config/unicorn.rb -E production"
+
+action="$1"
+
 old_pid="$PID.oldbin"
+
+<%- run_cmd = "su -c \"$CMD\" - #{scope.lookupvar('deployer::user')}" %>
 
 cd $APP_ROOT || exit 1
 
