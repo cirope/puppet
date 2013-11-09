@@ -12,5 +12,5 @@ class postgresql_conf {
   include hba
   include conf
 
-  Class['postgresql::globals'] -> Class['postgresql::server'] -> Postgresql::Server::Db[$db:db]
+  Class['postgresql::globals'] -> Class['postgresql::server'] -> Postgresql::Server::Db[$db::db]
 }
