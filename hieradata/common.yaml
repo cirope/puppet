@@ -1,0 +1,13 @@
+---
+classes:
+  - vars
+  - system
+  - root
+  - swap
+  - groups
+  - deployer
+  - ssh
+  - packages
+  - services
+  - nginx
+  - unicorn
