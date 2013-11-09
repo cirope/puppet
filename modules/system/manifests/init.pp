@@ -1,5 +1,6 @@
 class system {
-  include sysctl
   include locales
+  include logrotate
+  include sysctl
   include timezone
 }
