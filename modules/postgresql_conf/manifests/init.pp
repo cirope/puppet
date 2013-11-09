@@ -1,7 +1,7 @@
 class postgresql_conf {
   class { 'postgresql::globals':
     encoding => 'UTF8',
-    locale   => 'es_AR'
+    locale   => 'es_AR.utf8'
   }
 
   class { 'postgresql::server':
