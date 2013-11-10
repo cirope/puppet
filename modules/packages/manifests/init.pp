@@ -3,6 +3,10 @@ class packages {
     ensure => present
   }
 
+  package { 'curl':
+    ensure => present
+  }
+
   package { 'htop':
     ensure => present
   }
