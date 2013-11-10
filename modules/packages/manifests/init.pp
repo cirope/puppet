@@ -19,6 +19,10 @@ class packages {
     ensure => present
   }
 
+  package { 'nodejs':
+    ensure => present
+  }
+
   package { 'ntp':
     ensure => present
   }
