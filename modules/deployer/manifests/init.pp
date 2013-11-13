@@ -15,6 +15,7 @@ class deployer {
 
   include apps_root
   include gem
+  include irb
   include rbenv
   include vim
   include zsh
