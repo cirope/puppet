@@ -8,5 +8,4 @@ if [ ! -f /usr/bin/puppet ]; then
 
   apt-get update
   apt-get install -y -o Dpkg::Options::="--force-confold" puppet
-  gem install deep_merge # required for hash deeper merge in hiera
 fi

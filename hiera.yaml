@@ -4,6 +4,5 @@
   - common
   - "node/%{::hostname}"
 :logger: console
-:merge_behavior: deeper
 :yaml:
   :datadir: /etc/puppet/hieradata
