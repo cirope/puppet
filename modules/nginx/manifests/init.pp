@@ -14,6 +14,11 @@ class nginx {
     require => Package['nginx']
   }
 
+  $template = $virtual ? {
+    virtualbox => 'nginx_http.conf.erb',
+    default    => 'nginx_https.conf.erb'
+  }
+
   file { '/etc/nginx/nginx.conf':
     ensure  => file,
     owner   => root,
@@ -21,6 +26,6 @@ class nginx {
     mode    => 0644,
     require => Package['nginx'],
     notify  => Service['nginx'],
-    content => template('nginx/nginx.conf.erb')
+    content => template("nginx/$template")
   }
 }
