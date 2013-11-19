@@ -1,8 +1,8 @@
 ---
 :backends: yaml
 :hierarchy:
-  - common
   - "node/%{::hostname}"
+  - common
 :logger: console
 :yaml:
   :datadir: /etc/puppet/hieradata

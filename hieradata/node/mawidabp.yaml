@@ -1,5 +1,5 @@
 ---
-classes:
+classes::extra:
   - postgresql_conf
 packages::extra:
   libpq-dev: {}
