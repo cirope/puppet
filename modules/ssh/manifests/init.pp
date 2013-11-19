@@ -1,15 +1,15 @@
 class ssh($keys = []) {
-  define user_key($name, $value) {
+  define user_key() {
     ssh_authorized_key { "${name}_root":
       ensure => present,
-      key    => $value,
+      key    => $name,
       type   => rsa,
       user   => root
     }
 
     ssh_authorized_key { "${name}_$deployer::user":
       ensure  => present,
-      key     => $value,
+      key     => $name,
       type    => rsa,
       user    => $deployer::user,
       require => User[$deployer::user]
