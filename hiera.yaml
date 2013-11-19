@@ -3,6 +3,6 @@
 :yaml:
   :datadir: /etc/puppet/hieradata
 :hierarchy:
-  - common
   - "node/%{::hostname}"
+  - common
 :logger: console
