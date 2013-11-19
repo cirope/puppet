@@ -2,5 +2,5 @@
 classes:
   - postgresql_conf
 packages::required:
-  - libpq-dev
-  - nodejs
+  libpq-dev: {}
+  nodejs: {}
