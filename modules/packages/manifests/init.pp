@@ -35,6 +35,10 @@ class packages {
     ensure => present
   }
 
+  package { 'unzip':
+    ensure => present
+  }
+
   package { 'vim-nox':
     ensure => present
   }
