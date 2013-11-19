@@ -1,49 +1,7 @@
-class packages {
-  package { 'build-essential':
+class packages($required = []) {
+  $defaults = {
     ensure => present
   }
 
-  package { 'curl':
-    ensure => present
-  }
-
-  package { 'htop':
-    ensure => present
-  }
-
-  package { 'libpq-dev':
-    ensure => present
-  }
-
-  package { 'libreadline-dev':
-    ensure => present
-  }
-
-  package { 'nmap':
-    ensure => present
-  }
-
-  package { 'nodejs':
-    ensure => present
-  }
-
-  package { 'ntp':
-    ensure => present
-  }
-
-  package { 'screen':
-    ensure => present
-  }
-
-  package { 'unzip':
-    ensure => present
-  }
-
-  package { 'vim-nox':
-    ensure => present
-  }
-
-  package { 'zsh':
-    ensure => present
-  }
+  create_resources(package, $required, $defaults)
 }
