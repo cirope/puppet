@@ -1,8 +1,9 @@
 ---
 :backends: yaml
-:yaml:
-  :datadir: /etc/puppet/hieradata
 :hierarchy:
   - common
   - "node/%{::hostname}"
 :logger: console
+:merge_behavior: deeper
+:yaml:
+  :datadir: /etc/puppet/hieradata
