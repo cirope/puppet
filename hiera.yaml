@@ -4,5 +4,5 @@
   :datadir: /etc/puppet/hieradata
 :hierarchy:
   - common
-  - "%{::hostname}"
+  - "node/%{::hostname}"
 :logger: console
