@@ -1,0 +1,7 @@
+---
+classes::extra:
+  - deployer
+  - unicorn
+system::classes:
+  - environment
+  - logrotate
