@@ -2,5 +2,6 @@
 classes::extra:
   - postgresql_conf
 packages::extra:
+  imagemagick: {}
   libpq-dev: {}
   nodejs: {}
