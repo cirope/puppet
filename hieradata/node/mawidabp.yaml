@@ -1,7 +1,13 @@
 ---
 classes::extra:
+  - deployer
   - postgresql_conf
+  - unicorn
 packages::extra:
   imagemagick: {}
   libpq-dev: {}
   nodejs: {}
+system::classes:
+  - environment
+  - logrotate
+  - sysctl

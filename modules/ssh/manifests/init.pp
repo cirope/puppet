@@ -7,12 +7,14 @@ class ssh($keys = []) {
       user   => root
     }
 
-    ssh_authorized_key { "${name}_$deployer::user":
-      ensure  => present,
-      key     => $name,
-      type    => rsa,
-      user    => $deployer::user,
-      require => User[$deployer::user]
+    if defined('deployer::user') {
+      ssh_authorized_key { "${name}_$deployer::user":
+        ensure  => present,
+        key     => $name,
+        type    => rsa,
+        user    => $deployer::user,
+        require => User[$deployer::user]
+      }
     }
   }
 
