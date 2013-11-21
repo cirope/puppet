@@ -11,7 +11,7 @@
 ### END INIT INFO
 
 # Change these to match your app:
-USER=<%= scope.lookupvar('deployer::home') %>
+USER=<%= scope.lookupvar('deployer::user') %>
 APP_NAME=<%= @fqdn %>
 APP_ROOT=<%= scope.lookupvar('vars::apps_root') %>/<%= @fqdn %>/current
 ENV=<%= @virtual == 'virtualbox' ? 'sandbox' : 'production' %>
