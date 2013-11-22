@@ -1,5 +1,5 @@
 class rbenv {
-  $ruby_version = '2.0.0-p247'
+  $ruby_version = '2.0.0-p353'
 
   rbenv::install { 'deployer':
     group   => $deployer::group,
