@@ -8,7 +8,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # All Vagrant configuration is done here. The most common configuration
   # options are documented and commented below. For a complete reference,
   # please see the online documentation at vagrantup.com.
-  config.vm.host_name = 'cirope-dev.com'
+  config.vm.host_name = 'php.com'
 
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = 'precise64'
@@ -47,7 +47,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Example for VirtualBox:
   #
   config.vm.provider 'virtualbox' do |vb|
-    vb.name = 'Cirope precise64'
+    vb.name = 'PHP precise64'
     vb.customize ['modifyvm', :id, '--memory', '1024']
   end
   #
