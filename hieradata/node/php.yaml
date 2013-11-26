@@ -1,6 +1,7 @@
 ---
 classes::extra:
   - postgresql_conf
+nginx::template: nginx_http_php.conf.erb
 packages::extra:
   php5: {}
   php5-cli: {}

@@ -1,4 +1,4 @@
-class nginx {
+class nginx($template = 'nginx_https.conf.erb') {
   class { 'apt': }
 
   apt::ppa { 'ppa:nginx/stable': }
@@ -12,11 +12,6 @@ class nginx {
     enable  => true,
     ensure  => running,
     require => Package['nginx']
-  }
-
-  $template = $virtual ? {
-    virtualbox => 'nginx_http.conf.erb',
-    default    => 'nginx_https.conf.erb'
   }
 
   file { '/etc/nginx/nginx.conf':
