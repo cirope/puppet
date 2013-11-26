@@ -13,7 +13,6 @@ packages::required:
   build-essential: {}
   curl: {}
   htop: {}
-  libreadline-dev: {}
   nmap: {}
   ntp: {}
   screen: {}

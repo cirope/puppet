@@ -6,6 +6,7 @@ classes::extra:
 packages::extra:
   imagemagick: {}
   libpq-dev: {}
+  libreadline-dev: {}
   nodejs: {}
 system::classes:
   - environment
