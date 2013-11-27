@@ -1,4 +1,4 @@
-class nginx($server = $hostname) {
+class nginx($server) {
   class { 'apt': }
 
   apt::ppa { 'ppa:nginx/stable': }
@@ -24,33 +24,35 @@ class nginx($server = $hostname) {
     content => template('nginx/nginx.conf.erb')
   }
 
-  file { "/etc/nginx/sites-available/$server":
-    ensure  => file,
-    owner   => root,
-    group   => root,
-    mode    => 0644,
-    require => Package['nginx'],
-    notify  => Service['nginx'],
-    content => template("nginx/$server.conf.erb")
-  }
+  if $server {
+    file { "/etc/nginx/sites-available/$server":
+      ensure  => file,
+      owner   => root,
+      group   => root,
+      mode    => 0644,
+      require => Package['nginx'],
+      notify  => Service['nginx'],
+      content => template("nginx/$server.conf.erb")
+    }
 
-  file { "/etc/nginx/sites-enabled/$server":
-    ensure  => link,
-    owner   => root,
-    group   => root,
-    mode    => 0644,
-    require => File["/etc/nginx/sites-available/$server"],
-    notify  => Service['nginx'],
-    target  => "/etc/nginx/sites-available/$server"
-  }
+    file { "/etc/nginx/sites-enabled/$server":
+      ensure  => link,
+      owner   => root,
+      group   => root,
+      mode    => 0644,
+      require => File["/etc/nginx/sites-available/$server"],
+      notify  => Service['nginx'],
+      target  => "/etc/nginx/sites-available/$server"
+    }
 
-  file { '/etc/nginx/sites-available/default':
-    ensure  => absent,
-    require => Package['nginx']
-  }
+    file { '/etc/nginx/sites-available/default':
+      ensure  => absent,
+      require => Package['nginx']
+    }
 
-  file { '/etc/nginx/sites-enabled/default':
-    ensure  => absent,
-    require => Package['nginx']
+    file { '/etc/nginx/sites-enabled/default':
+      ensure  => absent,
+      require => Package['nginx']
+    }
   }
 }
