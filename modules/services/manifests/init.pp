@@ -10,5 +10,5 @@ class services($extra = []) {
     ensure => stopped
   }
 
-  create_resources(package, $extra)
+  create_resources(services, $extra)
 }
