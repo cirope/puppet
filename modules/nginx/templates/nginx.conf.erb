@@ -1,4 +1,4 @@
-worker_processes 1;
+worker_processes <%= @processorcount %>;
 user www-data www-data;
 
 error_log /var/log/nginx/error.log;
@@ -6,7 +6,7 @@ pid       /var/run/nginx.pid;
 
 events {
   worker_connections 1024;
-  accept_mutex off; # "on" if nginx worker_processes > 1
+  accept_mutex <%= @processorcount.to_i > 1 ? 'on' : 'off' %>;
 }
 
 http {
