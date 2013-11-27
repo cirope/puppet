@@ -1,4 +1,4 @@
-class services {
+class services($extra = []) {
   service { 'ntp':
     enable  => true,
     ensure  => running,
@@ -9,4 +9,6 @@ class services {
     enable => false,
     ensure => stopped
   }
+
+  create_resources(package, $extra)
 }

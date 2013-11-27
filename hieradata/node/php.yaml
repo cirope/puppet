@@ -11,6 +11,12 @@ packages::extra:
   php5-intl: {}
   php5-pgsql: {}
   php5-xmlrpc: {}
+services::extra:
+  php5-fpm: {
+    enable: true,
+    ensure: 'running',
+    require: 'Package["php5-fpm"]'
+  }
 system::classes:
   - environment
   - logrotate
