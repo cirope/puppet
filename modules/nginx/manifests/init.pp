@@ -1,4 +1,4 @@
-class nginx($server) {
+class nginx($server = undef) {
   class { 'apt': }
 
   apt::ppa { 'ppa:nginx/stable': }
