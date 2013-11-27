@@ -1,4 +1,4 @@
-class nginx($template = 'nginx_https.conf.erb') {
+class nginx($server = $hostname) {
   class { 'apt': }
 
   apt::ppa { 'ppa:nginx/stable': }
@@ -21,6 +21,36 @@ class nginx($template = 'nginx_https.conf.erb') {
     mode    => 0644,
     require => Package['nginx'],
     notify  => Service['nginx'],
-    content => template("nginx/$template")
+    content => template('nginx/nginx.conf.erb')
+  }
+
+  file { "/etc/nginx/sites-available/$server":
+    ensure  => file,
+    owner   => root,
+    group   => root,
+    mode    => 0644,
+    require => Package['nginx'],
+    notify  => Service['nginx'],
+    content => template("nginx/$server.conf.erb")
+  }
+
+  file { "/etc/nginx/sites-enable/$server":
+    ensure  => link,
+    owner   => root,
+    group   => root,
+    mode    => 0644,
+    require => File["/etc/nginx/sites-available/$server"],
+    notify  => Service['nginx'],
+    target  => "/etc/nginx/sites-available/$server"
+  }
+
+  file { '/etc/nginx/sites-available/default':
+    ensure  => absent,
+    require => Package['nginx']
+  }
+
+  file { '/etc/nginx/sites-enable/default':
+    ensure  => absent,
+    require => Package['nginx']
   }
 }

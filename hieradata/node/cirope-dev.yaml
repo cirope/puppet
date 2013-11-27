@@ -2,7 +2,7 @@
 classes::extra:
   - deployer
   - unicorn
-nginx::template: nginx_http.conf.erb
+nginx::server: rack
 packages::extra:
   libreadline-dev: {}
 system::classes:

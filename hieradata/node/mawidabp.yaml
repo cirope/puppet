@@ -3,7 +3,7 @@ classes::extra:
   - deployer
   - postgresql_conf
   - unicorn
-nginx::template: nginx_https.conf.erb
+nginx::server: rack_ssl
 packages::extra:
   imagemagick: {}
   libpq-dev: {}
