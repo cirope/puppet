@@ -34,7 +34,7 @@ class nginx($server = $hostname) {
     content => template("nginx/$server.conf.erb")
   }
 
-  file { "/etc/nginx/sites-enable/$server":
+  file { "/etc/nginx/sites-enabled/$server":
     ensure  => link,
     owner   => root,
     group   => root,
@@ -49,7 +49,7 @@ class nginx($server = $hostname) {
     require => Package['nginx']
   }
 
-  file { '/etc/nginx/sites-enable/default':
+  file { '/etc/nginx/sites-enabled/default':
     ensure  => absent,
     require => Package['nginx']
   }
