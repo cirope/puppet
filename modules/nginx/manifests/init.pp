@@ -1,8 +1,4 @@
 class nginx($server = undef) {
-  if !defined('apt') {
-    class { 'apt': }
-  }
-
   apt::ppa { 'ppa:nginx/stable': }
 
   package { 'nginx':
