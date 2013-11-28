@@ -1,5 +1,7 @@
 class owncloud {
-  class { 'apt': }
+  if !defined('apt') {
+    class { 'apt': }
+  }
 
   apt::source { 'owncloud':
     ensure      => present,
