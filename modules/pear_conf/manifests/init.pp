@@ -1,5 +1,4 @@
 class pear_conf {
-  class { 'pear':
-    package => 'zendopcache'
+  pear::package { 'zendopcache':
   }
 }
