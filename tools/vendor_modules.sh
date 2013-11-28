@@ -7,3 +7,4 @@ install_module () {
 install_module rbenv alup/rbenv
 install_module postgresql puppetlabs/postgresql 
 install_module apt puppetlabs/apt
+install_module pear rafaelfc/pear

@@ -1,6 +1,7 @@
 ---
 classes::extra:
   - postgresql_conf
+  - pear_conf
 nginx::server: php
 packages::extra:
   php5: {}
