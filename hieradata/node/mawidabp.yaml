@@ -1,8 +1,4 @@
 ---
-classes::extra:
-  - deployer
-  - postgresql_conf
-  - unicorn
 nginx::server: rack_ssl
 packages::extra:
   imagemagick: {}

@@ -1,7 +1,4 @@
 ---
-classes::extra:
-  - deployer
-  - unicorn
 nginx::server: rack
 packages::extra:
   libreadline-dev: {}

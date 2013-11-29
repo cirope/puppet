@@ -1,5 +1,5 @@
 ---
-classes::extra:
+classes:
   - postgresql_conf
   - pear_conf
 nginx::server: php

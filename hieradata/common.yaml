@@ -1,14 +1,4 @@
 ---
-classes:
-  - vars
-  - system
-  - root
-  - swap
-  - groups
-  - ssh
-  - packages
-  - services
-  - nginx
 packages::required:
   build-essential: {}
   curl: {}
