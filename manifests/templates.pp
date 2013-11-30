@@ -1,5 +1,6 @@
+include vars
+
 class baseclass {
-  include vars
   include system
   include root
   include swap
