@@ -1,6 +1,8 @@
 include vars
 
 class baseclass {
+  class { 'apt': }
+
   include system
   include root
   include swap
@@ -11,8 +13,9 @@ class baseclass {
   include nginx
 }
 
-node default {
-  class { 'apt': }
-
+node basenode {
   include baseclass
+}
+
+node default {
 }
