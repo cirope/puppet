@@ -1,17 +1,17 @@
 class baseclass {
-  include vars,
-    system,
-    root,
-    swap,
-    groups,
-    ssh,
-    packages,
-    services,
-    nginx
-
-  class { 'apt': }
+  include vars
+  include system
+  include root
+  include swap
+  include groups
+  include ssh
+  include packages
+  include services
+  include nginx
 }
 
 node default {
+  class { 'apt': }
+
   include baseclass
 }
