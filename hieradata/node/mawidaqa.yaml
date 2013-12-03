@@ -1,0 +1,10 @@
+---
+nginx::server: rack_ssl
+packages::extra:
+  libpq-dev: {}
+  libreadline-dev: {}
+  nodejs: {}
+system::classes:
+  - environment
+  - logrotate
+  - sysctl
