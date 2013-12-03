@@ -9,6 +9,6 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 [ ! -f "$HOME/.rbenv/bin/rbenv" ] || eval "$(rbenv init -)"
 
 # Oh My ZSH plugins
-plugins=(bundler gem git rails4)
+plugins=(bundler gem git rails)
 
 source $ZSH/oh-my-zsh.sh
