@@ -6,7 +6,7 @@ packages::required:
   htop: {}
   nmap: {}
   ntp: {}
-  screen: {}
+  tmux: {}
   unzip: {}
   vim-nox: {}
   zsh: {}
