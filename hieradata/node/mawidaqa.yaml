@@ -4,6 +4,7 @@ packages::extra:
   libpq-dev: {}
   libreadline-dev: {}
   nodejs: {}
+  redis-server: {}
 system::classes:
   - environment
   - logrotate
