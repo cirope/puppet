@@ -11,6 +11,7 @@ class baseclass {
   include packages
   include services
   include nginx
+  include newrelic
 }
 
 node basenode {
