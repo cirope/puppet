@@ -4,7 +4,7 @@ class newrelic {
     location    => 'http://apt.newrelic.com/debian/',
     release     => 'newrelic',
     repos       => 'non-free',
-    key         => '548C16BF'
+    key         => '548C16BF',
     key_server  => 'https://download.newrelic.com/',
     include_src => false,
   }
