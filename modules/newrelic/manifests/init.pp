@@ -5,7 +5,7 @@ class newrelic {
     release     => 'newrelic',
     repos       => 'non-free',
     key         => '548C16BF',
-    key_server  => 'https://download.newrelic.com/',
+    key_server  => 'download.newrelic.com',
     include_src => false,
   }
 
