@@ -12,7 +12,7 @@ class swap {
   }
 
   mount { $file:
-    name  => 'none',
+    name    => 'none',
     ensure  => present,
     device  => $file,
     fstype  => 'swap',
