@@ -1,5 +1,5 @@
 ---
-db::db: postman
+db::db: postman_production
 db::user: postman
 db::password: postman
 nginx::server: rack
