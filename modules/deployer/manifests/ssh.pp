@@ -3,5 +3,7 @@ class deployer::ssh($keys = $::ssh::keys) {
     user => deployer
   }
 
-  create_resources('ssh::my_ssh_auth_key', $keys, $defaults)
+  if $keys {
+    create_resources('ssh::auth_key', $keys, $defaults)
+  }
 }

@@ -1,25 +1,11 @@
-class ssh($keys = []) {
-  define ssh::my_ssh_auth_keys(
-    $name,
-    $key,
-    $ensure  = present,
-    $type    = 'rsa',
-    $user    = $name,
-    $options = []
-  ) {
-    ssh_authorized_key {
-      $name:
-        ensure  => $ensure,
-        name    => $name,
-        type    => $type,
-        user    => $user,
-        options => $options,
-    }
-  }
+class ssh($keys = undef) {
+  include ssh::auth_keys
 
   $defaults = {
     user => root
   }
 
-  create_resources('ssh::my_ssh_auth_key', $keys, $defaults)
+  if $keys {
+    create_resources('ssh::auth_key', $keys, $defaults)
+  }
 }
