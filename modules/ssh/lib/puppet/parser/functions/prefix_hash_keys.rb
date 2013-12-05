@@ -25,6 +25,6 @@ module Puppet::Parser::Functions
 
     hash.each { |k, v| result["#{prefix}#{k}"] = v }
 
-    result
+    return result
   end
 end
