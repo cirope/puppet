@@ -1,16 +1,19 @@
-node 'mawidabp.com', 'mawidabp-dev.com' inherits basenode {
+node racknode inherits basenode {
   include deployer
-  include postgresql_conf
   include unicorn
 }
 
-node 'mawidaqa.com', 'mawidaqa-dev.com' inherits basenode {
-  include deployer
+node 'librujo.com', 'librujo-dev.com' inherits racknode {
   include postgresql_conf
-  include unicorn
 }
 
-node 'cirope.com', 'cirope-dev.com' inherits basenode {
-  include deployer
-  include unicorn
+node 'mawidabp.com', 'mawidabp-dev.com' inherits racknode {
+  include postgresql_conf
+}
+
+node 'mawidaqa.com', 'mawidaqa-dev.com' inherits racknode {
+  include postgresql_conf
+}
+
+node 'cirope.com', 'cirope-dev.com' inherits racknode {
 }
