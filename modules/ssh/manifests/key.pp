@@ -1,12 +1,12 @@
 define ssh::key(
+  $name,
   $key,
-  $name    = $title,
   $ensure  = present,
   $type    = 'rsa',
   $user    = $name,
   $options = []
 ) {
-  ssh_authorized_key { $name:
+  ssh_authorized_key { ${name}_${user}:
     ensure  => $ensure,
     name    => $name,
     type    => $type,
