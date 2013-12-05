@@ -1,4 +1,8 @@
 class packages($required = [], $extra = []) {
+  package { 'whoopsie':
+    ensure => purged
+  }
+
   $defaults = {
     ensure => present
   }
