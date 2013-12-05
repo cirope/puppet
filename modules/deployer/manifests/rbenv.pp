@@ -1,4 +1,4 @@
-class rbenv {
+class deployer::rbenv {
   $ruby_version = '2.0.0-p353'
 
   rbenv::install { 'deployer':

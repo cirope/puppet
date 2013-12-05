@@ -1,4 +1,4 @@
-class gem {
+class deployer::gem {
   file { 'gemrc':
     path    => "$deployer::home/.gemrc",
     ensure  => file,

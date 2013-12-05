@@ -1,4 +1,4 @@
-class ssh($keys = $::ssh::keys) {
+class deployer::ssh($keys = $::ssh::keys) {
   define deployer_key() {
     ssh_authorized_key { "${name}_$deployer::user":
       ensure  => present,

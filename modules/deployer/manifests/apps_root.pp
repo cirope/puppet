@@ -1,4 +1,4 @@
-class apps_root {
+class deployer::apps_root {
   file { $vars::apps_root:
     ensure  => directory,
     owner   => $deployer::user,

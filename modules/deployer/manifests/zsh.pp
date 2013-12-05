@@ -1,4 +1,4 @@
-class zsh {
+class deployer::zsh {
   $oh_my_zsh_path = "$deployer::home/.oh-my-zsh"
   $oh_my_zsh_repo = 'git://github.com/robbyrussell/oh-my-zsh.git'
 

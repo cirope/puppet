@@ -1,4 +1,4 @@
-class irb {
+class deployer::irb {
   file { 'irbrc':
     path    => "$deployer::home/.irbrc",
     ensure  => file,

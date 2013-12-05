@@ -1,4 +1,4 @@
-class vim {
+class deployer::vim {
   file { 'vimrc':
     path    => "$deployer::home/.vimrc",
     ensure  => file,
