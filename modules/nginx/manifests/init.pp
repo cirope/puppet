@@ -23,24 +23,29 @@ class nginx($server = undef) {
   }
 
   if $server {
-    file { "/etc/nginx/sites-available/$server":
+    $template = $virtual ? {
+      virtualbox => $server,
+      default    => "${server}_ssl"
+    }
+
+    file { "/etc/nginx/sites-available/$template":
       ensure  => file,
       owner   => root,
       group   => root,
       mode    => 0644,
       require => Package['nginx'],
       notify  => Service['nginx'],
-      content => template("nginx/$server.conf.erb")
+      content => template("nginx/$template.conf.erb")
     }
 
-    file { "/etc/nginx/sites-enabled/$server":
+    file { "/etc/nginx/sites-enabled/$template":
       ensure  => link,
       owner   => root,
       group   => root,
       mode    => 0644,
-      require => File["/etc/nginx/sites-available/$server"],
+      require => File["/etc/nginx/sites-available/$template"],
       notify  => Service['nginx'],
-      target  => "/etc/nginx/sites-available/$server"
+      target  => "/etc/nginx/sites-available/$template"
     }
 
     file { '/etc/nginx/sites-available/default':

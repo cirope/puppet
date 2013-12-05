@@ -1,7 +1,0 @@
----
-nginx::server: rack
-packages::extra:
-  libreadline-dev: {}
-system::classes:
-  - environment
-  - logrotate
