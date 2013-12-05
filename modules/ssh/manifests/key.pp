@@ -1,6 +1,6 @@
 define ssh::key(
-  $name,
   $key,
+  $name    = $title,
   $ensure  = present,
   $type    = 'rsa',
   $user    = $name,
