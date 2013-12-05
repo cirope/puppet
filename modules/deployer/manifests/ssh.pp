@@ -4,6 +4,6 @@ class deployer::ssh($keys = $::ssh::keys) {
   }
 
   if $keys {
-    create_resources('ssh::key', prefix_hash_keys($keys, 'deployer'), $defaults)
+    create_resources('ssh::key', prefix_hash_keys($keys, 'deployer_'), $defaults)
   }
 }

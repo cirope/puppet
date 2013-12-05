@@ -4,6 +4,6 @@ class ssh($keys = undef) {
   }
 
   if $keys {
-    create_resources('ssh::key', $keys, $defaults)
+    create_resources('ssh::key', prefix_hash_keys($keys, 'root_'), $defaults)
   }
 }
