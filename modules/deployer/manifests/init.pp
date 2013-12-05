@@ -17,6 +17,7 @@ class deployer {
   include gem
   include irb
   include rbenv
+  include ssh
   include vim
   include zsh
 }
