@@ -16,5 +16,9 @@ class ssh($keys = []) {
         options => $options,
   }
 
-  create_resources('my_ssh_auth_key', $keys, { user => root })
+  $defaults = {
+    user => root
+  }
+
+  create_resources('my_ssh_auth_key', $keys, $defaults)
 }
