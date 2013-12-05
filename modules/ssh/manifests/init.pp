@@ -14,6 +14,7 @@ class ssh($keys = []) {
         type    => $type,
         user    => $user,
         options => $options,
+    }
   }
 
   $defaults = {
