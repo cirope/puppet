@@ -1,5 +1,5 @@
 class ssh($keys = []) {
-  define my_ssh_auth_keys(
+  define ssh::my_ssh_auth_keys(
     $name,
     $key,
     $ensure  = present,
@@ -21,5 +21,5 @@ class ssh($keys = []) {
     user => root
   }
 
-  create_resources('my_ssh_auth_key', $keys, $defaults)
+  create_resources('ssh::my_ssh_auth_key', $keys, $defaults)
 }
