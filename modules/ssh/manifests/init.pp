@@ -16,5 +16,5 @@ class ssh($keys = []) {
         options => $options,
   }
 
-  create_resources('my_ssh_auth_key', hiera('ssh_keys'), { user => root })
+  create_resources('my_ssh_auth_key', $keys, { user => root })
 }
