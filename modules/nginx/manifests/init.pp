@@ -28,7 +28,7 @@ class nginx($server = undef) {
       default    => "${server}ssl"
     }
 
-    file { "/etc/nginx/sites-available/$template":
+    file { "/etc/nginx/sites-available/$fqdn":
       ensure  => file,
       owner   => root,
       group   => root,
@@ -38,14 +38,14 @@ class nginx($server = undef) {
       content => template("nginx/$template.conf.erb")
     }
 
-    file { "/etc/nginx/sites-enabled/$template":
+    file { "/etc/nginx/sites-enabled/$fqdn":
       ensure  => link,
       owner   => root,
       group   => root,
       mode    => 0644,
-      require => File["/etc/nginx/sites-available/$template"],
+      require => File["/etc/nginx/sites-available/$fqdn"],
       notify  => Service['nginx'],
-      target  => "/etc/nginx/sites-available/$template"
+      target  => "/etc/nginx/sites-available/$fqdn"
     }
 
     file { '/etc/nginx/sites-available/default':
