@@ -1,0 +1,49 @@
+server {
+  listen 80 default deferred;
+  server_name  ~^(?<subdomain>.+)?(?<domain>\.<%= @fqdn.gsub('.', '\.') %>)$;
+  rewrite      ^ https://$subdomain$domain$request_uri? permanent;
+}
+
+server {
+  listen 443 default deferred;
+  server_name <%= @fqdn %> *.<%= @fqdn %>
+
+  client_max_body_size 4G;
+  server_name _;
+
+  server_tokens off;
+
+  keepalive_timeout 5;
+
+  # path for static files
+  root /var/www;
+  index index.html index.htm index.php;
+
+  fastcgi_intercept_errors on;
+
+  <%= scope.function_template(['nginx/_ssl.conf.erb']) %>
+
+  location / {
+    try_files $uri $uri/ /index.html;
+  }
+
+  location ~ .php/ { ## Forward paths like /js/index.php/x.js to relevant handler
+    rewrite ^(.*.php)/ $1 last;
+  }
+
+  location ~* \.php$ {
+    fastcgi_index index.php;
+    fastcgi_pass  127.0.0.1:9000;
+
+    include       fastcgi_params;
+
+    fastcgi_param  SCRIPT_NAME        $fastcgi_script_name;
+    fastcgi_param  SCRIPT_FILENAME    $document_root$fastcgi_script_name;
+  }
+
+  location ~ /\. {
+    access_log off;
+    log_not_found off;
+    deny all;
+  }
+}
