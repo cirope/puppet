@@ -1,4 +1,4 @@
-define ssh::auth_key(
+define ssh::key(
   $name,
   $key,
   $ensure  = present,
@@ -7,7 +7,7 @@ define ssh::auth_key(
   $options = []
 ) {
   ssh_authorized_key {
-    $name:
+    "${name}_${user}":
       ensure  => $ensure,
       name    => $name,
       type    => $type,
