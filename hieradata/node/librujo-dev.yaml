@@ -1,4 +1,7 @@
 ---
+db::db: postman
+db::user: postman
+db::password: postman
 nginx::server: rack
 packages::extra:
   libpq-dev: {}
