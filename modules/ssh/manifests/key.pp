@@ -6,7 +6,7 @@ define ssh::key(
   $user    = $name,
   $options = []
 ) {
-  ssh_authorized_key { ${name}_${user}:
+  ssh_authorized_key { $name:
     ensure  => $ensure,
     name    => $name,
     type    => $type,
