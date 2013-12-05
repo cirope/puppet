@@ -2,7 +2,7 @@
 classes:
   - postgresql_conf
   - pear_conf
-nginx::server: php
+nginx::server: vhost-php
 packages::extra:
   php5: {}
   php5-cli: {}

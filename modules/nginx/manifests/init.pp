@@ -25,7 +25,7 @@ class nginx($server = undef) {
   if $server {
     $template = $virtual ? {
       virtualbox => $server,
-      default    => "${server}_ssl"
+      default    => "${server}ssl"
     }
 
     file { "/etc/nginx/sites-available/$template":

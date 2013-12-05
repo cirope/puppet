@@ -1,5 +1,5 @@
 ---
-nginx::server: rack
+nginx::server: vhost-rack
 packages::extra:
   imagemagick: {}
   libpq-dev: {}

@@ -21,7 +21,7 @@ server {
 
   fastcgi_intercept_errors on;
 
-  <%= scope.function_template(['nginx/_ssl.conf.erb']) %>
+  <%= scope.function_template(['nginx/vhost/_ssl.conf.erb']) %>
 
   location / {
     try_files $uri $uri/ /index.html;
