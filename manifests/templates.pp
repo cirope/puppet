@@ -1,8 +1,7 @@
 include vars
 
 class baseclass {
-  class { 'apt': }
-
+  include apt
   include system
   include root
   include swap
