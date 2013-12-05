@@ -1,6 +1,4 @@
 class ssh($keys = undef) {
-  include ssh::auth_keys
-
   $defaults = {
     user => root
   }
