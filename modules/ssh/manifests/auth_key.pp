@@ -1,4 +1,4 @@
-define ssh::auth_keys(
+define ssh::auth_key(
   $name,
   $key,
   $ensure  = present,
