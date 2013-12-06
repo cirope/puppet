@@ -1,8 +1,12 @@
 ensure_module () {
-  puppet module install --force $1
+  if [ ! -d /etc/puppet/modules/$1 ]; then
+    puppet module install $2
+  else
+    puppet module upgrade $2
+  fi
 }
 
-ensure_module alup/rbenv
-ensure_module puppetlabs/apt
-ensure_module puppetlabs/postgresql
-ensure_module rafaelfc/pear
+ensure_module rbenv alup/rbenv
+ensure_module apt puppetlabs/apt
+ensure_module postgresql puppetlabs/postgresql
+ensure_module pear rafaelfc/pear
