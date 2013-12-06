@@ -7,6 +7,6 @@ ensure_module () {
 }
 
 ensure_module rbenv alup/rbenv
-ensure_module postgresql puppetlabs/postgresql
 ensure_module apt puppetlabs/apt
+ensure_module postgresql puppetlabs/postgresql
 ensure_module pear rafaelfc/pear
