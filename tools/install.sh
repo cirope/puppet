@@ -6,4 +6,4 @@ if [ ! -d /etc/puppet ]; then
 fi
 
 sh /etc/puppet/tools/update.sh
-ln -sf /sbin/puppet-update /etc/puppet/tools/update.sh
+ln -sf /etc/puppet/tools/update.sh /sbin/puppet-update
