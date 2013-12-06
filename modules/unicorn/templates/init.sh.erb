@@ -21,7 +21,7 @@ old_pid="$PID.oldbin"
 
 run () {
   if [ $USER = '<%= scope.lookupvar('deployer::user') %>' ]; then
-    $CMD
+    bash -c "$CMD"
   else
     su -c "$CMD" - <%= scope.lookupvar('deployer::user') %>
   fi
