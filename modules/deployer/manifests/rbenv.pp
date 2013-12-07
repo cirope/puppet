@@ -23,6 +23,6 @@ class deployer::rbenv {
     command => "$deployer::home/.rbenv/bin/rbenv rehash",
     user    => $deployer::user,
     creates => "$deployer::home/.rbenv/shims/bundle",
-    require => Rbenv::Gem['bundler']
+    require => Rbenv::Gem["rbenv::bundler ${$deployer::user} ${ruby_version}"]
   }
 }
