@@ -1,4 +1,4 @@
-class hba {
+class pg::hba {
   postgresql::server::pg_hba_rule { 'allow users to connect locally':
     type        => 'local',
     database    => 'all',

@@ -1,4 +1,4 @@
-class postgresql_conf {
+class pg {
   class { 'postgresql::globals':
     encoding => 'UTF8',
     locale   => 'es_AR.utf8'
@@ -8,9 +8,9 @@ class postgresql_conf {
     require => [Exec['sysctl'], Package['language-pack-es']]
   }
 
-  include db
-  include hba
-  include conf
+  include pg::db
+  include pg::hba
+  include pg::conf
 
   Class['postgresql::globals'] -> Class['postgresql::server'] -> Postgresql::Server::Db[$db::db]
 }

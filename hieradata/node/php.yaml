@@ -1,6 +1,6 @@
 ---
 classes:
-  - postgresql_conf
+  - pg
   - pear_conf
 nginx::server: vhost-php
 packages::extra:

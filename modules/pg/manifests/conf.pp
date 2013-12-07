@@ -1,4 +1,4 @@
-class conf {
+class pg::conf {
   postgresql::server::config_entry { 'max_connections':
     value => '50'
   }

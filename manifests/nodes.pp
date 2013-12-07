@@ -4,15 +4,15 @@ node racknode inherits basenode {
 }
 
 node 'librujo.com' inherits racknode {
-  include postgresql_conf
+  include pg
 }
 
 node 'mawidabp.com' inherits racknode {
-  include postgresql_conf
+  include pg
 }
 
 node 'mawidaqa.com' inherits racknode {
-  include postgresql_conf
+  include pg
 }
 
 node 'cirope.com' inherits racknode {
