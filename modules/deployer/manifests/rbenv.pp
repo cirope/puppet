@@ -13,16 +13,15 @@ class deployer::rbenv {
     require => [Rbenv::Install['deployer'], Package['libreadline-dev']]
   }
 
-  rbenv::gem { 'unicorn':
+  rbenv::plugin { 'rbenv-gem-rehash':
     user    => $deployer::user,
-    ruby    => $ruby_version,
+    source  => 'git://github.com/sstephenson/rbenv-gem-rehash.git',
     require => Rbenv::Compile[$ruby_version]
   }
 
-  exec { 'rehash':
-    command => "$deployer::home/.rbenv/bin/rbenv rehash",
+  rbenv::gem { 'unicorn':
     user    => $deployer::user,
-    creates => "$deployer::home/.rbenv/shims/bundle",
-    require => Rbenv::Gem["rbenv::bundler ${$deployer::user} ${ruby_version}"]
+    ruby    => $ruby_version,
+    require => Rbenv::Plugin['rbenv-gem-rehash']
   }
 }
