@@ -12,5 +12,5 @@ class pg {
   include pg::hba
   include pg::conf
 
-  Class['postgresql::globals'] -> Class['postgresql::server'] -> Postgresql::Server::Db[$db::db]
+  Class['postgresql::globals'] -> Class['postgresql::server'] -> Postgresql::Server::Db[$pg::db::database]
 }
