@@ -19,12 +19,6 @@ class deployer::rbenv {
     require => Rbenv::Compile[$ruby_version]
   }
 
-  rbenv::gem { 'bundler':
-    user    => $deployer::user,
-    ruby    => $ruby_version,
-    require => Rbenv::Compile[$ruby_version]
-  }
-
   exec { 'rehash':
     command => "$deployer::home/.rbenv/bin/rbenv rehash",
     user    => $deployer::user,
