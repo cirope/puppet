@@ -6,7 +6,7 @@ class newrelic($license = undef) {
       release     => 'newrelic',
       repos       => 'non-free',
       key         => '548C16BF',
-      key_server  => 'subkeys.pgp.net',
+      key_server  => 'download.newrelic.com',
       include_src => false,
     }
 
