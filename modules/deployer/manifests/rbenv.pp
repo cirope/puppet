@@ -18,10 +18,4 @@ class deployer::rbenv {
     group   => $deployer::group,
     source  => 'git://github.com/sstephenson/rbenv-gem-rehash.git'
   }
-
-  rbenv::gem { 'unicorn':
-    user    => $deployer::user,
-    ruby    => $ruby_version,
-    require => Rbenv::Plugin['rbenv-gem-rehash']
-  }
 }
