@@ -9,8 +9,7 @@ class deployer {
     home       => $home,
     shell      => '/bin/zsh',
     gid        => $group,
-    groups     => [ 'admin' ],
-    require    => [Group[$group, 'admin'], Package['zsh']]
+    require    => Package['zsh']
   }
 
   include deployer::apps_root

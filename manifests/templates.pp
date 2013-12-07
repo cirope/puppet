@@ -5,7 +5,6 @@ class baseclass {
   include system
   include root
   include swap
-  include groups
   include ssh
   include packages
   include services
