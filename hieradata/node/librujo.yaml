@@ -6,7 +6,7 @@ packages::extra:
   libreadline-dev: {}
   nodejs: {}
   redis-server: {}
-pg::db::name: postman_production
+pg::db::database: postman_production
 pg::db::user: postman
 pg::db::password: postman
 system::classes:

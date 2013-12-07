@@ -1,9 +1,9 @@
 class pg::db(
-  $name = "${hostname}_production",
+  $database = "${hostname}_production",
   $user = $hostname,
   $password = $hostname
 ) {
-  postgresql::server::db { $name:
+  postgresql::server::db { $database:
     user     => $user,
     password => postgresql_password($user, $password)
   }
