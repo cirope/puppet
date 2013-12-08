@@ -9,6 +9,7 @@ packages::required:
   tmux: {}
   unzip: {}
   vim-nox: {}
+  wget: {}
   zsh: {}
 system::classes:
   - locales

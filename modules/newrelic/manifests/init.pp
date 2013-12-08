@@ -6,8 +6,9 @@ class newrelic($license = undef) {
       release     => 'newrelic',
       repos       => 'non-free',
       key         => '548C16BF',
-      key_server  => 'subkeys.pgp.net',
+      key_source  => 'http://download.newrelic.com/548C16BF.gpg',
       include_src => false,
+      require     => Package['wget']
     }
 
     package { 'newrelic-sysmond':
