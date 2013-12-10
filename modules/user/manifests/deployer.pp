@@ -20,6 +20,7 @@ class user::deployer {
   include user::deployer::zsh
 
   user::vimconfig { $user:
-    user => $user
+    user  => $user,
+    group => $group
   }
 }
