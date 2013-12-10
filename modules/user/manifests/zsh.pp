@@ -1,7 +1,7 @@
 define user::zsh(
-  $user = $name,
+  $user = $title,
   $home = "/home/${user}"
-){
+) {
   $oh_my_zsh_path = "${home}/.oh-my-zsh"
   $oh_my_zsh_repo = 'git://github.com/robbyrussell/oh-my-zsh.git'
 
