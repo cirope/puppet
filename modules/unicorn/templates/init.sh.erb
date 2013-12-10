@@ -1,14 +1,11 @@
 #!/bin/sh
 set -e
 
-# Example init script, this can be used with nginx, too,
-# since nginx and unicorn accept the same signals
 CURRENT_USER=`id -nu`
 USER=<%= scope.lookupvar('user::deployer::username') %>
 USER_HOME=<%= scope.lookupvar('user::deployer::home') %>
 BUNDLE=$USER_HOME/.rbenv/shims/bundle
 
-TIMEOUT=${TIMEOUT-60}
 APP_ROOT=<%= scope.lookupvar('vars::apps_root') %>/<%= @fqdn %>/current
 PID=/tmp/unicorn.pid
 ENV=<%= @virtual == 'virtualbox' ? 'sandbox' : 'production' %>
