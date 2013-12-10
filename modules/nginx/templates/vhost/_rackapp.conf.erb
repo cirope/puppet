@@ -1,3 +1,4 @@
+# begin _rackapp.conf
   try_files $uri/index.html $uri.html $uri @app;
 
   location @app {
@@ -36,3 +37,4 @@
   location = /500.html {
     root <%= scope.lookupvar('vars::apps_root') %>/<%= @fqdn %>/current/public;
   }
+  # end _rackapp.conf
