@@ -1,7 +1,7 @@
 class user::deployer {
   $username = 'deployer'
   $group    = 'www-data'
-  $home     = "/home/${user}"
+  $home     = "/home/${username}"
 
   user { $username:
     ensure     => present,
