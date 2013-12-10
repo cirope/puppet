@@ -8,6 +8,7 @@ class baseclass {
   include ssh
   include packages
   include services
+  include user
   include nginx
   include newrelic
 }
