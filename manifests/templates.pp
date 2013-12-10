@@ -4,7 +4,6 @@ class baseclass {
   include apt
   include system
   include swap
-  include ssh
   include packages
   include services
   include user

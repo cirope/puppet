@@ -5,6 +5,10 @@ class user::root {
     require => Package['zsh']
   }
 
+  user::ssh { 'root':
+    user => 'root'
+  }
+
   user::vimconfig { 'root':
     user => 'root',
     home => '/root'

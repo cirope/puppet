@@ -22,6 +22,10 @@ class user::deployer {
     group => $group
   }
 
+  user::ssh { $username:
+    user => $username
+  }
+
   user::vimconfig { $username:
     user  => $username,
     group => $group
@@ -33,5 +37,4 @@ class user::deployer {
 
   include user::deployer::apps_root
   include user::deployer::rbenv
-  include user::deployer::ssh
 }
