@@ -4,8 +4,8 @@ class user::deployer::rbenv {
   rbenv::install { 'deployer':
     group   => $user::deployer::group,
     require => [
-      User::Gem[$user::deployer::username],
-      User::Zsh[$user::deployer::username]
+      User::Config::Gem[$user::deployer::username],
+      User::Config::Zsh[$user::deployer::username]
     ]
   }
 

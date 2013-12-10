@@ -6,9 +6,7 @@ define user::ssh($user) {
 
   if $keys {
     create_resources(
-      'user::ssh::key',
-      prefix_hash_keys($keys, "${user}_"),
-      $defaults
+      'user::ssh::key', prefix_hash_keys($keys, "${user}_"), $defaults
     )
   }
 }
