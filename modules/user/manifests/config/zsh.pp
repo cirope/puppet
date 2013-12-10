@@ -1,4 +1,4 @@
-define user::zsh(
+define user::config::zsh(
   $user,
   $home = "/home/${user}"
 ) {

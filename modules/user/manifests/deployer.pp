@@ -7,31 +7,29 @@ class user::deployer {
     ensure     => present,
     managehome => true,
     home       => $home,
-    shell      => '/bin/zsh',
-    gid        => $group,
-    require    => Package['zsh']
+    gid        => $group
   }
 
-  user::gem { $username:
+  user::config::gem { $username:
     user  => $username,
     group => $group
   }
 
-  user::irb { $username:
+  user::config::irb { $username:
     user  => $username,
     group => $group
   }
 
-  user::ssh { $username:
+  user::config::vim { $username:
+    user  => $username,
+    group => $group
+  }
+
+  user::config::zsh { $username:
     user => $username
   }
 
-  user::vimconfig { $username:
-    user  => $username,
-    group => $group
-  }
-
-  user::zsh { $username:
+  user::ssh { $username:
     user => $username
   }
 

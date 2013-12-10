@@ -1,4 +1,4 @@
-define user::vimconfig(
+define user::config::vim(
   $user,
   $group = $user,
   $home  = "/home/${user}"

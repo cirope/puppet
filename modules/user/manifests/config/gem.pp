@@ -1,4 +1,4 @@
-define user::gem(
+define user::config::gem(
   $user,
   $group = $user,
   $home  = "/home/${user}"

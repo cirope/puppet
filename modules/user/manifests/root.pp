@@ -9,12 +9,12 @@ class user::root {
     user => 'root'
   }
 
-  user::vimconfig { 'root':
+  user::config::vim { 'root':
     user => 'root',
     home => '/root'
   }
 
-  user::zsh { 'root':
+  user::config::zsh { 'root':
     user => 'root',
     home => '/root'
   }

@@ -1,4 +1,4 @@
-define user::irb(
+define user::config::irb(
   $user,
   $group = $user,
   $home  = "/home/${user}"
