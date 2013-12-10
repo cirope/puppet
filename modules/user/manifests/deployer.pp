@@ -1,9 +1,9 @@
 class user::deployer {
-  $user  = 'deployer'
-  $group = 'www-data'
-  $home  = "/home/${user}"
+  $username = 'deployer'
+  $group    = 'www-data'
+  $home     = "/home/${user}"
 
-  user { $user:
+  user { $username:
     ensure     => present,
     managehome => true,
     home       => $home,
@@ -12,11 +12,11 @@ class user::deployer {
     require    => Package['zsh']
   }
 
-  user::vimconfig { $user:
+  user::vimconfig { $username:
     group => $group
   }
 
-  user::zsh { $user: }
+  user::zsh { $username: }
 
   include user::deployer::apps_root
   include user::deployer::gem

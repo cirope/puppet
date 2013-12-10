@@ -4,7 +4,7 @@ set -e
 # Example init script, this can be used with nginx, too,
 # since nginx and unicorn accept the same signals
 CURRENT_USER=`id -nu`
-USER=<%= scope.lookupvar('user::deployer::user') %>
+USER=<%= scope.lookupvar('user::deployer::username') %>
 USER_HOME=<%= scope.lookupvar('user::deployer::home') %>
 BUNDLE=$USER_HOME/.rbenv/shims/bundle
 
