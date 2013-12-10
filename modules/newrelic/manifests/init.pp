@@ -17,16 +17,16 @@ class newrelic($license = undef) {
     }
 
     service { 'newrelic-sysmond':
-      enable  => true,
       ensure  => running,
+      enable  => true,
       require => Package['newrelic-sysmond']
     }
 
     file { '/etc/newrelic/nrsysmond.cfg':
       ensure  => file,
-      owner   => root,
-      group   => newrelic,
-      mode    => 0640,
+      owner   => 'root',
+      group   => 'newrelic',
+      mode    => '0640',
       content => template('newrelic/nrsysmond.cfg.erb'),
       notify  => Service['newrelic-sysmond'],
       require => Package['newrelic-sysmond']

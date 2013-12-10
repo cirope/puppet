@@ -7,7 +7,7 @@ define user::config::irb(
     ensure  => file,
     owner   => $user,
     group   => $group,
-    mode    => 0644,
+    mode    => '0644',
     require => User[$user],
     source  => 'puppet:///modules/user/irb/.irbrc'
   }

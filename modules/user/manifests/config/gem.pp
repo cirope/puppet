@@ -7,7 +7,7 @@ define user::config::gem(
     ensure  => file,
     owner   => $user,
     group   => $group,
-    mode    => 0644,
+    mode    => '0644',
     require => User[$user],
     source  => 'puppet:///modules/user/gem/.gemrc'
   }

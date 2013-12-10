@@ -7,16 +7,16 @@ class nginx($server = undef) {
   }
 
   service { 'nginx':
-    enable  => true,
     ensure  => running,
+    enable  => true,
     require => Package['nginx']
   }
 
   file { '/etc/nginx/nginx.conf':
     ensure  => file,
-    owner   => root,
-    group   => root,
-    mode    => 0644,
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0644',
     require => Package['nginx'],
     notify  => Service['nginx'],
     content => template('nginx/nginx.conf.erb')
@@ -28,24 +28,24 @@ class nginx($server = undef) {
       default    => "${server}ssl"
     }
 
-    file { "/etc/nginx/sites-available/$fqdn":
+    file { "/etc/nginx/sites-available/${fqdn}":
       ensure  => file,
-      owner   => root,
-      group   => root,
-      mode    => 0644,
+      owner   => 'root',
+      group   => 'root',
+      mode    => '0644',
       require => Package['nginx'],
       notify  => Service['nginx'],
-      content => template("nginx/$template.conf.erb")
+      content => template("nginx/${template}.conf.erb")
     }
 
-    file { "/etc/nginx/sites-enabled/$fqdn":
+    file { "/etc/nginx/sites-enabled/${fqdn}":
       ensure  => link,
-      owner   => root,
-      group   => root,
-      mode    => 0644,
-      require => File["/etc/nginx/sites-available/$fqdn"],
+      owner   => 'root',
+      group   => 'root',
+      mode    => '0644',
+      require => File["/etc/nginx/sites-available/${fqdn}"],
       notify  => Service['nginx'],
-      target  => "/etc/nginx/sites-available/$fqdn"
+      target  => "/etc/nginx/sites-available/${fqdn}"
     }
 
     file { '/etc/nginx/sites-available/default':

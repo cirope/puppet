@@ -1,19 +1,17 @@
-class swap {
-  $file = '/mnt/swapfile'
-
+class swap($file = '/mnt/swapfile') {
   exec { 'create_swap_file':
-    command => "fallocate -l ${vars::memory}m $file; mkswap $file; swapon $file",
+    command => "fallocate -l ${vars::memory}m ${file}; mkswap ${file}; swapon ${file}",
     user    => 'root',
     creates => $file
   }
 
   file { $file:
-    mode => 600
+    mode => '0600'
   }
 
   mount { $file:
-    name    => 'none',
     ensure  => present,
+    name    => 'none',
     device  => $file,
     fstype  => 'swap',
     options => 'sw'

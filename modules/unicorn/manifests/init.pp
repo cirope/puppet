@@ -6,9 +6,9 @@ class unicorn {
 
   file { '/etc/init.d/unicorn':
     ensure  => file,
-    owner   => root,
-    group   => root,
-    mode    => 0755,
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0755',
     notify  => Service['unicorn'],
     content => template('unicorn/init.sh.erb')
   }
