@@ -12,15 +12,15 @@ class user::deployer {
     require    => Package['zsh']
   }
 
-  include user::deployer::apps_root
-  include user::deployer::gem
-  include user::deployer::irb
-  include user::deployer::rbenv
-  include user::deployer::ssh
-
   user::vimconfig { $user:
     group => $group
   }
 
   user::zsh { $user: }
+
+  include user::deployer::apps_root
+  include user::deployer::gem
+  include user::deployer::irb
+  include user::deployer::rbenv
+  include user::deployer::ssh
 }
