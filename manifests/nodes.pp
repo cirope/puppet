@@ -1,5 +1,5 @@
 node racknode inherits basenode {
-  include deployer
+  include user::deployer
   include unicorn
 }
 

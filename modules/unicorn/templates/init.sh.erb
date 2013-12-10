@@ -4,8 +4,8 @@ set -e
 # Example init script, this can be used with nginx, too,
 # since nginx and unicorn accept the same signals
 CURRENT_USER=`id -nu`
-USER=<%= scope.lookupvar('deployer::user') %>
-USER_HOME=<%= scope.lookupvar('deployer::home') %>
+USER=<%= scope.lookupvar('user::deployer::user') %>
+USER_HOME=<%= scope.lookupvar('user::deployer::home') %>
 BUNDLE=$USER_HOME/.rbenv/shims/bundle
 
 TIMEOUT=${TIMEOUT-60}

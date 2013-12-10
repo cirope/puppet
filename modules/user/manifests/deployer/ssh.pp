@@ -1,6 +1,6 @@
-class deployer::ssh($keys = $::ssh::keys) {
+class user::deployer::ssh($keys = $::ssh::keys) {
   $defaults = {
-    user => deployer
+    user => 'deployer'
   }
 
   if $keys {

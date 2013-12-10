@@ -1,21 +1,21 @@
-class deployer::rbenv {
+class user::deployer::rbenv {
   $ruby_version = '2.0.0-p353'
 
   rbenv::install { 'deployer':
-    group   => $deployer::group,
+    group   => $user::deployer::group,
     require => File['zshrc', 'gemrc']
   }
 
   rbenv::compile { $ruby_version:
-    user    => $deployer::user,
-    group   => $deployer::group,
+    user    => $user::deployer::user,
+    group   => $user::deployer::group,
     global  => true,
     require => [Rbenv::Install['deployer'], Package['libreadline-dev']]
   }
 
   rbenv::plugin { 'rbenv-gem-rehash':
-    user    => $deployer::user,
-    group   => $deployer::group,
+    user    => $user::deployer::user,
+    group   => $user::deployer::group,
     source  => 'git://github.com/sstephenson/rbenv-gem-rehash.git'
   }
 }
