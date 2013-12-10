@@ -1,40 +1,6 @@
 server {
   listen <%= @virtual == 'virtualbox' ? 8080 : 80 %> default deferred;
 
-  client_max_body_size 4G;
-  server_name _;
-
-  server_tokens off;
-
-  keepalive_timeout 5;
-
-  # path for static files
-  root /var/www;
-  index index.html index.htm index.php;
-
-  fastcgi_intercept_errors on;
-
-  location / {
-    try_files $uri $uri/ /index.html;
-  }
-
-  location ~ .php/ { ## Forward paths like /js/index.php/x.js to relevant handler
-    rewrite ^(.*.php)/ $1 last;
-  }
-
-  location ~* \.php$ {
-    fastcgi_index index.php;
-    fastcgi_pass  127.0.0.1:9000;
-
-    include       fastcgi_params;
-
-    fastcgi_param  SCRIPT_NAME        $fastcgi_script_name;
-    fastcgi_param  SCRIPT_FILENAME    $document_root$fastcgi_script_name;
-  }
-
-  location ~ /\. {
-    access_log off;
-    log_not_found off;
-    deny all;
-  }
+  <%= scope.function_template(['nginx/vhost/_phpserver.conf.erb']) %>
+  <%= scope.function_template(['nginx/vhost/_phpapp.conf.erb']) %>
 }

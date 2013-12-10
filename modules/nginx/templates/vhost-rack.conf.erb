@@ -1,57 +1,8 @@
-upstream unicorn {
-  server unix:/tmp/unicorn.sock fail_timeout=0;
-}
+<%= scope.function_template(['nginx/vhost/_unicorn.conf.erb']) %>
 
 server {
   listen 80 default deferred;
-  server_name <%= @fqdn %> *.<%= @fqdn %>
 
-  client_max_body_size 4G;
-  server_name _;
-
-  keepalive_timeout 5;
-
-  server_tokens off;
-
-  # path for static files
-  root <%= scope.lookupvar('vars::apps_root') %>/<%= @fqdn %>/current/public;
-
-  try_files $uri/index.html $uri.html $uri @app;
-
-  location @app {
-    # an HTTP header important enough to have its own Wikipedia entry:
-    #   http://en.wikipedia.org/wiki/X-Forwarded-For
-    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-
-    # enable this if you forward HTTPS traffic to unicorn,
-    # this helps Rack set the proper URL scheme for doing redirects:
-    proxy_set_header X-Forwarded-Proto $scheme;
-
-    # pass the Host: header from the client right along so redirects
-    # can be set properly within the Rack application
-    proxy_set_header Host $http_host;
-
-    # we don't want nginx trying to do something clever with
-    # redirects, we set the Host: header above already.
-    proxy_redirect off;
-
-    # The Rack application may also set "X-Accel-Buffering (yes|no)"
-    # in the response headers do disable/enable buffering on a
-    # per-response basis.
-    # proxy_buffering off;
-
-    proxy_pass http://unicorn;
-  }
-
-  location ~ /\. {
-    access_log off;
-    log_not_found off;
-    deny all;
-  }
-
-  # Rails error pages
-  error_page 500 502 503 504 /500.html;
-  location = /500.html {
-    root <%= scope.lookupvar('vars::apps_root') %>/<%= @fqdn %>/public;
-  }
+  <%= scope.function_template(['nginx/vhost/_rackserver.conf.erb']) %>
+  <%= scope.function_template(['nginx/vhost/_rackapp.conf.erb']) %>
 }
