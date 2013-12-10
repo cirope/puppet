@@ -1,5 +1,5 @@
 define user::ssh($user) {
-  $keys = hiera('user::ssh:keys', undef)
+  $keys = hiera('user::ssh::keys', undef)
   $defaults = {
     user => $user
   }
