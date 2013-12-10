@@ -17,10 +17,10 @@ class user::deployer {
   include user::deployer::irb
   include user::deployer::rbenv
   include user::deployer::ssh
-  include user::deployer::zsh
 
   user::vimconfig { $user:
-    user  => $user,
     group => $group
   }
+
+  user::zsh { $user: }
 }

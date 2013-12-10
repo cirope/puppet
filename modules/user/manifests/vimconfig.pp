@@ -1,7 +1,7 @@
 define user::vimconfig(
-  $user,
+  $user  = $name,
   $group = $user,
-  $home = "/home/${user}"
+  $home  = "/home/${user}"
 ) {
   file { "${home}/.vimrc":
     ensure  => file,
