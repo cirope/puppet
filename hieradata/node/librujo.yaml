@@ -6,9 +6,11 @@ packages::extra:
   libreadline-dev: {}
   nodejs: {}
   redis-server: {}
-pg::db::database: postman_production
-pg::db::user: postman
-pg::db::password: postman
+pg::create::databases:
+  postman_production:
+    database: postman_production
+    user: postman
+    password: postman
 system::classes:
   - environment
   - logrotate

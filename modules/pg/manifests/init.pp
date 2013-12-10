@@ -8,9 +8,9 @@ class pg {
     require => [Exec['sysctl'], Package['language-pack-es']]
   }
 
-  include pg::db
+  include pg::create
   include pg::hba
   include pg::conf
 
-  Class['postgresql::globals'] -> Class['postgresql::server'] -> Postgresql::Server::Db[$pg::db::database]
+  Class['postgresql::globals'] -> Class['postgresql::server']
 }
