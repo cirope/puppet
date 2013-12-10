@@ -3,7 +3,6 @@ include vars
 class baseclass {
   include apt
   include system
-  include root
   include swap
   include ssh
   include packages
