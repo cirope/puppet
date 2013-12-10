@@ -11,7 +11,7 @@ class user::root {
   }
 
   user::zsh { 'root':
-    user => 'root'
+    user => 'root',
     home => '/root'
   }
 }
