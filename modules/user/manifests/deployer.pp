@@ -12,6 +12,11 @@ class user::deployer {
     require    => Package['zsh']
   }
 
+  user::gem { $username:
+    user  => $username,
+    group => $group
+  }
+
   user::vimconfig { $username:
     user  => $username,
     group => $group
@@ -22,7 +27,6 @@ class user::deployer {
   }
 
   include user::deployer::apps_root
-  include user::deployer::gem
   include user::deployer::irb
   include user::deployer::rbenv
   include user::deployer::ssh

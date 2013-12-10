@@ -3,7 +3,10 @@ class user::deployer::rbenv {
 
   rbenv::install { 'deployer':
     group   => $user::deployer::group,
-    require => [File['gemrc'], User::Zsh[$user::deployer::username]]
+    require => [
+      User::Gem[$user::deployer::username],
+      User::Zsh[$user::deployer::username]
+    ]
   }
 
   rbenv::compile { $ruby_version:
