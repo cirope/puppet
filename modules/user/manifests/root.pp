@@ -14,4 +14,11 @@ class user::root {
     user => 'root',
     home => '/root'
   }
+
+  file { '/root/.profile':
+    ensure => file,
+    owner  => 'root',
+    group  => 'root',
+    source => 'puppet:///modules/user/.root_profile'
+  }
 }
