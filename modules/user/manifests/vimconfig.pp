@@ -1,5 +1,5 @@
 define user::vimconfig(
-  $user  = $title,
+  $user,
   $group = $user,
   $home  = "/home/${user}"
 ) {

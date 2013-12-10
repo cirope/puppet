@@ -1,5 +1,5 @@
 define user::zsh(
-  $user = $title,
+  $user,
   $home = "/home/${user}"
 ) {
   $oh_my_zsh_path = "${home}/.oh-my-zsh"

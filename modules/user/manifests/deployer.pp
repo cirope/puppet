@@ -13,10 +13,13 @@ class user::deployer {
   }
 
   user::vimconfig { $username:
+    user  => $username,
     group => $group
   }
 
-  user::zsh { $username: }
+  user::zsh { $username:
+    user => $username
+  }
 
   include user::deployer::apps_root
   include user::deployer::gem
