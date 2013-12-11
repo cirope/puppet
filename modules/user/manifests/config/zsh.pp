@@ -5,6 +5,12 @@ define user::config::zsh(
   $oh_my_zsh_path = "${home}/.oh-my-zsh"
   $oh_my_zsh_repo = 'git://github.com/robbyrussell/oh-my-zsh.git'
 
+  user { $user:
+    shell => '/bin/zsh',
+    require => Package['zsh']
+  }
+
+
   file { "${home}/.zshrc":
     ensure  => file,
     require => User[$user],
