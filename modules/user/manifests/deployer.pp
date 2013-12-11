@@ -8,6 +8,8 @@ class user::deployer {
     managehome => true,
     home       => $home,
     gid        => $group
+    shell      => '/bin/zsh',
+    require    => Package['zsh']
   }
 
   user::config::gem { $username:
