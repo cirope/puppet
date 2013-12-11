@@ -1,12 +1,15 @@
 define user::config::zsh(
   $user,
-  $home = "/home/${user}"
+  $group = $user,
+  $home  = "/home/${user}"
 ) {
   $oh_my_zsh_path = "${home}/.oh-my-zsh"
   $oh_my_zsh_repo = 'git://github.com/robbyrussell/oh-my-zsh.git'
 
   file { "${home}/.zshrc":
     ensure  => file,
+    owner   => $user,
+    group   => $group,
     require => User[$user],
     source  => 'puppet:///modules/user/zsh/.zshrc',
   }

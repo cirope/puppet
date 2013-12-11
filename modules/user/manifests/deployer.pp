@@ -28,7 +28,8 @@ class user::deployer {
   }
 
   user::config::zsh { $username:
-    user => $username
+    user  => $username,
+    group => $group
   }
 
   user::ssh { $username:
