@@ -7,7 +7,7 @@ class user::deployer {
     ensure     => present,
     managehome => true,
     home       => $home,
-    gid        => $group
+    gid        => $group,
     shell      => '/bin/zsh',
     require    => Package['zsh']
   }
