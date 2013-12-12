@@ -1,18 +1,18 @@
 class services($extra = []) {
   service { 'ntp':
-    enable  => true,
     ensure  => running,
+    enable  => true,
     require => Package['ntp']
   }
 
   service { 'puppet':
-    enable => false,
-    ensure => stopped
+    ensure => stopped,
+    enable => false
   }
 
   $defaults = {
-    enable => true,
-    ensure => running
+    ensure => running,
+    enable => true
   }
 
   create_resources('service', $extra, $defaults)
