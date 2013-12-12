@@ -15,5 +15,5 @@ class services($extra = []) {
     ensure => running
   }
 
-  create_resources(service, $extra, $defaults)
+  create_resources('service', $extra, $defaults)
 }

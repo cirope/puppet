@@ -7,6 +7,6 @@ class packages($required = [], $extra = []) {
     ensure => present
   }
 
-  create_resources(package, $required, $defaults)
-  create_resources(package, $extra, $defaults)
+  create_resources('package', $required, $defaults)
+  create_resources('package', $extra, $defaults)
 }
