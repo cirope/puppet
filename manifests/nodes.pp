@@ -17,3 +17,7 @@ node 'mawidaqa.com' inherits racknode {
 
 node 'cirope.com' inherits racknode {
 }
+
+node 'php.com' inherits basenode {
+  include php
+}

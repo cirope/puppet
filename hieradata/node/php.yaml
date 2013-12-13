@@ -4,7 +4,6 @@ classes:
   - pear_conf
 nginx::server: vhost-php
 packages::extra:
-  php5: {}
   php5-cli: {}
   php5-curl: {}
   php5-fpm: {}
@@ -13,7 +12,9 @@ packages::extra:
   php5-pgsql: {}
   php5-xmlrpc: {}
 services::extra:
-  php5-fpm: { require: Package[php5-fpm] }
+  php5-fpm:
+    ensure: running
+    require: Package[php5-fpm]
 system::classes:
   - environment
   - logrotate
