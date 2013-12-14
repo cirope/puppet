@@ -33,6 +33,7 @@ class nginx($server = undef) {
     }
 
     nginx::vhost { 'default':
+      vhost  => 'default',
       ensure => absent
     }
   }
