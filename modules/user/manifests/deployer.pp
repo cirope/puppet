@@ -22,6 +22,11 @@ class user::deployer {
     group => $group
   }
 
+  user::config::tmux { $username:
+    user  => $username,
+    group => $group
+  }
+
   user::config::vim { $username:
     user  => $username,
     group => $group

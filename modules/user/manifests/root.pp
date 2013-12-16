@@ -9,6 +9,11 @@ class user::root {
     user => 'root'
   }
 
+  user::config::tmux { 'root':
+    user => 'root',
+    home => '/root'
+  }
+
   user::config::vim { 'root':
     user => 'root',
     home => '/root'
