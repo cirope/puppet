@@ -1,0 +1,12 @@
+---
+newrelic::license: 'fcf41122e2fef3815e50327a4fc3ff7c58f345d2'
+nginx::server: vhost-rack
+packages::extra:
+  libpq-dev: {}
+  libreadline-dev: {}
+  nodejs: {}
+  redis-server: {}
+system::classes:
+  - environment
+  - logrotate
+  - sysctl

@@ -3,6 +3,13 @@ node racknode inherits basenode {
   include unicorn
 }
 
+node 'cirope.com' inherits racknode {
+}
+
+node 'libreduca.com' inherits racknode {
+  include pg
+}
+
 node 'librujo.com' inherits racknode {
   include pg
 }
@@ -13,9 +20,6 @@ node 'mawidabp.com' inherits racknode {
 
 node 'mawidaqa.com' inherits racknode {
   include pg
-}
-
-node 'cirope.com' inherits racknode {
 }
 
 node 'php.libreduca.com' inherits basenode {
