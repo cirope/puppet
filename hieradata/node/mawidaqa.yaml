@@ -2,10 +2,11 @@
 newrelic::license: 'fb104c79e970048854b5b08a7da6d2f2aa767a26'
 nginx::server: vhost-rack
 packages::extra:
-  libpq-dev: {}
-  libreadline-dev: {}
-  nodejs: {}
-  redis-server: {}
+  debian:
+    libpq-dev: {}
+    libreadline-dev: {}
+    nodejs: {}
+    redis-server: {}
 system::classes:
   - system::environment
   - system::logrotate

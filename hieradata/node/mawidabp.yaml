@@ -1,10 +1,11 @@
 ---
 nginx::server: vhost-rack
 packages::extra:
-  imagemagick: {}
-  libpq-dev: {}
-  libreadline-dev: {}
-  nodejs: {}
+  debian:
+    imagemagick: {}
+    libpq-dev: {}
+    libreadline-dev: {}
+    nodejs: {}
 system::classes:
   - system::environment
   - system::logrotate

@@ -4,14 +4,15 @@ classes:
   - pear_conf
 nginx::server: vhost-php
 packages::extra:
-  git: {}
-  php5-cli: {}
-  php5-curl: {}
-  php5-fpm: {}
-  php5-gd: {}
-  php5-intl: {}
-  php5-pgsql: {}
-  php5-xmlrpc: {}
+  debian:
+    git: {}
+    php5-cli: {}
+    php5-curl: {}
+    php5-fpm: {}
+    php5-gd: {}
+    php5-intl: {}
+    php5-pgsql: {}
+    php5-xmlrpc: {}
 services::extra:
   php5-fpm:
     ensure: running

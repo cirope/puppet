@@ -1,4 +1,4 @@
-class packages($required = [], $extra = []) {
+class packages($required = [], $extra = {}) {
   package { 'whoopsie':
     ensure => purged
   }
@@ -8,5 +8,5 @@ class packages($required = [], $extra = []) {
   }
 
   create_resources('package', $required, $defaults)
-  create_resources('package', $extra, $defaults)
+  create_resources('package', $extra[$::osfamily], $defaults)
 }

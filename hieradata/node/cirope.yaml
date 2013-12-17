@@ -1,7 +1,8 @@
 ---
 nginx::server: vhost-rack
 packages::extra:
-  libreadline-dev: {}
+  debian:
+    libreadline-dev: {}
 system::classes:
   - system::environment
   - system::logrotate
