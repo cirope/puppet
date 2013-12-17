@@ -7,6 +7,6 @@ packages::required:
   ntp: {}
   tmux: {}
   unzip: {}
-  vim: {}
+  vim-enhaced: {}
   wget: {}
   zsh: {}
