@@ -6,6 +6,11 @@ packages::extra:
     libpq-dev: {}
     libreadline-dev: {}
     nodejs: {}
+  redhat:
+    ImageMagick: {}
+    postgresql-libs: {}
+    readline-devel: {}
+    nodejs: {}
 system::classes:
   - system::environment
   - system::logrotate
