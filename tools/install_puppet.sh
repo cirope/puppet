@@ -11,5 +11,6 @@ if [ ! -f /usr/bin/puppet ]; then
     apt-get install -y -o Dpkg::Options::="--force-confold" puppet
   elif [ -f /etc/redhat-release ]; then
     rpm -ivh http://yum.puppetlabs.com/el/6/products/x86_64/puppetlabs-release-6-7.noarch.rpm
+    yum -y install puppet
   fi
 fi
