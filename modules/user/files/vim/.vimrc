@@ -29,7 +29,10 @@ set t_Co=256
 colorscheme evening
 
 set ruler
-set relativenumber
+
+if exists('+relativenumber')
+  set relativenumber
+end
 
 " Tab-completion in command-line mode
 set wildmode=full
