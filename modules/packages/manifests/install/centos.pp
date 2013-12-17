@@ -27,7 +27,7 @@ class packages::install::centos {
     ensure => present
   }
 
-  package { 'vim-enhaced':
+  package { 'vim':
     ensure => present
   }
 

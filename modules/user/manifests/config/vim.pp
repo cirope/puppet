@@ -5,7 +5,7 @@ define user::config::vim(
 ) {
   $vimpackage = $::osfamily ? {
     debian => 'vim-nox',
-    redhat => 'vim-enhaced'
+    redhat => 'vim'
   }
 
   file { "${home}/.vimrc":
