@@ -2,6 +2,7 @@
 :backends: yaml
 :hierarchy:
   - "node/%{::hostname}"
+  - "osfamily/%{::osfamily}"
   - common
 :logger: console
 :yaml:

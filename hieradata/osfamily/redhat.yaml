@@ -1,0 +1,12 @@
+---
+packages::required:
+  curl: {}
+  hdparm: {}
+  htop: {}
+  nmap: {}
+  ntp: {}
+  tmux: {}
+  unzip: {}
+  vim: {}
+  wget: {}
+  zsh: {}

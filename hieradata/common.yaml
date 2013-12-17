@@ -1,16 +1,4 @@
 ---
-packages::required:
-  build-essential: {}
-  curl: {}
-  hdparm: {}
-  htop: {}
-  nmap: {}
-  ntp: {}
-  tmux: {}
-  unzip: {}
-  vim-nox: {}
-  wget: {}
-  zsh: {}
 system::classes:
   - system::locales
   - system::timezone
