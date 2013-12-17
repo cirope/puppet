@@ -1,7 +1,10 @@
 include vars
 
 class baseclass {
-  include apt
+  if $::osfamily == 'debian' {
+    include apt
+  }
+
   include system
   include swap
   include packages

@@ -1,9 +1,8 @@
 class nginx($server = undef) {
-  apt::ppa { 'ppa:nginx/stable': }
-
-  package { 'nginx':
-    ensure  => present,
-    require => Apt::Ppa['ppa:nginx/stable']
+  case $operatingsystem {
+    centos, redhat: { include nginx::install::centos }
+    debian, ubuntu: { include nginx::install::ubuntu }
+    default: { fail('Unrecognized operating system for nginx') }
   }
 
   service { 'nginx':
