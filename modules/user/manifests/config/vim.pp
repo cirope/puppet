@@ -3,7 +3,7 @@ define user::config::vim(
   $group = $user,
   $home  = "/home/${user}"
 ) {
-  $vimpackage = $::osfamily {
+  $vimpackage = $::osfamily ? {
     debian  => 'vim-nox',
     default => 'vim'
   }
