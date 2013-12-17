@@ -3,16 +3,11 @@ define user::config::vim(
   $group = $user,
   $home  = "/home/${user}"
 ) {
-  $vimpackage = $::osfamily ? {
-    debian  => 'vim-nox',
-    default => 'vim'
-  }
-
   file { "${home}/.vimrc":
     ensure  => file,
     owner   => $user,
     group   => $group,
-    require => [User[$user], Package[$vimpackage]],
+    require => User[$user],
     source  => 'puppet:///modules/user/vim/.vimrc'
   }
 
