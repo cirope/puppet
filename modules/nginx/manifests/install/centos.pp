@@ -1,4 +1,4 @@
-class nginx::install:centos {
+class nginx::install::centos {
   yumrepo { 'nginx':
     name     => 'nginx repo',
     baseurl  => 'http://nginx.org/packages/centos/$releasever/$basearch/',
