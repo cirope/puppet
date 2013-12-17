@@ -1,4 +1,4 @@
-class logrotate {
+class system::logrotate {
   file { "/etc/logrotate.d/${hostname}":
     ensure  => file,
     owner   => 'root',

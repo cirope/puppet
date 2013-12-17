@@ -1,8 +1,9 @@
-class environment {
+class system::environment {
   file { '/etc/environment':
-    source => 'puppet:///modules/system/environment',
-    owner  => 'root',
-    group  => 'root',
-    mode   => '0644'
+    ensure  => file,
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0644'
+    content => template('system/environment.erb')
   }
 }

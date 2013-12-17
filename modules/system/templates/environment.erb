@@ -1,0 +1,7 @@
+PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games"
+
+<%- lots_of_memory = scope.lookupvar('vars::memory').to_i > 1024 -%>
+
+RUBY_HEAP_MIN_SLOTS=<%= lots_of_memory ? 600000 : 100000 %>
+RUBY_GC_MALLOC_LIMIT=<%= lots_of_memory ? 59000000 : 9000000  %>
+RUBY_HEAP_FREE_MIN=<%= lots_of_memory ? 200000 : 10000 %>

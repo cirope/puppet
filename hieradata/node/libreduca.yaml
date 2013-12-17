@@ -8,6 +8,6 @@ packages::extra:
   nodejs: {}
   redis-server: {}
 system::classes:
-  - environment
-  - logrotate
-  - sysctl
+  - system::environment
+  - system::logrotate
+  - system::sysctl

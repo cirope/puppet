@@ -17,6 +17,6 @@ services::extra:
     ensure: running
     require: Package[php5-fpm]
 system::classes:
-  - environment
-  - logrotate
-  - sysctl
+  - system::environment
+  - system::logrotate
+  - system::sysctl

@@ -3,5 +3,5 @@ nginx::server: vhost-rack
 packages::extra:
   libreadline-dev: {}
 system::classes:
-  - environment
-  - logrotate
+  - system::environment
+  - system::logrotate

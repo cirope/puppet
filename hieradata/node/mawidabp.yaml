@@ -6,6 +6,6 @@ packages::extra:
   libreadline-dev: {}
   nodejs: {}
 system::classes:
-  - environment
-  - logrotate
-  - sysctl
+  - system::environment
+  - system::logrotate
+  - system::sysctl

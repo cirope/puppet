@@ -1,4 +1,4 @@
-class locales {
+class system::locales {
   package { 'locales':
     ensure => present
   }

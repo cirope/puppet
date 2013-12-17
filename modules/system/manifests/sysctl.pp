@@ -1,4 +1,4 @@
-class sysctl {
+class system::sysctl {
   file { '/etc/sysctl.conf':
     ensure  => file,
     owner   => 'root',

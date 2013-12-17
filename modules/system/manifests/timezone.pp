@@ -1,4 +1,4 @@
-class timezone {
+class system::timezone {
   package { 'tzdata':
     ensure => present
   }
