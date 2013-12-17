@@ -1,7 +1,14 @@
 class user::deployer {
   $username = 'deployer'
-  $group    = 'www-data'
   $home     = "/home/${username}"
+  $group    = $::osfamily ? {
+    redhat  => 'nginx',
+    default => 'www-data'
+  }
+
+  group { $group:
+    ensure => present
+  }
 
   user { $username:
     ensure     => present,
@@ -9,7 +16,7 @@ class user::deployer {
     home       => $home,
     gid        => $group,
     shell      => '/bin/zsh',
-    require    => Package['zsh']
+    require    => [Group[$group], Package['zsh']]
   }
 
   user::config::gem { $username:
