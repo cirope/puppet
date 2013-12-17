@@ -1,5 +1,9 @@
 class user::deployer::rbenv {
   $ruby_version = '2.0.0-p353'
+  $readline_package = $::osfamily ? {
+    debian => 'libreadline-dev',
+    redhat => 'readline-devel'
+  }
 
   rbenv::install { 'deployer':
     group   => $user::deployer::group,
@@ -13,7 +17,7 @@ class user::deployer::rbenv {
     user    => $user::deployer::username,
     group   => $user::deployer::group,
     global  => true,
-    require => [Rbenv::Install['deployer'], Package['libreadline-dev']]
+    require => [Rbenv::Install['deployer'], Package[$readline_package]]
   }
 
   rbenv::plugin { 'rbenv-gem-rehash':
