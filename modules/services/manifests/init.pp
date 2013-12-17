@@ -1,6 +1,12 @@
 class services($extra = []) {
+  $ntp_service_name = $::osfamily ? {
+    debian => 'ntp',
+    redhat => 'ntpd'
+  }
+
   service { 'ntp':
     ensure  => running,
+    name    => $ntp_service_name,
     enable  => true,
     require => Package['ntp']
   }
