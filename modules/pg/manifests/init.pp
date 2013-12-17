@@ -1,7 +1,7 @@
 class pg {
   $require = $::osfamily ? {
-    debian  => [Exec['sysctl'], Package['language-pack-es']],
-    default => Exec['sysctl']
+    debian => [Exec['sysctl'], Package['language-pack-es']],
+    redhat => [Exec['sysctl'], Exec['localedef']]
   }
 
   class { 'postgresql::globals':
