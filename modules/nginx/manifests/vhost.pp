@@ -13,7 +13,7 @@ define nginx::vhost(
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
-    require => Package['nginx'],
+    require => File['/etc/nginx/sites-available'],
     notify  => Service['nginx'],
     content => template("nginx/${template}.conf.erb")
   }
@@ -28,7 +28,7 @@ define nginx::vhost(
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
-    require => Package['nginx'],
+    require => File['/etc/nginx/sites-enabled'],
     notify  => Service['nginx'],
     target  => "/etc/nginx/sites-available/${vhost}"
   }
