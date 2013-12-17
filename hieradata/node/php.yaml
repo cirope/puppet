@@ -4,7 +4,7 @@ classes:
   - pear_conf
 nginx::server: vhost-php
 packages::extra:
-  debian:
+  Debian:
     git: {}
     php5-cli: {}
     php5-curl: {}

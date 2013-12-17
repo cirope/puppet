@@ -1,7 +1,7 @@
 ---
 nginx::server: vhost-rack
 packages::extra:
-  debian:
+  Debian:
     libreadline-dev: {}
 system::classes:
   - system::environment

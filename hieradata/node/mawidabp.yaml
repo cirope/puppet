@@ -1,12 +1,12 @@
 ---
 nginx::server: vhost-rack
 packages::extra:
-  debian:
+  Debian:
     imagemagick: {}
     libpq-dev: {}
     libreadline-dev: {}
     nodejs: {}
-  redhat:
+  RedHat:
     ImageMagick: {}
     postgresql-libs: {}
     readline-devel: {}
