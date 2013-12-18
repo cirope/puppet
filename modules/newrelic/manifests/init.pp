@@ -1,10 +1,6 @@
 class newrelic($license = undef) {
   if $license {
-    case $::osfamily {
-      redhat: { include newrelic::install::centos }
-      debian: { include newrelic::install::ubuntu }
-      default: { fail('Unrecognized operating system for newrelic') }
-    }
+    include newrelic::install
 
     service { 'newrelic-sysmond':
       ensure  => running,
