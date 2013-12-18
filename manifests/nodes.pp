@@ -1,3 +1,9 @@
+node 'cirope.com' {
+  include baseclass
+  include server::web
+  include server::app
+}
+
 node default {
   include baseclass
 

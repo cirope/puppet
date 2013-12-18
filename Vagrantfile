@@ -8,7 +8,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # All Vagrant configuration is done here. The most common configuration
   # options are documented and commented below. For a complete reference,
   # please see the online documentation at vagrantup.com.
-  config.vm.host_name = 'db.mawidabp.com'
+  config.vm.host_name = 'cirope.com'
 
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = 'precise64'
@@ -21,7 +21,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
-  config.vm.network :forwarded_port, guest: 8080, host: 8080
+  config.vm.network :forwarded_port, guest: 80, host: 8080
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
@@ -47,7 +47,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Example for VirtualBox:
   #
   config.vm.provider 'virtualbox' do |vb|
-    vb.name = 'DB Mawidabp precise64'
+    vb.name = 'Cirope Ubuntu 12.04'
     vb.customize ['modifyvm', :id, '--memory', '1024']
   end
   #
