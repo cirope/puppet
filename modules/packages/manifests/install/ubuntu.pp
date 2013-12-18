@@ -42,10 +42,4 @@ class packages::install::ubuntu {
   package { 'zsh':
     ensure => present
   }
-
-  if tagged('server::app') {
-    package { 'build-essential':
-      ensure => present
-    }
-  }
 }

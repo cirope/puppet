@@ -15,12 +15,15 @@ class server::web {
 }
 
 class server::app {
+  include system::environment
+  include system::logrotate
   include user::deployer
   include unicorn
   include newrelic
 }
 
 class server::db {
+  include system::sysctl
   include pg
 }
 
