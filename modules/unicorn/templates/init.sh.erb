@@ -1,4 +1,9 @@
 #!/bin/sh
+# chkconfig: 2345 95 20
+# description: Unicorn script
+# Manage the unicorn service as a non privileged user (at least the user not need admin)
+# processname: unicorn
+
 set -e
 
 CURRENT_USER=`id -nu`
