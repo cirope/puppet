@@ -9,7 +9,7 @@ class pg::conf {
 
   postgresql::server::config_entry { 'work_mem':
     value => "${$vars::memory / 512}" ? {
-      '0'     => '512KB',
+      '0'     => '512kB',
       default => "${$vars::memory / 512}MB"
     }
   }
