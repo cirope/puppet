@@ -43,7 +43,7 @@ class packages::install::ubuntu {
     ensure => present
   }
 
-  if defined(Class['server::app']) {
+  if tagged('server::app') {
     package { 'build-essential':
       ensure => present
     }

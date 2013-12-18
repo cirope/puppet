@@ -2,12 +2,12 @@ class system {
   include system::locales
   include system::timezone
 
-  if defined(Class['server::app']) {
+  if tagged('server::app') {
     include system::environment
     include system::logrotate
   }
 
-  if defined(Class['server::db']) {
+  if tagged('server::db') {
     include system::sysctl
   }
 }
