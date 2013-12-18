@@ -1,10 +1,6 @@
 class packages::install::ubuntu {
   package { 'whoopsie':
-    ensure => purged
-  }
-
-  package { 'build-essential':
-    ensure => present
+    ensure => absent
   }
 
   package { 'curl':
@@ -45,5 +41,11 @@ class packages::install::ubuntu {
 
   package { 'zsh':
     ensure => present
+  }
+
+  if defined(Class['server::app']) {
+    package { 'build-essential':
+      ensure => present
+    }
   }
 }
