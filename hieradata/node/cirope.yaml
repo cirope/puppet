@@ -1,5 +1,2 @@
 ---
 nginx::server: vhost-rack
-packages::extra:
-  Debian:
-    libreadline-dev: {}

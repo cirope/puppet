@@ -4,6 +4,5 @@ nginx::server: vhost-rack
 packages::extra:
   Debian:
     libpq-dev: {}
-    libreadline-dev: {}
     nodejs: {}
     redis-server: {}

@@ -5,6 +5,5 @@ packages::extra:
   Debian:
     imagemagick: {}
     libpq-dev: {}
-    libreadline-dev: {}
     nodejs: {}
     redis-server: {}

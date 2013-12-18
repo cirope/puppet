@@ -5,6 +5,10 @@ class user::deployer::rbenv {
     redhat => 'readline-devel'
   }
 
+  package { $readline_package:
+    ensure => present
+  }
+
   rbenv::install { 'deployer':
     group   => $user::deployer::group,
     require => [
