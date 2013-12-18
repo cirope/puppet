@@ -3,6 +3,10 @@ class packages::install::centos {
     ensure => present
   }
 
+  package { 'git':
+    ensure => present
+  }
+
   package { 'hdparm':
     ensure => present
   }

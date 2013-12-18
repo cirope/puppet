@@ -4,7 +4,6 @@ classes:
 nginx::server: vhost-php
 packages::extra:
   Debian:
-    git: {}
     php5-cli: {}
     php5-curl: {}
     php5-fpm: {}
