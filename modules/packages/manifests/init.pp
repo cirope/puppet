@@ -1,7 +1,7 @@
 class packages($extra = {}) {
-  case $operatingsystem {
-    centos, redhat: { include packages::install::centos }
-    debian, ubuntu: { include packages::install::ubuntu }
+  case $::osfamily {
+    redhat: { include packages::install::centos }
+    debian: { include packages::install::ubuntu }
     default: { fail('Unrecognized operating system') }
   }
 

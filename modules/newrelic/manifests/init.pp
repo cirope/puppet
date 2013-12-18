@@ -1,8 +1,8 @@
 class newrelic($license = undef) {
   if $license {
-    case $operatingsystem {
-      centos, redhat: { include newrelic::install::centos }
-      debian, ubuntu: { include newrelic::install::ubuntu }
+    case $::osfamily {
+      redhat: { include newrelic::install::centos }
+      debian: { include newrelic::install::ubuntu }
       default: { fail('Unrecognized operating system for newrelic') }
     }
 

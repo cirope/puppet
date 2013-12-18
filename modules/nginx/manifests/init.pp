@@ -1,7 +1,7 @@
 class nginx($server = undef) {
-  case $operatingsystem {
-    centos, redhat: { include nginx::install::centos }
-    debian, ubuntu: { include nginx::install::ubuntu }
+  case $::osfamily {
+    redhat: { include nginx::install::centos }
+    debian: { include nginx::install::ubuntu }
     default: { fail('Unrecognized operating system for nginx') }
   }
 
