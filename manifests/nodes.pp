@@ -1,17 +1,11 @@
-node 'cirope.com' {
-}
+node default {
+  include baseclass
 
-node 'libreduca.com' {
-}
-
-node 'librujo.com' {
-}
-
-node 'mawidabp.com' {
-}
-
-node 'mawidaqa.com' {
-}
-
-node 'php.libreduca.com' {
+  case $::hostname {
+    web:     { include server::web }
+    app:     { include server::app }
+    db:      { include server::db }
+    php:     { include server::db, server::php }
+    default: { include server::all }
+  }
 }

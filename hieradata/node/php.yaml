@@ -1,6 +1,5 @@
 ---
 classes:
-  - pg
   - pear_conf
 nginx::server: vhost-php
 packages::extra:
@@ -17,7 +16,3 @@ services::extra:
   php5-fpm:
     ensure: running
     require: Package[php5-fpm]
-system::classes:
-  - system::environment
-  - system::logrotate
-  - system::sysctl

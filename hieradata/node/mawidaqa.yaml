@@ -7,7 +7,3 @@ packages::extra:
     libreadline-dev: {}
     nodejs: {}
     redis-server: {}
-system::classes:
-  - system::environment
-  - system::logrotate
-  - system::sysctl

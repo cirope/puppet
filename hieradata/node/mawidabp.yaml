@@ -12,7 +12,3 @@ packages::extra:
     postgresql-devel: {}
     readline-devel: {}
     nodejs: {}
-system::classes:
-  - system::environment
-  - system::logrotate
-  - system::sysctl

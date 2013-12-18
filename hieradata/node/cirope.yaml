@@ -3,6 +3,3 @@ nginx::server: vhost-rack
 packages::extra:
   Debian:
     libreadline-dev: {}
-system::classes:
-  - system::environment
-  - system::logrotate

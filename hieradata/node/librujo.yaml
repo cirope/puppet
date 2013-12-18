@@ -12,7 +12,3 @@ pg::create::databases:
     database: postman_production
     user: postman
     password: postman
-system::classes:
-  - system::environment
-  - system::logrotate
-  - system::sysctl
