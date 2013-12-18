@@ -9,6 +9,7 @@ packages::extra:
   RedHat:
     ImageMagick: {}
     postgresql-libs: {}
+    postgresql-devel: {}
     readline-devel: {}
     nodejs: {}
 system::classes:
