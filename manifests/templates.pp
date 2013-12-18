@@ -31,5 +31,7 @@ class server::all {
 }
 
 class server::php {
+  include server::web
+  include server::db
   include php
 }
