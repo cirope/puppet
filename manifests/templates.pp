@@ -1,13 +1,11 @@
-include vars
-
 class baseclass {
-  include $::osfamily
-
-  include system
-  include swap
-  include packages
-  include services
-  include user
+  include $::osfamily,
+    vars,
+    system,
+    swap,
+    packages,
+    services,
+    user
 }
 
 class role::web {
