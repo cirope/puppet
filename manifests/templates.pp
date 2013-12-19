@@ -10,11 +10,11 @@ class baseclass {
   include user
 }
 
-class server::web {
+class role::web {
   include nginx
 }
 
-class server::app {
+class role::app {
   include system::environment
   include system::logrotate
   include user::deployer
@@ -22,19 +22,19 @@ class server::app {
   include newrelic
 }
 
-class server::db {
+class role::db {
   include system::sysctl
   include pg
 }
 
-class server::all {
-  include server::web
-  include server::app
-  include server::db
+class role::all {
+  include role::web
+  include role::app
+  include role::db
 }
 
-class server::php {
-  include server::web
-  include server::db
+class role::php {
+  include role::web
+  include role::db
   include php
 }
