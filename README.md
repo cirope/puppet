@@ -2,6 +2,8 @@
 
 Puppet configurations used in Cirope's servers. All running Rails (or at least Rack) applications.
 
+The only _official_ supported distribution is Ubuntu (typically the last LTS available)
+
 ## Installation
 
 Via `curl`
