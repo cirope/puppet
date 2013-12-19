@@ -19,27 +19,27 @@ class user::deployer {
     require    => [Group[$group], Package['zsh']]
   }
 
-  user::config::gem { $username:
+  user::dotfiles::gem { $username:
     user  => $username,
     group => $group
   }
 
-  user::config::irb { $username:
+  user::dotfiles::irb { $username:
     user  => $username,
     group => $group
   }
 
-  user::config::tmux { $username:
+  user::dotfiles::tmux { $username:
     user  => $username,
     group => $group
   }
 
-  user::config::vim { $username:
+  user::dotfiles::vim { $username:
     user  => $username,
     group => $group
   }
 
-  user::config::zsh { $username:
+  user::dotfiles::zsh { $username:
     user  => $username,
     group => $group
   }

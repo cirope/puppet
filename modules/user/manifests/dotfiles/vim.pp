@@ -1,4 +1,4 @@
-define user::config::vim(
+define user::dotfiles::vim(
   $user,
   $group = $user,
   $home  = "/home/${user}"
@@ -13,7 +13,7 @@ define user::config::vim(
     owner   => $user,
     group   => $group,
     require => [User[$user], Package[$vimpackage]],
-    source  => 'puppet:///modules/user/vim/.vimrc'
+    source  => 'puppet:///modules/user/dotfiles/vimrc'
   }
 
   file { "${home}/.vim":

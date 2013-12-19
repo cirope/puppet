@@ -9,17 +9,17 @@ class user::root {
     user => 'root'
   }
 
-  user::config::tmux { 'root':
+  user::dotfiles::tmux { 'root':
     user => 'root',
     home => '/root'
   }
 
-  user::config::vim { 'root':
+  user::dotfiles::vim { 'root':
     user => 'root',
     home => '/root'
   }
 
-  user::config::zsh { 'root':
+  user::dotfiles::zsh { 'root':
     user => 'root',
     home => '/root'
   }

@@ -1,4 +1,4 @@
-define user::config::irb(
+define user::dotfiles::irb(
   $user,
   $group = $user,
   $home  = "/home/${user}"
@@ -9,6 +9,6 @@ define user::config::irb(
     group   => $group,
     mode    => '0644',
     require => User[$user],
-    source  => 'puppet:///modules/user/irb/.irbrc'
+    source  => 'puppet:///modules/user/dotfiles/irbrc'
   }
 }

@@ -1,4 +1,4 @@
-define user::config::zsh(
+define user::dotfiles::zsh(
   $user,
   $group = $user,
   $home  = "/home/${user}"
@@ -11,7 +11,7 @@ define user::config::zsh(
     owner   => $user,
     group   => $group,
     require => User[$user],
-    source  => 'puppet:///modules/user/zsh/.zshrc',
+    source  => 'puppet:///modules/user/dotfiles/zshrc',
   }
 
   exec { "${user}_ohmyzsh":
