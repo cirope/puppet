@@ -1,7 +1,7 @@
 class services($extra = []) {
   $ntp_service_name = $::osfamily ? {
-    debian => 'ntp',
-    redhat => 'ntpd'
+    debian  => 'ntp',
+    default => 'ntpd'
   }
 
   service { 'ntp':

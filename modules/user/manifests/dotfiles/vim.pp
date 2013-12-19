@@ -4,8 +4,9 @@ define user::dotfiles::vim(
   $home  = "/home/${user}"
 ) {
   $vimpackage = $::osfamily ? {
-    debian => 'vim-nox',
-    redhat => 'vim-enhanced'
+    debian    => 'vim-nox',
+    redhat    => 'vim-enhanced',
+    archlinux => 'gvim'
   }
 
   file { "${home}/.vimrc":

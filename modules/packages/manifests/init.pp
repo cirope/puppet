@@ -1,9 +1,11 @@
-class packages($extra = {}) {
+class packages($extra = undef) {
   include packages::install
 
   $defaults = {
     ensure => present
   }
 
-  create_resources('package', $extra[$::osfamily], $defaults)
+  if $extra {
+    create_resources('package', $extra[$::osfamily], $defaults)
+  }
 }
