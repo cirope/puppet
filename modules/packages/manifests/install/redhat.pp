@@ -1,4 +1,4 @@
-class packages::install::centos {
+class packages::install::redhat {
   package { 'curl':
     ensure => present
   }

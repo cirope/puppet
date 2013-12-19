@@ -1,4 +1,4 @@
-class packages::install::ubuntu {
+class packages::install::debian {
   package { 'whoopsie':
     ensure => absent
   }

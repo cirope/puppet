@@ -1,4 +1,4 @@
-class system::locales::ubuntu {
+class system::locales::debian {
   package { 'locales':
     ensure => present
   }

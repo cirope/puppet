@@ -1,4 +1,4 @@
-class nginx::install::ubuntu {
+class nginx::install::debian {
   apt::ppa { 'ppa:nginx/stable': }
 
   package { 'nginx':

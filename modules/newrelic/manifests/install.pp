@@ -1,8 +1,8 @@
 class newrelic::install {
   case $::osfamily {
-    redhat:    { include newrelic::install::centos }
-    debian:    { include newrelic::install::ubuntu }
     archlinux: { include newrelic::install::archlinux }
+    debian:    { include newrelic::install::debian }
+    redhat:    { include newrelic::install::redhat }
     default:   { fail('Unrecognized operating system for newrelic') }
   }
 }

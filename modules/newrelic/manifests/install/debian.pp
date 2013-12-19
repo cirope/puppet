@@ -1,4 +1,4 @@
-class newrelic::install::ubuntu {
+class newrelic::install::debian {
   apt::source { 'newrelic':
     ensure      => present,
     location    => 'http://apt.newrelic.com/debian/',

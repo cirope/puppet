@@ -1,8 +1,8 @@
 class packages::install {
   case $::osfamily {
-    redhat:    { include packages::install::centos }
-    debian:    { include packages::install::ubuntu }
     archlinux: { include packages::install::archlinux }
+    debian:    { include packages::install::debian }
+    redhat:    { include packages::install::redhat }
     default:   { fail('Unrecognized operating system') }
   }
 }
