@@ -11,12 +11,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.host_name = 'cirope.com'
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = 'precise64'
+  config.vm.box = 'arch64'
   config.vm.provision :shell, path: 'tools/install.sh'
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
-  config.vm.box_url = 'http://files.vagrantup.com/precise64.box'
+  config.vm.box_url = 'https://downloads.sourceforge.net/project/vagrant-archlinux/vagrant-archlinux.box'
 
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
@@ -47,7 +47,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Example for VirtualBox:
   #
   config.vm.provider 'virtualbox' do |vb|
-    vb.name = 'Cirope Ubuntu 12.04'
+    vb.name = 'Cirope Arch'
     vb.customize ['modifyvm', :id, '--memory', '1024']
   end
   #

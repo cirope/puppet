@@ -1,16 +1,9 @@
 if [ ! -f /usr/bin/puppet ]; then
-  if [ -f /etc/debian_version ]; then
-    PACKAGE=puppetlabs-release-precise.deb
-    SERVER=http://apt.puppetlabs.com/ 
-
-    wget $SERVER$PACKAGE
-    dpkg -i $PACKAGE
-    rm $PACKAGE
-
-    apt-get update
-    apt-get install -y -o Dpkg::Options::="--force-confold" puppet
+  if [ -f /etc/arch-release ]; then
+    sh /etc/puppet/tools/install/archlinux.sh
+  elif [ -f /etc/debian_version ]; then
+    sh /etc/puppet/tools/install/debian.sh
   elif [ -f /etc/redhat-release ]; then
-    rpm -ivh http://yum.puppetlabs.com/el/6/products/x86_64/puppetlabs-release-6-7.noarch.rpm
-    yum -y install puppet
+    sh /etc/puppet/tools/install/redhat.sh
   fi
 fi
