@@ -1,9 +1,6 @@
 # begin _rackapp.conf
   try_files $uri/index.html $uri.html $uri @app;
 
-  upload_resumable on;
-  upload_max_file_size 0;
-
   location @app {
     # an HTTP header important enough to have its own Wikipedia entry:
     #   http://en.wikipedia.org/wiki/X-Forwarded-For
