@@ -6,6 +6,9 @@
 
   keepalive_timeout 5;
 
+  upload_resumable on;
+  upload_max_file_size 0;
+
   # path for static files
   root /var/www;
   index index.html index.htm index.php;
