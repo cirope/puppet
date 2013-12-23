@@ -8,7 +8,9 @@ ensure_module () {
 
 HOSTNAME=`uname -n`
 
-ensure_module apt puppetlabs/apt
+if [ -f /etc/debian_version ]; then
+  ensure_module apt puppetlabs/apt
+fi
 
 if [[ $HOSTNAME == 'app' || ($HOSTNAME != 'web' && $HOSTNAME != 'db') ]]; then
   ensure_module rbenv alup/rbenv
