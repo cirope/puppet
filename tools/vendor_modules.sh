@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-HOSTNAME=`uname -n`
+HOSTNAME=`facter hostname`
 
 ensure_module () {
   if [ ! -d /etc/puppet/modules/$1 ]; then
