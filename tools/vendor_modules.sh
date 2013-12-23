@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-HOSTNAME=`facter hostname`
+HN=`facter hostname`
+APP_SERVER=$HN == 'app' || ($HN != 'web' && $HN != 'db' && $HN != 'php')
+DB_SERVER=$HN == 'db' || ($HN != 'web' && $HN != 'app')
 
 ensure_module () {
   if [ ! -d /etc/puppet/modules/$1 ]; then
@@ -12,14 +14,14 @@ if [ -f /etc/debian_version ]; then
   ensure_module apt puppetlabs/apt
 fi
 
-if [[ $HOSTNAME == 'app' || ($HOSTNAME != 'web' && $HOSTNAME != 'db') ]]; then
+if [[ $APP_SERVER ]]; then
   ensure_module rbenv alup/rbenv
 fi
 
-if [[ $HOSTNAME == 'db' || ($HOSTNAME != 'web' && $HOSTNAME != 'app') ]]; then
+if [[ $DB_SERVER ]]; then
   ensure_module postgresql puppetlabs/postgresql
 fi
 
-if [[ $HOSTNAME == 'php' ]]; then
+if [[ $HN == 'php' ]]; then
   ensure_module pear rafaelfc/pear
 fi
