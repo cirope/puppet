@@ -4,6 +4,16 @@ ensure_module () {
   fi
 }
 
-ensure_module rbenv alup/rbenv
-ensure_module postgresql puppetlabs/postgresql
-ensure_module pear rafaelfc/pear
+HOSTNAME=`uname -n`
+
+if [ $HOSTNAME == 'app' || ($HOSTNAME != 'web' && $HOSTNAME != 'db') ]; then
+  ensure_module rbenv alup/rbenv
+fi
+
+if [ $HOSTNAME == 'db' || ($HOSTNAME != 'web' && $HOSTNAME != 'app') ]; then
+  ensure_module postgresql puppetlabs/postgresql
+fi
+
+if [ $HOSTNAME == 'php' ]; then
+  ensure_module pear rafaelfc/pear
+fi
