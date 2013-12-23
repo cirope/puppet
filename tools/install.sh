@@ -10,7 +10,9 @@ install_git () {
   fi
 }
 
-if [ ! -d /etc/puppet ]; then
+if [ ! -d /etc/puppet/.git ]; then
+  rm -rf /etc/puppet
+
   install_git
 
   git clone https://github.com/cirope/puppet.git /etc/puppet

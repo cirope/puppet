@@ -1,5 +1,5 @@
 PACKAGE=puppetlabs-release-precise.deb
-SERVER=http://apt.puppetlabs.com/ 
+SERVER=http://apt.puppetlabs.com/
 
 wget $SERVER$PACKAGE
 dpkg -i $PACKAGE
