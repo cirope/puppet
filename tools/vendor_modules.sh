@@ -8,9 +8,10 @@ ensure_module () {
 
 HOSTNAME=`uname -n`
 
+ensure_module apt puppetlabs/apt
+
 if [[ $HOSTNAME == 'app' || ($HOSTNAME != 'web' && $HOSTNAME != 'db') ]]; then
   ensure_module rbenv alup/rbenv
-  ensure_module apt puppetlabs/apt
 fi
 
 if [[ $HOSTNAME == 'db' || ($HOSTNAME != 'web' && $HOSTNAME != 'app') ]]; then
@@ -18,6 +19,5 @@ if [[ $HOSTNAME == 'db' || ($HOSTNAME != 'web' && $HOSTNAME != 'app') ]]; then
 fi
 
 if [[ $HOSTNAME == 'php' ]]; then
-  ensure_module apt puppetlabs/apt
   ensure_module pear rafaelfc/pear
 fi
