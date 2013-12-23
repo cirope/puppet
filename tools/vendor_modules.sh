@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
 HN=`facter hostname`
-APP_SERVER=$HN == 'app' || ($HN != 'web' && $HN != 'db' && $HN != 'php')
-DB_SERVER=$HN == 'db' || ($HN != 'web' && $HN != 'app')
+
+if [[ $HN == 'app' || ($HN != 'web' && $HN != 'db' && $HN != 'php') ]]; then APP_SERVER=true; fi
+if [[ $HN == 'db' || ($HN != 'web' && $HN != 'app') ]]; then DB_SERVER=true; fi
 
 ensure_module () {
   if [ ! -d /etc/puppet/modules/$1 ]; then
