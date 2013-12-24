@@ -2,7 +2,8 @@
 
 HN=`facter hostname`
 
-if [[ $HN == 'app' || ($HN != 'web' && $HN != 'db' && $HN != 'php') ]]; then APP_SERVER=true; fi
+if [[ $HN == 'php' || $HN == 'owncloud' ]]; then PHP_SERVER=true; fi
+if [[ $HN == 'app' || ($HN != 'web' && $HN != 'db' && ! $PHP_SERVER) ]]; then APP_SERVER=true; fi
 if [[ $HN == 'db' || ($HN != 'web' && $HN != 'app') ]]; then DB_SERVER=true; fi
 
 ensure_module () {
@@ -23,6 +24,6 @@ if [[ $DB_SERVER ]]; then
   ensure_module postgresql puppetlabs/postgresql
 fi
 
-if [[ $HN == 'php' || $HN == 'owncloud' ]]; then
+if [[ $PHP_SERVER ]]; then
   ensure_module pear rafaelfc/pear
 fi
