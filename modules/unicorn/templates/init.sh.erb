@@ -1,3 +1,5 @@
+<%= scope.function_template(["unicorn/headers/_#{@osfamily.downcase}.sh.erb"]) %>
+
 set -e
 
 CURRENT_USER=`id -nu`
