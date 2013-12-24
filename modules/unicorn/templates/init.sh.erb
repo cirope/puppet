@@ -1,9 +1,3 @@
-#!/bin/sh
-# chkconfig: 2345 95 20
-# description: Unicorn script
-# Manage the unicorn service as a non privileged user (at least the user not need admin)
-# processname: unicorn
-
 set -e
 
 CURRENT_USER=`id -nu`
@@ -47,7 +41,7 @@ force-stop)
   sig TERM && exit 0
   echo >&2 "Not running"
   ;;
-restart|reload)
+restart|reload|force-reload)
   sig HUP && echo reloaded OK && exit 0
   echo >&2 "Couldn't reload, starting '$CMD' instead"
   run
@@ -61,7 +55,7 @@ reopen-logs)
   sig USR1
   ;;
 *)
-  echo >&2 "Usage: $0 <start|stop|restart|upgrade|force-stop|reopen-logs>"
+  echo >&2 "Usage: $0 <start|stop|restart|reload|force-reload|upgrade|force-stop|reopen-logs>"
   exit 1
   ;;
 esac

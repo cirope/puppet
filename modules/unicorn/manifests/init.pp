@@ -10,6 +10,9 @@ class unicorn {
     group   => 'root',
     mode    => '0755',
     notify  => Service['unicorn'],
-    content => template('unicorn/init.sh.erb')
+    content => template(
+      "unicorn/headers/_${::osfamily}.sh.erb",
+      'unicorn/init.sh.erb'
+    )
   }
 }
