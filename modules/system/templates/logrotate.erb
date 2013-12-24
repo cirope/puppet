@@ -1,6 +1,6 @@
 # Rotate application logs based on file size
 # Rotate log if file greater than 20 MB
-<%= scope.lookupvar('vars::apps_root') %>/<%= @fqdn %>/shared/log/*.log {
+<%= scope['vars::apps_root'] %>/<%= @fqdn %>/shared/log/*.log {
     size=20M
     missingok
     rotate 52

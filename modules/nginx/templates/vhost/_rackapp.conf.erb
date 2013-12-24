@@ -35,6 +35,6 @@
   # Rails error pages
   error_page 500 502 503 504 /500.html;
   location = /500.html {
-    root <%= scope.lookupvar('vars::apps_root') %>/<%= @fqdn %>/current/public;
+    root <%= scope['vars::apps_root'] %>/<%= @fqdn %>/current/public;
   }
   # end _rackapp.conf

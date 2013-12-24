@@ -3,11 +3,11 @@
 set -e
 
 CURRENT_USER=`id -nu`
-USER=<%= scope.lookupvar('user::deployer::username') %>
-USER_HOME=<%= scope.lookupvar('user::deployer::home') %>
+USER=<%= scope['user::deployer::username'] %>
+USER_HOME=<%= scope['user::deployer::home'] %>
 BUNDLE=$USER_HOME/.rbenv/shims/bundle
 
-APP_ROOT=<%= scope.lookupvar('vars::apps_root') %>/<%= @fqdn %>/current
+APP_ROOT=<%= scope['vars::apps_root'] %>/<%= @fqdn %>/current
 PID=/tmp/unicorn.pid
 ENV=<%= @virtual == 'virtualbox' ? 'sandbox' : 'production' %>
 CMD="cd $APP_ROOT; $BUNDLE exec $APP_ROOT/bin/unicorn -D -c $APP_ROOT/config/unicorn.rb -E $ENV"
