@@ -8,15 +8,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # All Vagrant configuration is done here. The most common configuration
   # options are documented and commented below. For a complete reference,
   # please see the online documentation at vagrantup.com.
-  config.vm.host_name = 'cirope.com'
+  config.vm.host_name = 'php.cirope.com'
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = 'arch64'
+  config.vm.box = 'precise64'
   config.vm.provision :shell, path: 'tools/install.sh'
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
-  config.vm.box_url = 'https://dl.dropboxusercontent.com/u/6750592/Arch_Linux_2013.11_x64.box'
+  config.vm.box_url = 'http://files.vagrantup.com/precise64.box'
 
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
@@ -47,7 +47,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Example for VirtualBox:
   #
   config.vm.provider 'virtualbox' do |vb|
-    vb.name = 'Cirope arch64'
+    vb.name = 'PHP Cirope precise64'
     vb.customize ['modifyvm', :id, '--memory', '1024']
   end
   #
