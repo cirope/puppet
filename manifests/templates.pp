@@ -35,5 +35,4 @@ class role::php {
   include role::web
   include role::db
   include php
-  include pear_conf
 }

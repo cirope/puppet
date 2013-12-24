@@ -1,4 +1,6 @@
 class php {
+  include php::pear_conf
+
   file { '/etc/php5/fpm/php.ini' :
     ensure  => present,
     owner   => 'root',
