@@ -23,6 +23,6 @@ if [[ $DB_SERVER ]]; then
   ensure_module postgresql puppetlabs/postgresql
 fi
 
-if [[ $HN == 'php' ]]; then
+if [[ $HN == 'php' || $HN == 'owncloud' ]]; then
   ensure_module pear rafaelfc/pear
 fi
