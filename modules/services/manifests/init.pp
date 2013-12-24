@@ -1,4 +1,4 @@
-class services($extra = {}) {
+class services {
   $ntp_service_name = $::osfamily ? {
     debian  => 'ntp',
     default => 'ntpd'
@@ -20,6 +20,4 @@ class services($extra = {}) {
     ensure => running,
     enable => true
   }
-
-  create_resources('service', $extra, $defaults)
 }

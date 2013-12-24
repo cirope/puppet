@@ -1,5 +1,7 @@
 class php {
-  include php::pear_conf
+  include php::install
+  include php::service
+  include php::pear
 
   file { '/etc/php5/fpm/php.ini' :
     ensure  => present,
