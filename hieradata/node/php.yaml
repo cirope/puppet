@@ -1,6 +1,4 @@
 ---
-classes:
-  - pear_conf
 nginx::server: vhost-php
 packages::extra:
   Debian:
