@@ -23,7 +23,3 @@ fi
 if [[ $DB_SERVER ]]; then
   ensure_module postgresql puppetlabs/postgresql
 fi
-
-if [[ $PHP_SERVER ]]; then
-  ensure_module pear rafaelfc/pear
-fi
