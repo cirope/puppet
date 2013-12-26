@@ -3,7 +3,7 @@ class owncloud::datadir {
     ensure  => directory,
     owner   => 'www-data',
     group   => 'www-data',
-    mode    => '0755',
+    mode    => '0770',
     require => Package['owncloud']
   }
 }
