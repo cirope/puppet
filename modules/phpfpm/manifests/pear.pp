@@ -1,4 +1,4 @@
-class php::pear {
+class phpfpm::pear {
   include pear
 
   pear::package { 'zendopcache':

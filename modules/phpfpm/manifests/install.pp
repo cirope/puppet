@@ -1,4 +1,4 @@
-class php::install {
+class phpfpm::install {
   package { 'php5-cli':
     ensure => present
   }

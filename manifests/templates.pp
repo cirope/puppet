@@ -34,7 +34,7 @@ class role::all {
 class role::php {
   include role::web
   include role::db
-  include php
+  include phpfpm
 }
 
 class role::owncloud {
