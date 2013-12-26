@@ -1,5 +1,5 @@
 class phpfpm::install {
-  package { 'php5-apc':
+  package { 'php-apc':
     ensure => present
   }
 
