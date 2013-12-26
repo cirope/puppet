@@ -1,43 +1,43 @@
 class baseclass {
   include $::osfamily,
-    vars,
-    system,
-    swap,
-    packages,
-    services,
-    user
+    ::vars,
+    ::system,
+    ::swap,
+    ::packages,
+    ::services,
+    ::user
 }
 
 class role::web {
-  include nginx
+  include ::nginx
 }
 
 class role::app {
-  include system::environment
-  include system::logrotate
-  include user::deployer
-  include unicorn
-  include newrelic
+  include ::system::environment
+  include ::system::logrotate
+  include ::user::deployer
+  include ::unicorn
+  include ::newrelic
 }
 
 class role::db {
-  include system::sysctl
-  include pg
+  include ::system::sysctl
+  include ::pg
 }
 
 class role::all {
-  include role::web
-  include role::app
-  include role::db
+  include ::role::web
+  include ::role::app
+  include ::role::db
 }
 
 class role::php {
-  include role::web
-  include role::db
-  include phpfpm
+  include ::role::web
+  include ::role::db
+  include ::phpfpm
 }
 
 class role::owncloud {
-  include role::php
-  include owncloud
+  include ::role::php
+  include ::owncloud
 }
