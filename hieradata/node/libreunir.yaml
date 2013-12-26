@@ -1,0 +1,7 @@
+---
+nginx::server: vhost-rack
+packages::extra:
+  Debian:
+    libpq-dev: {}
+    nodejs: {}
+    redis-server: {}
