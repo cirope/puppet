@@ -1,37 +1,18 @@
 #!/usr/bin/env bash
+set -eu
 
-if [ -f /etc/puppet/tools/distro.sh ]; then
-  source /etc/puppet/tools/distro.sh
-else
-  wget https://raw.github.com/cirope/puppet/master/tools/distro.sh -O - | bash
+if   [ -f /etc/arch-release ];   then export SCRIPT=archlinux.sh
+elif [ -f /etc/debian_version ]; then export SCRIPT=debian.sh
+elif [ -f /etc/redhat-release ]; then export SCRIPT=redhat.sh
 fi
 
-debian_upgrade () {
-  apt-get update
-  DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confold" dist-upgrade
-}
+URL=https://raw.github.com/cirope/puppet/master/tools/install/$SCRIPT
 
-upgrade () {
-  if   [ $ARCHLINUX ]; then pacman -Syu --noconfirm
-  elif [ $DEBIAN ];    then debian_upgrade
-  elif [ $REDHAT ];    then yum -y update
-  fi
-}
-
-install_git () {
-  if   [ $ARCHLINUX ]; then pacman -S --needed --noconfirm git
-  elif [ $DEBIAN ];    then apt-get install -y git
-  elif [ $REDHAT ];    then yum -y install git
-  fi
-}
-
-upgrade
+(wget $URL -O - 2>/dev/null || curl -L $URL) | bash
 
 if [ ! -d /etc/puppet/.git ]; then
   rm -rf /etc/puppet
-  install_git
   git clone https://github.com/cirope/puppet.git /etc/puppet
-  source /etc/puppet/tools/install_puppet.sh
 fi
 
 source /etc/puppet/tools/update.sh

@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -eu
 
 cd /etc/puppet
 git clean -f -d
