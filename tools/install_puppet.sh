@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
 
 if [ ! -f /usr/bin/puppet ]; then
-  if [ -f /etc/arch-release ]; then
-    source /etc/puppet/tools/install/archlinux.sh
-  elif [ -f /etc/debian_version ]; then
-    source /etc/puppet/tools/install/debian.sh
-  elif [ -f /etc/redhat-release ]; then
-    source /etc/puppet/tools/install/redhat.sh
+  if   [ $ARCHLINUX ]; then RUN=archlinux.sh
+  elif [ $DEBIAN ];    then RUN=debian.sh
+  elif [ $REDHAT ];    then RUN=redhat.sh
   fi
+
+  source /etc/puppet/tools/install/$RUN
 fi
