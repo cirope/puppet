@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
-if   [ -f /etc/arch-release ];   then ARCHLINUX=true
-elif [ -f /etc/debian_version ]; then DEBIAN=true
-elif [ -f /etc/redhat-release ]; then REDHAT=true
+if [ -f /etc/puppet/tools/distro.sh ]; then
+  source /etc/puppet/tools/distro.sh
+else
+  wget https://raw.github.com/cirope/puppet/master/tools/distro.sh -O - | bash
 fi
 
 debian_upgrade () {

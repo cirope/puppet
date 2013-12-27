@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+source /etc/puppet/tools/distro.sh
+
 if [ ! -f /usr/bin/puppet ]; then
   if   [ $ARCHLINUX ]; then RUN=archlinux.sh
   elif [ $DEBIAN ];    then RUN=debian.sh
