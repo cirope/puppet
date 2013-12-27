@@ -5,9 +5,14 @@ elif [ -f /etc/debian_version ]; then DEBIAN=true
 elif [ -f /etc/redhat-release ]; then REDHAT=true
 fi
 
+debian_upgrade () {
+  apt-get update
+  DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confold" dist-upgrade
+}
+
 upgrade () {
   if   [ $ARCHLINUX ]; then pacman -Syu --noconfirm
-  elif [ $DEBIAN ];    then apt-get update; apt-get dist-upgrade -y
+  elif [ $DEBIAN ];    then debian_upgrade
   elif [ $REDHAT ];    then yum -y update
   fi
 }
