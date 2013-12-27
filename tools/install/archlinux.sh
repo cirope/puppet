@@ -1,4 +1,3 @@
-pacman -Syu --noconfirm
 pacman -S --needed --noconfirm base-devel wget
 
 wget https://aur.archlinux.org/packages/pu/puppet/puppet.tar.gz

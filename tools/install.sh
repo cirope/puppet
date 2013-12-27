@@ -2,10 +2,14 @@
 
 install_git () {
   if [ -f /etc/debian_version ]; then
+    apt-get update
+    apt-get dist-upgrade -y
     apt-get install -y git
   elif [ -f /etc/arch-release ]; then
+    pacman -Syu --noconfirm
     pacman -S --needed --noconfirm git
   elif [ -f /etc/redhat-release ]; then
+    yum -y update
     yum -y install git
   fi
 }
