@@ -12,4 +12,5 @@ wget $SERVER$PACKAGE
 dpkg -i $PACKAGE
 rm $PACKAGE
 
+apt-get update
 apt-get install -y -o Dpkg::Options::="--force-confold" puppet
