@@ -7,3 +7,9 @@ packages::extra:
     libpq-dev: {}
     nodejs: {}
     redis-server: {}
+  RedHat:
+    ImageMagick: {}
+    postgresql-libs: {}
+    postgresql-devel: {}
+    nodejs: {}
+    redis: {}
