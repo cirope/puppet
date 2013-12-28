@@ -10,5 +10,4 @@ packages::extra:
     ImageMagick: {}
     postgresql-libs: {}
     postgresql-devel: {}
-    readline-devel: {}
     nodejs: {}
