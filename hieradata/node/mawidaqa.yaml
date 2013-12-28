@@ -10,3 +10,4 @@ packages::extra:
     postgresql-libs: {}
     postgresql-devel: {}
     nodejs: {}
+    redis: {}
