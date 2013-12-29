@@ -1,6 +1,7 @@
 class system {
   case $::osfamily {
-    debian: { include system::initializers::debian }
+    debian:  { include system::initializers::debian }
+    default: { }
   }
 
   include system::locales
