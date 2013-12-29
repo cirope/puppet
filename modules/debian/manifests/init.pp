@@ -1,3 +1,0 @@
-class debian {
-  include apt
-}

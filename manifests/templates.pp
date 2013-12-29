@@ -1,6 +1,5 @@
 class baseclass {
-  include $::osfamily,
-    ::vars,
+  include ::vars,
     ::system,
     ::swap,
     ::packages,
