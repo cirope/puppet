@@ -1,11 +1,12 @@
 ---
+classes:
+  - redis
 newrelic::license: '93f7bf3ede20ddf86175211a7ca086d26f5231b0'
 nginx::server: vhost-rack
 packages::extra:
   Debian:
     libpq-dev: {}
     nodejs: {}
-    redis-server: {}
 pg::create::databases:
   postman_production:
     database: postman_production
