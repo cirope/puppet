@@ -1,9 +1,6 @@
 worker_processes <%= @processorcount %>;
 user <%= scope['nginx::config::user'] %> <%= scope['nginx::config::group'] %>;
 
-error_log /var/log/nginx/error.log;
-pid       /var/run/nginx.pid;
-
 events {
   worker_connections 1024;
   accept_mutex <%= @processorcount.to_i > 1 ? 'on' : 'off' %>;
