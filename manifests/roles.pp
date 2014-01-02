@@ -24,10 +24,10 @@ class role::all {
 class role::php {
   include ::role::web
   include ::role::db
-  include ::phpfpm
+  include ::php::fpm
 }
 
 class role::owncloud {
   include ::role::php
-  include ::owncloud
+  include ::php::owncloud
 }

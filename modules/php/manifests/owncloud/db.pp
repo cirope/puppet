@@ -1,4 +1,4 @@
-class owncloud::db(
+class php::owncloud::db(
   $database = 'owncloud',
   $user     = 'owncloud',
   $password = 'owncloud'

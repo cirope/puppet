@@ -1,4 +1,4 @@
-class owncloud::datadir {
+class php::owncloud::datadir {
   file { '/var/lib/owncloud':
     ensure  => directory,
     owner   => 'www-data',

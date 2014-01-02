@@ -1,4 +1,4 @@
-class owncloud::install {
+class php::owncloud::install {
   apt::source { 'owncloud':
     ensure      => present,
     location    => 'http://download.opensuse.org/repositories/isv:ownCloud:community/xUbuntu_12.04/',

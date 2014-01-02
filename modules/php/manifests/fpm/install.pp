@@ -1,4 +1,4 @@
-class phpfpm::install {
+class php::fpm::install {
   package { 'php-apc':
     ensure => present
   }
