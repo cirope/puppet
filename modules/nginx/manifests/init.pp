@@ -1,4 +1,4 @@
-class nginx($server = undef) {
+class nginx {
   include nginx::install
   include nginx::config
 

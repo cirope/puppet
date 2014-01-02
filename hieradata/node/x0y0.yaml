@@ -1,5 +1,5 @@
 ---
-nginx::server: vhost-rack
+nginx::config::server: vhost-rack
 packages::extra:
   Debian:
     libpq-dev: {}

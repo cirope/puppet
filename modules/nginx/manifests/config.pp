@@ -1,4 +1,4 @@
-class nginx::config {
+class nginx::config($server = undef) {
   $user = $::osfamily ? {
     archlinux => 'http',
     debian    => 'www-data',

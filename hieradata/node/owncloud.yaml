@@ -1,2 +1,2 @@
 ---
-nginx::server: vhost-php
+nginx::config::server: vhost-php
