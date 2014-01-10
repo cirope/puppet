@@ -8,9 +8,12 @@ USER_HOME=<%= scope['user::deployer::home'] %>
 BUNDLE=$USER_HOME/.rbenv/shims/bundle
 
 APP_ROOT=<%= scope['vars::apps_root'] %>/<%= @fqdn %>/current
-PID=/tmp/unicorn.pid
 ENV=<%= @virtual == 'virtualbox' ? 'sandbox' : 'production' %>
-CMD="cd $APP_ROOT; $BUNDLE exec $APP_ROOT/bin/unicorn -D -c $APP_ROOT/config/unicorn.rb -E $ENV"
+GEMFILE=$APP_ROOT/Gemfile
+UNICORN=$APP_ROOT/bin/unicorn
+UNICORN_CONFIG=$APP_ROOT/config/unicorn.rb
+PID=/tmp/unicorn.pid
+CMD="cd $APP_ROOT; BUNDLE_GEMFILE=$GEMFILE $BUNDLE exec $UNICORN -D -c $UNICORN_CONFIG -E $ENV"
 
 action="$1"
 
