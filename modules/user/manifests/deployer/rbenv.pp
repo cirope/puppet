@@ -1,5 +1,5 @@
 class user::deployer::rbenv {
-  $ruby_version = '2.1.0'
+  $ruby_version = '2.1.1'
 
   rbenv::install { 'deployer':
     group   => $user::deployer::group,
