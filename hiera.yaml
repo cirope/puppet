@@ -1,6 +1,7 @@
 ---
 :backends: yaml
 :hierarchy:
+  - "node/%{fqdn}"
   - "node/%{hostname}"
   - common
 :logger: console
