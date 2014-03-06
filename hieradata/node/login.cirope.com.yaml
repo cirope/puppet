@@ -4,3 +4,8 @@ packages::extra:
   Debian:
     libpq-dev: {}
     nodejs: {}
+pg::create::databases:
+  store_production:
+    database: store_production
+    user: store
+    password: store
