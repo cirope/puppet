@@ -1,4 +1,4 @@
-class nginx::config($server = undef) {
+class nginx::config($server = undef, $long_proxy_timeout = false) {
   $user = $::osfamily ? {
     archlinux => 'http',
     debian    => 'www-data',

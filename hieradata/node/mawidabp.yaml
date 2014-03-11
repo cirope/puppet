@@ -1,6 +1,7 @@
 ---
 newrelic::license: 'e64beedb75301e0459849515b5b4e1177d1122a7'
 nginx::config::server: vhost-rack
+nginx::config::long_proxy_timeout: true
 packages::extra:
   Debian:
     imagemagick: {}
