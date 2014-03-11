@@ -1,6 +1,8 @@
 ---
 :backends: yaml
 :hierarchy:
+  - "private/%{fqdn}"
+  - "private/%{hostname}"
   - "node/%{fqdn}"
   - "node/%{hostname}"
   - common
