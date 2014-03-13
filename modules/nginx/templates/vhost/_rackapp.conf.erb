@@ -1,13 +1,17 @@
 # begin _rackapp.conf
   try_files $uri/index.html $uri.html $uri @app;
 
+  location /private_files/ {
+    alias <%= scope['vars::apps_root'] %>/<%= @fqdn %>/current/private/;
+    internal;
+  }
+
   location @app {
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     proxy_set_header X-Forwarded-Proto $scheme;
-    proxy_set_header X-Accel-Mapping "<%= scope['vars::apps_root'] %>/<%= @fqdn %>/releases/\d{14}/private/=/private/";
+    proxy_set_header X-Accel-Mapping "<%= scope['vars::apps_root'] %>/<%= @fqdn %>/releases/\d{14}/private/=/private_files/";
     proxy_set_header Host $http_host;
     proxy_redirect off;
-
     <%= 'proxy_read_timeout 360;' if @long_proxy_timeout %>
 
     proxy_pass http://unicorn;
