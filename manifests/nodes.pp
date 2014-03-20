@@ -1,4 +1,4 @@
-node 'cirope.com' {
+node 'cirope.com', 'quieroruby.com.ar' {
   include baseclass
   include role::web
   include role::app
