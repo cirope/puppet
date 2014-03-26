@@ -1,0 +1,6 @@
+---
+nginx::config::server: vhost-rack
+packages::extra:
+  Debian:
+    libsqlite3-dev: {}
+    nodejs: {}

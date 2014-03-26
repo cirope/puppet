@@ -1,4 +1,4 @@
-node 'cirope.com', 'quieroruby.com.ar' {
+node 'cirope.com', 'quieroruby.com.ar', 'terminal.quieroruby.com.ar' {
   include baseclass
   include role::web
   include role::app
