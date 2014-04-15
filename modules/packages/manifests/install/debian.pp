@@ -1,4 +1,6 @@
 class packages::install::debian {
+  class { 'apt::backports': }
+
   package { 'whoopsie':
     ensure => absent
   }
