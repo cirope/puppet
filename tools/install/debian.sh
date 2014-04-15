@@ -5,7 +5,7 @@ DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confold" d
 
 apt-get install -y git wget
 
-PACKAGE=puppetlabs-release-precise.deb
+PACKAGE=puppetlabs-release-$(lsb_release -s -c).deb
 SERVER=http://apt.puppetlabs.com/
 
 wget $SERVER$PACKAGE
