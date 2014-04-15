@@ -3,39 +3,18 @@ class system::locales::debian {
     ensure => present
   }
 
-  package { 'language-pack-es':
-    ensure  => present,
-    require => Package['locales']
-  }
-
-  file { 'local':
-    path    => '/var/lib/locales/supported.d/local',
-    source  => 'puppet:///modules/system/local',
+  file { 'locale.gen':
+    path    => '/etc/locale.gen',
+    source  => 'puppet:///modules/system/locale.gen',
     owner   => 'root',
     group   => 'root',
-    mode    => '0644',
-    require => Package['language-pack-es']
-  }
-
-  file { '/etc/default/locale':
-    source  => 'puppet:///modules/system/locale',
-    owner   => 'root',
-    group   => 'root',
-    mode    => '0644',
-    require => Package['language-pack-es']
+    mode    => '0644'
   }
 
   exec { 'locale-gen':
     user        => 'root',
     refreshonly => true,
-    subscribe   => File['local'],
-    require     => [Package['language-pack-es'], File['local']]
-  }
-
-  exec { 'update-locale':
-    user        => 'root',
-    refreshonly => true,
-    subscribe   => File['/etc/default/locale'],
-    require     => [Exec['locale-gen'], File['/etc/default/locale']]
+    subscribe   => File['locale.gen'],
+    require     => File['locale.gen']
   }
 }
