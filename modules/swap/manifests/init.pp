@@ -1,6 +1,8 @@
 class swap($file = '/mnt/swapfile') {
+  $memory_in_bytes = $vars::memory * 1024 * 1024
+
   exec { 'create_swap_file':
-    command => "fallocate -l ${vars::memory}m ${file}; mkswap ${file}; swapon ${file}",
+    command => "fallocate -l ${memory_in_bytes} ${file}; mkswap ${file}; swapon ${file}",
     user    => 'root',
     creates => $file
   }
