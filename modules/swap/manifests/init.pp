@@ -1,5 +1,5 @@
-class swap($file = '/mnt/swapfile') {
-  $memory_in_kb = $::vars::memory * 1024
+class swap($file = '/mnt/swapfile', $multiplier = 1) {
+  $memory_in_kb = $::vars::memory * 1024 * $multiplier
 
   exec { 'create_swap_file':
     command => "dd if=/dev/zero of=${file} bs=1024 count=${memory_in_kb}; mkswap ${file}; swapon ${file}",
