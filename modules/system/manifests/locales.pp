@@ -1,8 +1,9 @@
 class system::locales {
-  case $::osfamily {
-    archlinux: { include system::locales::archlinux }
-    debian:    { include system::locales::debian }
-    redhat:    { include system::locales::redhat }
-    default:   { fail('Unrecognized operating system for nginx') }
+  case $::operatingsystem {
+    archlinux:      { include system::locales::archlinux }
+    redhat, centos: { include system::locales::redhat }
+    debian:         { include system::locales::debian }
+    ubuntu:         { include system::locales::ubuntu }
+    default:        { fail('Unrecognized operating system for locales') }
   }
 }

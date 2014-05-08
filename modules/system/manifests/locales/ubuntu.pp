@@ -1,5 +1,9 @@
-class system::locales::debian {
+class system::locales::ubuntu {
   package { 'locales':
+    ensure => present
+  }
+
+  package { 'language-pack-es':
     ensure => present
   }
 
@@ -15,6 +19,10 @@ class system::locales::debian {
     user        => 'root',
     refreshonly => true,
     subscribe   => File['locale.gen'],
-    require     => [File['locale.gen'], Package['locales']]
+    require     => [
+      File['locale.gen'],
+      Package['locales'],
+      Package['language-pack-es']
+    ]
   }
 }
