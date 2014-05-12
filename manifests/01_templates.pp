@@ -6,5 +6,3 @@ class baseclass {
     ::services,
     ::user
 }
-
-import 'roles'
