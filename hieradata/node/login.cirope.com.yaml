@@ -1,11 +1,11 @@
 ---
 classes:
+  - nodejs
   - redis
 nginx::config::server: vhost-rack
 packages::extra:
   Debian:
     libpq-dev: {}
-    nodejs: {}
 pg::create::databases:
   store_production:
     database: store_production

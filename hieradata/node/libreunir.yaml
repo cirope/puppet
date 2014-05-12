@@ -1,13 +1,12 @@
 ---
 classes:
+  - nodejs
   - redis
 newrelic::license: 'e14eca2124d15f20523d74515c5646eb97456cf8'
 nginx::config::server: vhost-rack
 packages::extra:
   Debian:
     libpq-dev: {}
-    nodejs: {}
   RedHat:
     postgresql-libs: {}
     postgresql-devel: {}
-    nodejs: {}
