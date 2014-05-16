@@ -1,8 +1,9 @@
 class user::root {
   user { 'root':
-    ensure  => present,
-    shell   => '/bin/zsh',
-    require => Package['zsh']
+    ensure         => present,
+    shell          => '/bin/zsh',
+    purge_ssh_keys => true,
+    require        => Package['zsh']
   }
 
   user::ssh { 'root':

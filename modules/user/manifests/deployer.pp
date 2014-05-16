@@ -11,12 +11,13 @@ class user::deployer {
   }
 
   user { $username:
-    ensure     => present,
-    managehome => true,
-    home       => $home,
-    gid        => $group,
-    shell      => '/bin/zsh',
-    require    => [Group[$group], Package['zsh']]
+    ensure         => present,
+    managehome     => true,
+    home           => $home,
+    gid            => $group,
+    shell          => '/bin/zsh',
+    purge_ssh_keys => true,
+    require        => [Group[$group], Package['zsh']]
   }
 
   user::dotfiles::gem { $username:
