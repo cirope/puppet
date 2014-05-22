@@ -1,15 +1,17 @@
 class system::sysctl {
-  file { '/etc/sysctl.conf':
+  $local_conf = '/etc/sysctl.d/local.conf'
+
+  file { $local_conf:
     ensure  => file,
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
-    content => template('system/sysctl.conf.erb')
+    content => template('system/sysctl.local.conf.erb')
   }
 
   exec { 'sysctl':
-    command     => 'sysctl -p',
+    command     => "sysctl -p ${local_conf}",
     refreshonly => true,
-    subscribe   => File['/etc/sysctl.conf']
+    subscribe   => File[$local_conf]
   }
 }
