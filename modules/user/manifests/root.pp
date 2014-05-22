@@ -30,6 +30,6 @@ class user::root {
     ensure => file,
     owner  => 'root',
     group  => 'root',
-    source => 'puppet:///modules/user/.root_profile'
+    source => 'puppet:///modules/user/dotfiles/root_profile'
   }
 }
