@@ -4,7 +4,7 @@ Vagrant.configure VAGRANTFILE_API_VERSION do |config|
   config.vm.hostname = 'login.cirope.com'
 
   config.vm.box = 'chef/debian-7.4'
-  config.vm.provision :shell, path: 'tools/install.sh'
+  # config.vm.provision :shell, path: 'tools/install.sh'
 
   config.vm.network :forwarded_port, guest: 80, host: 8080
 

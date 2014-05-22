@@ -1,5 +1,3 @@
-PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games"
-
 <%- if scope['vars::memory'].to_i > 1024 -%>
 RUBY_GC_HEAP_INIT_SLOTS=600000 # This is 60(!) times larger than default
 RUBY_GC_MALLOC_LIMIT=59000000 # This is 7 times larger than default
