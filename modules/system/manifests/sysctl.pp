@@ -1,5 +1,5 @@
 class system::sysctl {
-  $local_conf = '/etc/sysctl.d/local.conf'
+  $local_conf = '/etc/sysctl.d/99-local.conf'
 
   file { $local_conf:
     ensure  => file,
@@ -10,7 +10,7 @@ class system::sysctl {
   }
 
   exec { 'sysctl':
-    command     => "sysctl -p ${local_conf}",
+    command     => 'sysctl --system',
     refreshonly => true,
     subscribe   => File[$local_conf]
   }
