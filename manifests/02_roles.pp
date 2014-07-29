@@ -7,6 +7,8 @@ class role::app {
   include ::system::logrotate
   include ::user::deployer
   include ::unicorn
+  include ::nodejs
+  include ::redis
   include ::newrelic
 }
 

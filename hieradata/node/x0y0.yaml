@@ -1,6 +1,4 @@
 ---
-classes:
-  - nodejs
 nginx::config::server: vhost-rack
 packages::extra:
   Debian:
