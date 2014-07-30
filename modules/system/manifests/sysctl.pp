@@ -10,7 +10,7 @@ class system::sysctl {
   }
 
   exec { 'sysctl':
-    command     => 'sysctl --system',
+    command     => "sysctl -p $local_conf",
     refreshonly => true,
     subscribe   => File[$local_conf]
   }
