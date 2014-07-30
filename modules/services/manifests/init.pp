@@ -16,8 +16,11 @@ class services {
     enable => false
   }
 
-  $defaults = {
-    ensure => running,
-    enable => true
+  file { '/usr/bin/service':
+    ensure  => link,
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0777',
+    target  => '/usr/sbin/service'
   }
 }
