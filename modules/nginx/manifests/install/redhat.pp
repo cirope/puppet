@@ -1,7 +1,13 @@
 class nginx::install::redhat {
+  $os = $operatingsystem ? {
+    centos  => 'centos',
+    redhat  => 'rhel',
+    default => undef
+  }
+
   yumrepo { 'nginx':
     name     => 'nginx',
-    baseurl  => 'http://nginx.org/packages/centos/$releasever/$basearch/',
+    baseurl  => "http://nginx.org/packages/{$os}/\$releasever/\$basearch/",
     gpgcheck => '0',
     enabled  => '1'
   }
