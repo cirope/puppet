@@ -48,4 +48,8 @@ class packages::install::debian {
   package { 'zsh':
     ensure => present
   }
+
+  package { 'libffi-dev':
+    ensure => present
+  }
 }
