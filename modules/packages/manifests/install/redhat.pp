@@ -15,6 +15,10 @@ class packages::install::redhat {
     ensure => present
   }
 
+  package { 'libffi-devel':
+    ensure => present
+  }
+
   package { 'nmap':
     ensure => present
   }

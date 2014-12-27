@@ -21,6 +21,10 @@ class packages::install::debian {
     ensure => present
   }
 
+  package { 'libffi-dev':
+    ensure => present
+  }
+
   package { 'nmap':
     ensure => present
   }
@@ -46,10 +50,6 @@ class packages::install::debian {
   }
 
   package { 'zsh':
-    ensure => present
-  }
-
-  package { 'libffi-dev':
     ensure => present
   }
 }

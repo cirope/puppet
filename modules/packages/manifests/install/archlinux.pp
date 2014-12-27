@@ -15,6 +15,10 @@ class packages::install::archlinux {
     ensure => present
   }
 
+  package { 'libffi':
+    ensure => present
+  }
+
   package { 'nmap':
     ensure => present
   }
