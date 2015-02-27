@@ -26,5 +26,5 @@ if [[ $APP_SERVER ]]; then
 fi
 
 if [[ $DB_SERVER ]]; then
-  ensure_module postgresql puppetlabs/postgresql;
+  ensure_module oradb biemond/oradb;
 fi

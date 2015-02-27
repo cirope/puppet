@@ -15,22 +15,11 @@ class role::app {
 
 class role::db {
   include ::system::sysctl
-  include ::pg
+  include ::oracle
 }
 
 class role::all {
   include ::role::web
   include ::role::app
   include ::role::db
-}
-
-class role::php {
-  include ::role::web
-  include ::role::db
-  include ::php::fpm
-}
-
-class role::owncloud {
-  include ::role::php
-  include ::php::owncloud
 }
