@@ -17,6 +17,10 @@ if [ -f /etc/debian_version ]; then
   ensure_module apt puppetlabs/apt;
 fi
 
+if [ -f /etc/redhat-release ]; then
+  ensure_module epel stahnma/epel
+fi
+
 if [[ $APP_SERVER ]]; then
   ensure_module rbenv alup/rbenv;
 fi
