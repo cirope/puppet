@@ -13,6 +13,9 @@ URL=https://raw.github.com/cirope/puppet/master/tools/install/$SCRIPT
 if [ ! -d /etc/puppet/.git ]; then
   rm -rf /etc/puppet
   git clone https://github.com/cirope/puppet.git /etc/puppet
+
+  cd /etc/puppet
+  git checkout oracle
 fi
 
 source /etc/puppet/tools/update.sh
