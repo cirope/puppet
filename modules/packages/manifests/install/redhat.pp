@@ -1,4 +1,6 @@
 class packages::install::redhat {
+  include epel
+
   package { 'curl':
     ensure => present
   }
