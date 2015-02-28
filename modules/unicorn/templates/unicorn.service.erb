@@ -7,7 +7,7 @@ Group=<%= scope['user::deployer::group'] %>
 WorkingDirectory=<%= scope['vars::apps_root'] %>/<%= @fqdn %>/current
 Environment=RAILS_ENV=<%= @virtual == 'virtualbox' ? 'sandbox' : 'production' %>
 SyslogIdentifier=unicorn
-PIDFile=/tmp/unicorn.pid
+PIDFile=/run/unicorn.pid
 
 ExecStart=<%= scope['user::deployer::home'] %>/.rbenv/shims/bundle exec \
   <%= scope['vars::apps_root'] %>/<%= @fqdn %>/current/bin/unicorn -D -c \
