@@ -1,2 +1,4 @@
 hieradata/private/*
 !hieradata/private/.gitkeep
+packages/*
+!packages/.gitkeep
