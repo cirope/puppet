@@ -1,4 +1,6 @@
 class oracle::install::redhat {
+  # https://github.com/kubo/ruby-oci8/blob/master/docs/install-instant-client.md
+
   $base_path           = '/etc/puppet/packages'
   $basic_client_path   = "${base_path}/oracle-instantclient12.1-basic-12.1.0.2.0-1.x86_64.rpm"
   $devel_client_path   = "${base_path}/oracle-instantclient12.1-devel-12.1.0.2.0-1.x86_64.rpm"
