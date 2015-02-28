@@ -22,24 +22,24 @@ class oracle::install::redhat {
     ensure => present
   }
 
-  package { 'oracle-instantclient-basic':
+  package { 'oracle-instantclient12.1-basic':
     provider => 'rpm',
     ensure   => present,
     source   => $basic_client_path,
     require  => [File[$basic_client_path], Package['libaio']]
   }
 
-  package { 'oracle-instantclient-devel':
+  package { 'oracle-instantclient12.1-devel':
     provider => 'rpm',
     ensure   => present,
     source   => $devel_client_path,
-    require  => [File[$devel_client_path], Package['oracle-instantclient-basic']]
+    require  => [File[$devel_client_path], Package['oracle-instantclient12.1-basic']]
   }
 
-  package { 'oracle-instantclient-sqlplus':
+  package { 'oracle-instantclient12.1-sqlplus':
     provider => 'rpm',
     ensure   => present,
     source   => $sqlplus_client_path,
-    require  => [File[$sqlplus_client_path], Package['oracle-instantclient-basic']]
+    require  => [File[$sqlplus_client_path], Package['oracle-instantclient12.1-basic']]
   }
 }
