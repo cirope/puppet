@@ -4,7 +4,7 @@ class sidekiq {
 
   service { 'sidekiq':
     enable  => true,
-    require => File[$service_file]
+    require => [File[$service_file], Service[$redis::service]]
   }
 
   file { $service_file:
