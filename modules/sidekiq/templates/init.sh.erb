@@ -2,18 +2,18 @@
 
 set -e
 
-AS_USER=<%= scope['user::deployer::username'] %>
-USER_HOME=<%= scope['user::deployer::home'] %>
-BUNDLE=$USER_HOME/.rbenv/shims/bundle
-APP_DIR=<%= scope['vars::apps_root'] %>/<%= @fqdn %>/current
+AS_USER="<%= scope['user::deployer::username'] %>"
+USER_HOME="<%= scope['user::deployer::home'] %>"
+BUNDLE="$USER_HOME/.rbenv/shims/bundle"
+APP_DIR="<%= scope['vars::apps_root'] %>/<%= @fqdn %>/current"
 
-APP_CONFIG="${APP_DIR}/config"
+APP_CONFIG="$APP_DIR/config"
 LOG_FILE="$APP_DIR/log/sidekiq.log"
 LOCK_FILE="$APP_DIR/tmp/pids/sidekiq.lock"
 PID_FILE="$APP_DIR/tmp/pids/sidekiq.pid"
 GEMFILE="$APP_DIR/Gemfile"
 SIDEKIQ="sidekiq"
-APP_ENV=<%= @virtual == 'virtualbox' ? 'sandbox' : 'production' %>
+APP_ENV="<%= @virtual == 'virtualbox' ? 'sandbox' : 'production' %>"
 
 START_CMD="BUNDLE_GEMFILE=$GEMFILE $BUNDLE exec $SIDEKIQ -e $APP_ENV -P $PID_FILE"
 CMD="cd ${APP_DIR}; ${START_CMD} >> ${LOG_FILE} 2>&1 &"
