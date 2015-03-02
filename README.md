@@ -8,11 +8,11 @@ The only _official_ supported distribution is Ubuntu (typically the last LTS ava
 
 Via `curl`
 
-    curl -L https://raw.github.com/cirope/puppet/master/tools/install.sh | bash
+    curl -L https://raw.githubusercontent.com/cirope/puppet/master/tools/install.sh | bash
 
 Via `wget`
 
-    wget https://raw.github.com/cirope/puppet/master/tools/install.sh -O - | bash
+    wget https://raw.githubusercontent.com/cirope/puppet/master/tools/install.sh -O - | bash
 
 ## (The MIT License)
 
