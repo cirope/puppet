@@ -10,6 +10,7 @@ class role::app {
   include ::unicorn
   include ::nodejs
   include ::redis
+  include ::sidekiq
   include ::newrelic
 }
 
