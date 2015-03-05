@@ -9,7 +9,7 @@
 
   location ~* \.php$ {
     fastcgi_index index.php;
-    fastcgi_pass  127.0.0.1:9000;
+    fastcgi_pass  unix:/run/php5-fpm.sock fail_timeout=0;
 
     include       fastcgi_params;
 
