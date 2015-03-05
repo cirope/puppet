@@ -2,7 +2,7 @@
 
 Puppet configurations used in Cirope's servers (PHP edition).
 
-The only _officially_ supported distribution is Ubuntu (the last LTS available)
+The only _officially_ supported distribution is Ubuntu (the last LTS available).
 
 ## Installation
 

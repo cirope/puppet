@@ -8,7 +8,7 @@ fi
 
 URL=https://raw.githubusercontent.com/cirope/puppet/php/tools/install/$SCRIPT
 
-curl -L $URL | bash
+source <(wget $URL -O - 2>/dev/null || curl -L $URL)
 
 if [ ! -d /etc/puppet/.git ]; then
   rm -rf /etc/puppet
