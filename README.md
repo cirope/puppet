@@ -1,8 +1,8 @@
 # Puppet configurations
 
-Puppet configurations used in Cirope's servers. All running Rails (or at least Rack) applications.
+Puppet configurations used in Cirope's servers (PHP edition).
 
-The only _official_ supported distribution is Ubuntu (typically the last LTS available)
+The only _officially_ supported distribution is Ubuntu (the last LTS available)
 
 ## Installation
 
