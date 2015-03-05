@@ -8,15 +8,15 @@ The only _official_ supported distribution is Ubuntu (typically the last LTS ava
 
 Via `curl`
 
-    curl -L https://raw.githubusercontent.com/cirope/puppet/master/tools/install.sh | bash
+    curl -L https://raw.githubusercontent.com/cirope/puppet/php/tools/install.sh | bash
 
 Via `wget`
 
-    wget https://raw.githubusercontent.com/cirope/puppet/master/tools/install.sh -O - | bash
+    wget https://raw.githubusercontent.com/cirope/puppet/php/tools/install.sh -O - | bash
 
 ## (The MIT License)
 
-Copyright (c) 2013-2014 Cirope S.A.
+Copyright (c) 2013-2015 Cirope S.A.
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the

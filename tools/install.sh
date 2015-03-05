@@ -6,13 +6,16 @@ elif [ -f /etc/debian_version ]; then export SCRIPT=debian.sh
 elif [ -f /etc/redhat-release ]; then export SCRIPT=redhat.sh
 fi
 
-URL=https://raw.githubusercontent.com/cirope/puppet/master/tools/install/$SCRIPT
+URL=https://raw.githubusercontent.com/cirope/puppet/php/tools/install/$SCRIPT
 
 curl -L $URL | bash
 
 if [ ! -d /etc/puppet/.git ]; then
   rm -rf /etc/puppet
   git clone https://github.com/cirope/puppet.git /etc/puppet
+
+  cd /etc/puppet
+  git checkout php
 fi
 
 source /etc/puppet/tools/update.sh
