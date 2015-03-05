@@ -1,6 +1,0 @@
-server {
-  listen <%= @virtual == 'virtualbox' ? 8080 : 80 %> default deferred;
-
-  <%= scope.function_template(['nginx/vhost/_phpserver.conf.erb']) %>
-  <%= scope.function_template(['nginx/vhost/_phpapp.conf.erb']) %>
-}
