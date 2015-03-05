@@ -1,7 +1,7 @@
 define nginx::vhost(
   $ensure   = undef,
   $vhost    = $fqdn,
-  $template = 'vhost-rack'
+  $template = 'vhost-php'
 ) {
   $ensure_available = $ensure ? {
     'absent' => 'absent',
