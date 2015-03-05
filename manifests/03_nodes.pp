@@ -5,8 +5,6 @@ node default {
     web:      { include role::web }
     app:      { include role::app }
     db:       { include role::db }
-    php:      { include role::php }
-    owncloud: { include role::owncloud }
     default:  { include role::all }
   }
 }
