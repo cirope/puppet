@@ -3,7 +3,7 @@ class oracle::server::install {
 
   oradb::installdb { '11.2.0.4_Linux-x86-64':
     version                => '11.2.0.4',
-    file                   => 'linux.x64_11gR2_database',
+    file                   => 'database',
     databaseType           => 'EE',
     oracleBase             => $oracle::server::base,
     oracleHome             => $oracle::server::home,
@@ -12,8 +12,8 @@ class oracle::server::install {
     group                  => 'dba',
     group_install          => 'oinstall',
     group_oper             => 'oper',
-    downloadDir            => '/data/install',
-    zipExtract             => true,
+    downloadDir            => '/install',
+    zipExtract             => false,
     puppetDownloadMntPoint => $base_path,
     require                => [
       User['oracle'],
