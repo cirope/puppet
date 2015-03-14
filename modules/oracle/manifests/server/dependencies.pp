@@ -22,6 +22,6 @@ class oracle::server::dependencies {
   ]
 
   package { $packages:
-    ensure => true
+    ensure => present
   }
 }
