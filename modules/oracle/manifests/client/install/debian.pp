@@ -1,4 +1,4 @@
-class oracle::install::debian {
+class oracle::client::install::debian {
   # https://github.com/kubo/ruby-oci8/blob/master/docs/install-instant-client.md
 
   $base_path           = '/etc/puppet/packages'
