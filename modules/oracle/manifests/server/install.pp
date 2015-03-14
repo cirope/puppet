@@ -1,9 +1,10 @@
 class oracle::server::install {
   $base_path = '/etc/puppet/packages'
 
+  # this will look for /install/oracle/database/runInstaller
   oradb::installdb { '11.2.0.4_Linux-x86-64':
     version                => '11.2.0.4',
-    file                   => 'database',
+    file                   => 'oracle',
     databaseType           => 'EE',
     oracleBase             => $oracle::server::base,
     oracleHome             => $oracle::server::home,
