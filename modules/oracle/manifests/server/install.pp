@@ -1,13 +1,12 @@
-class oracle::server::install(
-  $version       = '11.2.0.4',
-  $user          = 'oracle',
-  $group         = 'dba',
-  $group_install = 'oinstall',
-  $group_oper    = 'oper',
-  $type          = 'SE',
+class oracle::server::install {
+  $version       = '11.2.0.4'
+  $user          = 'oracle'
+  $group         = 'dba'
+  $group_install = 'oinstall'
+  $group_oper    = 'oper'
+  $type          = 'SE'
   $download      = '/install'
-){
-  $base_path = '/etc/puppet/packages'
+  $base_path     = '/etc/puppet/packages'
 
   # this will look for /install/oracle/database/runInstaller
   oradb::installdb { "${version}_Linux-x86-64":
