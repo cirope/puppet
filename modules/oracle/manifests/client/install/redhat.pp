@@ -18,10 +18,6 @@ class oracle::client::install::redhat {
     ensure => present
   }
 
-  package { 'libaio':
-    ensure => present
-  }
-
   package { 'oracle-instantclient12.1-basic':
     provider => 'rpm',
     ensure   => present,

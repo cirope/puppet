@@ -10,10 +10,6 @@ class oracle::client::install::debian {
     ensure => present
   }
 
-  package { 'libaio1':
-    ensure => present
-  }
-
   exec { 'alien':
     command => "alien -i ${basic_client_path}.rpm; alien -i ${devel_client_path}.rpm; alien -i ${sqlplus_client_path}.rpm",
     unless  => 'dpkg -s oracle-instantclient12.1-basic',
