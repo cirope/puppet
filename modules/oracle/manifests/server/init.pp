@@ -16,6 +16,9 @@ class oracle::server {
     downloadDir            => '/data/install',
     zipExtract             => true,
     puppetDownloadMntPoint => '/oracle/db',
-    require                => User['oracle']
+    require                => [
+      User['oracle'],
+      Package[$oracle::server::dependencies::packages]
+    ]
   }
 }
