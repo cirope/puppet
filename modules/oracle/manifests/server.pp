@@ -1,6 +1,6 @@
 class oracle::server(
-  $base = '/oracle',
-  $home = '/oracle/product/11.2/db',
+  $base     = '/oracle',
+  $home     = '/oracle/product/11.2/db',
   $download = '/data/install'
 ) {
   include oracle::server::user
