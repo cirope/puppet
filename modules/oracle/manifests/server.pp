@@ -5,6 +5,7 @@ class oracle::server(
 ) {
   include oracle::server::user
   include oracle::server::dependencies
+  include oracle::server::config
   include oracle::server::install
   include oracle::server::listener
   include oracle::server::db
