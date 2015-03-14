@@ -80,12 +80,12 @@ SELECTED_LANGUAGES=es
 #------------------------------------------------------------------------------
 # Specify the complete path of the Oracle Home.
 #------------------------------------------------------------------------------
-ORACLE_HOME=<%= $oracle::server::home %>
+ORACLE_HOME=<%= scope['oracle::server::home'] %>
 
 #------------------------------------------------------------------------------
 # Specify the complete path of the Oracle Base.
 #------------------------------------------------------------------------------
-ORACLE_BASE=<%= $oracle::server::base %>
+ORACLE_BASE=<%= scope['oracle::server::base'] %>
 
 #------------------------------------------------------------------------------
 # Specify the installation edition of the component.
@@ -96,7 +96,7 @@ ORACLE_BASE=<%= $oracle::server::base %>
 # SEONE  : Standard Edition One
 # PE     : Personal Edition (WINDOWS ONLY)
 #------------------------------------------------------------------------------
-oracle.install.db.InstallEdition=<%= @oracle::server::install::type %>
+oracle.install.db.InstallEdition=<%= scope['oracle::server::install::type'] %>
 
 #------------------------------------------------------------------------------
 # This variable is used to enable or disable custom install.
@@ -139,12 +139,12 @@ oracle.install.db.customComponents=oracle.server:11.2.0.1.0,oracle.sysman.ccr:10
 #------------------------------------------------------------------------------
 # The DBA_GROUP is the OS group which is to be granted OSDBA privileges.
 #------------------------------------------------------------------------------
-oracle.install.db.DBA_GROUP=<%= $oracle::server::install::group %>
+oracle.install.db.DBA_GROUP=<%= scope['oracle::server::install::group'] %>
 
 #------------------------------------------------------------------------------
 # The OPER_GROUP is the OS group which is to be granted OSOPER privileges.
 #------------------------------------------------------------------------------
-oracle.install.db.OPER_GROUP=<%= $oracle::server::install::group_oper %>
+oracle.install.db.OPER_GROUP=<%= scope['oracle::server::install::group_oper'] %>
 
 #------------------------------------------------------------------------------
 # Specify the cluster node names selected during the installation.
