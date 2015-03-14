@@ -3,7 +3,7 @@ class oracle::server::db(
   $user     = $hostname,
   $password = $hostname
 ) {
-  oradb::database{ 'testDb_Create':
+  oradb::database{ $database:
     oracleBase              => $oracle::server::base,
     oracleHome              => $oracle::server::home,
     version                 => '11.2',
@@ -30,6 +30,6 @@ class oracle::server::db(
     memoryTotal             => '800',
     databaseType            => 'MULTIPURPOSE',
     emConfiguration         => 'NONE',
-    require                 => Oradb::Listener['start listener'],
+    require                 => Oradb::Listener['listener'],
   }
 }
