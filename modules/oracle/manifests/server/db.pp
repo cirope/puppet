@@ -30,6 +30,6 @@ class oracle::server::db(
     memoryTotal             => '800',
     databaseType            => 'MULTIPURPOSE',
     emConfiguration         => 'NONE',
-    require                 => DbListener['listener'],
+    require                 => db_listener['listener']
   }
 }
