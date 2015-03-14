@@ -30,6 +30,6 @@ class oracle::server::db(
     memoryTotal             => '800',
     databaseType            => 'MULTIPURPOSE',
     emConfiguration         => 'NONE',
-    require                 => Oradb::Listener['listener'],
+    require                 => DbListener['listener'],
   }
 }
