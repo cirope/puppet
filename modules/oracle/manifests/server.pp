@@ -1,7 +1,13 @@
 class oracle::server(
-  $base     = '/oracle',
-  $home     = '/oracle/product/11.2/db',
-  $download = '/data/install'
+  $base          = '/oracle',
+  $home          = '/oracle/product/11.2/db',
+  $version       = '11.2.0.4',
+  $user          = 'oracle',
+  $group         = 'dba',
+  $group_install = 'oinstall',
+  $group_oper    = 'oper',
+  $type          = 'SE',
+  $download      = '/install'
 ) {
   include oracle::server::user
   include oracle::server::dependencies

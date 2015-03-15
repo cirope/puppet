@@ -3,13 +3,12 @@ class oracle::server::db(
   $user     = $hostname,
   $password = $hostname
 ) {
-  oradb::database{ $database:
+  oradb::database { $database:
     oracleBase              => $oracle::server::base,
     oracleHome              => $oracle::server::home,
     version                 => '11.2',
     user                    => 'oracle',
     group                   => 'dba',
-    downloadDir             => $oracle::server::download,
     action                  => 'create',
     dbName                  => $database,
     dbDomain                => $hostname,

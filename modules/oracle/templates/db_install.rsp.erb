@@ -39,7 +39,7 @@ ORACLE_HOSTNAME=
 #-------------------------------------------------------------------------------
 # Specify the Unix group to be set for the inventory directory.
 #-------------------------------------------------------------------------------
-UNIX_GROUP_NAME=<%= scope['oracle::server::install::group_install'] %>
+UNIX_GROUP_NAME=<%= scope['oracle::server::group_install'] %>
 
 #-------------------------------------------------------------------------------
 # Specify the location which holds the inventory files.
@@ -96,7 +96,7 @@ ORACLE_BASE=<%= scope['oracle::server::base'] %>
 # SEONE  : Standard Edition One
 # PE     : Personal Edition (WINDOWS ONLY)
 #------------------------------------------------------------------------------
-oracle.install.db.InstallEdition=<%= scope['oracle::server::install::type'] %>
+oracle.install.db.InstallEdition=<%= scope['oracle::server::type'] %>
 
 #------------------------------------------------------------------------------
 # This variable is used to enable or disable custom install.
@@ -139,12 +139,12 @@ oracle.install.db.customComponents=oracle.server:11.2.0.1.0,oracle.sysman.ccr:10
 #------------------------------------------------------------------------------
 # The DBA_GROUP is the OS group which is to be granted OSDBA privileges.
 #------------------------------------------------------------------------------
-oracle.install.db.DBA_GROUP=<%= scope['oracle::server::install::group'] %>
+oracle.install.db.DBA_GROUP=<%= scope['oracle::server::group'] %>
 
 #------------------------------------------------------------------------------
 # The OPER_GROUP is the OS group which is to be granted OSOPER privileges.
 #------------------------------------------------------------------------------
-oracle.install.db.OPER_GROUP=<%= scope['oracle::server::install::group_oper'] %>
+oracle.install.db.OPER_GROUP=<%= scope['oracle::server::group_oper'] %>
 
 #------------------------------------------------------------------------------
 # Specify the cluster node names selected during the installation.

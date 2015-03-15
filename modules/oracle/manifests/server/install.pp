@@ -1,30 +1,21 @@
 class oracle::server::install {
-  $version       = '11.2.0.4'
-  $user          = 'oracle'
-  $group         = 'dba'
-  $group_install = 'oinstall'
-  $group_oper    = 'oper'
-  $type          = 'SE'
-  $download      = '/install'
-  $base_path     = '/etc/puppet/packages'
-
   # this will look for /install/oracle/database/runInstaller
   oradb::installdb { "${version}_Linux-x86-64":
-    version       => $version,
+    version       => $oracle::server::version,
     file          => 'oracle',
-    databaseType  => $type,
+    databaseType  => $oracle::server::type,
     oracleBase    => $oracle::server::base,
     oracleHome    => $oracle::server::home,
     bashProfile   => true,
-    user          => $user,
-    group         => $group,
-    group_install => $group_install,
-    group_oper    => $group_oper,
-    downloadDir   => $download,
+    user          => $oracle::server::user,
+    group         => $oracle::server::group,
+    group_install => $oracle::server::group_install,
+    group_oper    => $oracle::server::group_oper,
+    downloadDir   => $oracle::server::download,
     zipExtract    => false,
     require       => [
       User['oracle'],
-      File["${download}/db_install.rsp"],
+      File["${oracle::server::download}/db_install.rsp"],
       Package[$oracle::server::dependencies::packages]
     ]
   }
