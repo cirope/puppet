@@ -3,17 +3,10 @@
 set -e
 
 ORACLE_HOME="<%= scope['oracle::server::home'] %>"
-ORACLE_BASE="<%= scope['oracle::server::base'] %>"
 ORACLE_USER="<%= scope['oracle::server::user'] %>"
 
-LD_LIBRARY_PATH=$ORACLE_HOME
-ORACLE_HOME_LISTNER=$ORACLE_HOME
-
-EXPORTS="export ORACLE_HOME; export ORACLE_BASE; export ORACLE_HOME_LISTNER; export LD_LIBRARY_PATH"
-
-START_DB_CMD="$EXPORTS; cd $ORACLE_HOME; $ORACLE_HOME/bin/dbstart"
-
-STOP_DB_CMD="$EXPORTS; cd $ORACLE_HOME; $ORACLE_HOME/bin/dbshut"
+START_DB_CMD="$EXPORTS; cd $ORACLE_HOME; $ORACLE_HOME/bin/dbstart $ORACLE_HOME"
+STOP_DB_CMD="$EXPORTS; cd $ORACLE_HOME; $ORACLE_HOME/bin/dbshut $ORACLE_HOME"
 
 RETVAL=0
 
