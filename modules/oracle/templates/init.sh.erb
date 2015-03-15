@@ -5,15 +5,15 @@ set -e
 ORACLE_HOME="<%= scope['oracle::server::home'] %>"
 ORACLE_BASE="<%= scope['oracle::server::base'] %>"
 ORACLE_USER="<%= scope['oracle::server::user'] %>"
-LD_LIBRARY_PATH=$ORACLE_HOME
 
-EXPORTS="export ORACLE_HOME; export ORACLE_BASE; export LD_LIBRARY_PATH"
+LD_LIBRARY_PATH=$ORACLE_HOME
+ORACLE_HOME_LISTNER=$ORACLE_HOME
+
+EXPORTS="export ORACLE_HOME; export ORACLE_BASE; export ORACLE_HOME_LISTNER; export LD_LIBRARY_PATH"
 
 START_DB_CMD="$EXPORTS; cd $ORACLE_HOME; $ORACLE_HOME/bin/dbstart"
-START_LSNR_CMD="$EXPORTS; cd $ORACLE_HOME; $ORACLE_HOME/bin/lsnrctl start"
 
 STOP_DB_CMD="$EXPORTS; cd $ORACLE_HOME; $ORACLE_HOME/bin/dbshut"
-STOP_LSNR_CMD="$EXPORTS; cd $ORACLE_HOME; $ORACLE_HOME/bin/lsnrctl stop"
 
 RETVAL=0
 
@@ -23,7 +23,6 @@ start() {
   echo "Starting Oracle listener .. "
 
   su -c "$START_DB_CMD" - $ORACLE_USER
-  su -c "$START_LSNR_CMD" - $ORACLE_USER
 
   RETVAL=$?
 
@@ -34,7 +33,6 @@ stop() {
   echo "Stopping Oracle listener .."
 
   su -c "$STOP_DB_CMD" - $ORACLE_USER
-  su -c "$STOP_LSNR_CMD" - $ORACLE_USER
 
   RETVAL=$?
 
