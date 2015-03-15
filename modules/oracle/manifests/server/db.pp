@@ -36,6 +36,6 @@ class oracle::server::db(
     oracleHome => $oracle::server::home,
     user       => $oracle::server::user,
     dbName     => $database,
-    require    => Oradb::Installdb["${oracle::server::version}_Linux-x86-64"]
+    require    => Db_listener['listener']
   }
 }
