@@ -7,16 +7,8 @@ class oracle::server::listener {
     require         => Oradb::Installdb["${oracle::server::version}_Linux-x86-64"]
   }
 
-  service { 'oracle_lsnr':
+  service { 'oradb':
     enable  => true,
-    require => File['/etc/init.d/oracle']
-  }
-
-  file { '/etc/init.d/oracle':
-    ensure  => file,
-    owner   => 'root',
-    group   => 'root',
-    mode    => '0755',
-    content => template('oracle/init.sh.erb')
+    require => Oradb::Installdb["${oracle::server::version}_Linux-x86-64"]
   }
 }
