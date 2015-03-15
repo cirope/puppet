@@ -1,0 +1,71 @@
+<%= scope.function_template(["oracle/headers/_#{@osfamily.downcase}.sh.erb"]) %>
+
+set -e
+
+ORACLE_HOME="<%= scope['oracle::server::home'] %>"
+ORACLE_BASE="<%= scope['oracle::server::base'] %>"
+ORACLE_USER="<%= scope['oracle::server::user'] %>"
+LD_LIBRARY_PATH=$ORACLE_HOME
+
+CMD="export ORACLE_HOME; export ORACLE_BASE; export LD_LIBRARY_PATH; cd $ORACLE_HOME; $ORACLE_HOME/bin/lsnrctl"
+
+RETVAL=0
+
+
+start() {
+  status
+
+  if [ $? -eq 1 ]; then
+    [ `id -u` == '0' ] || (echo "Oracle runs as root only .."; exit 5)
+    echo "Starting Oracle listener .. "
+
+    su -c "$CMD start" - $ORACLE_USER
+
+    RETVAL=$?
+
+    return $RETVAL
+  else
+    echo "Oracle listener is already running .. "
+  fi
+}
+
+stop() {
+  echo "Stopping Oracle listener .."
+
+  su -c "$CMD stop" - $ORACLE_USER
+
+  RETVAL=$?
+
+  return $RETVAL
+}
+
+status() {
+  ps -ef | grep 'lsnrctl' | grep -v grep
+  return $?
+}
+
+
+case "$1" in
+  start)
+    start
+    ;;
+  stop)
+    stop
+    ;;
+  status)
+    status
+
+    if [ $? -eq 0 ]; then
+      echo "Oracle listener is running .."
+      RETVAL=0
+    else
+      echo "Oracle listener is stopped .."
+      RETVAL=1
+    fi
+    ;;
+  *)
+    echo "Usage: $0 {start|stop|status}"
+    exit 0
+    ;;
+esac
+exit $RETVAL
