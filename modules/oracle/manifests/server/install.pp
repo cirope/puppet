@@ -15,7 +15,7 @@ class oracle::server::install {
     zipExtract    => false,
     require       => [
       User['oracle'],
-      File["${oracle::server::download}/db_install.rsp"],
+      File["${oracle::server::download}/db_install_${oracle::server::version}.rsp"],
       Package[$oracle::server::dependencies::packages]
     ]
   }
