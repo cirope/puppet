@@ -1,6 +1,6 @@
 class oracle::server::install {
   # this will look for /install/oracle/database/runInstaller
-  oradb::installdb { "${version}_Linux-x86-64":
+  oradb::installdb { "${oracle::server::version}_Linux-x86-64":
     version       => $oracle::server::version,
     file          => 'oracle',
     databaseType  => $oracle::server::type,
