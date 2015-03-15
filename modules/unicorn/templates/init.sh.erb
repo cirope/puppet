@@ -4,6 +4,7 @@ set -e
 
 CURRENT_USER=`id -nu`
 USER=<%= scope['user::deployer::username'] %>
+GROUP=<%= scope['user::deployer::group'] %>
 USER_HOME=<%= scope['user::deployer::home'] %>
 BUNDLE=$USER_HOME/.rbenv/shims/bundle
 
@@ -14,6 +15,9 @@ UNICORN=$APP_ROOT/bin/unicorn
 UNICORN_CONFIG=$APP_ROOT/config/unicorn.rb
 PID=/tmp/unicorn.pid
 CMD="cd $APP_ROOT; BUNDLE_GEMFILE=$GEMFILE $BUNDLE exec $UNICORN -D -c $UNICORN_CONFIG -E $ENV"
+
+mkdir -p /run/unicorn
+chown -R $USER:$GROUP /run/unicorn
 
 action="$1"
 
