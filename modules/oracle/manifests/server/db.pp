@@ -1,5 +1,5 @@
 class oracle::server::db(
-  $database = "${hostname}_production",
+  $database = $hostname,
   $user     = $hostname,
   $password = $hostname
 ) {
