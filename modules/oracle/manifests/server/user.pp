@@ -1,26 +1,26 @@
 class oracle::server::user {
-  group { 'oinstall':
+  group { $oracle::server::group:
     ensure => present
   }
 
-  group { 'dba':
+  group { $oracle::server::group_install:
     ensure => present
   }
 
-  group { 'oper':
+  group { $oracle::server::group_oper:
     ensure => present
   }
 
-  user { 'oracle' :
+  user { $oracle::server::user:
     ensure     => present,
     uid        => 500,
-    gid        => 'oinstall',
-    groups     => ['oinstall','dba','oper'],
+    gid        => $oracle::server::group_install,
+    groups     => [$oracle::server::group, $oracle::server::group_install, $oracle::server::group_oper],
     shell      => '/bin/bash',
     password   => '$1$DSJ51vh6$4XzzwyIOk6Bi/54kglGk3.',
-    home       => '/home/oracle',
-    comment    => 'This user oracle was created by Puppet',
-    require    => Group['oinstall', 'dba', 'oper'],
+    home       => "/home/${oracle::server::user}",
+    comment    => 'This user was created by Puppet',
+    require    => Group[$oracle::server::group, $oracle::server::group_install, $oracle::server::group_oper],
     managehome => true
   }
 }
