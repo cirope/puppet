@@ -5,9 +5,16 @@ set -e
 ORACLE_HOME="<%= scope['oracle::server::home'] %>"
 ORACLE_BASE="<%= scope['oracle::server::base'] %>"
 ORACLE_USER="<%= scope['oracle::server::user'] %>"
+DATABASE="<%= scope['oracle::server::db::database'] %>"
 LD_LIBRARY_PATH=$ORACLE_HOME
 
-CMD="export ORACLE_HOME; export ORACLE_BASE; export LD_LIBRARY_PATH; cd $ORACLE_HOME; $ORACLE_HOME/bin/lsnrctl"
+EXPORTS="export ORACLE_HOME; export ORACLE_BASE; export LD_LIBRARY_PATH"
+
+START_LSNR_CMD="$EXPORTS; cd $ORACLE_HOME; $ORACLE_HOME/bin/lsnrctl start"
+START_SRV_CMD="$EXPORTS; cd $ORACLE_HOME; $ORACLE_HOME/bin/srvctl start database -d $DATABASE"
+
+STOP_LSNR_CMD="$EXPORTS; cd $ORACLE_HOME; $ORACLE_HOME/bin/lsnrctl stop"
+STOP_SRV_CMD="$EXPORTS; cd $ORACLE_HOME; $ORACLE_HOME/bin/srvctl stop database -d $DATABASE"
 
 RETVAL=0
 
@@ -16,7 +23,8 @@ start() {
   [ `id -u` == '0' ] || (echo "Oracle runs as root only .."; exit 5)
   echo "Starting Oracle listener .. "
 
-  su -c "$CMD start" - $ORACLE_USER
+  su -c "$START_SRV_CMD" - $ORACLE_USER
+  su -c "$START_LSNR_CMD" - $ORACLE_USER
 
   RETVAL=$?
 
@@ -26,7 +34,8 @@ start() {
 stop() {
   echo "Stopping Oracle listener .."
 
-  su -c "$CMD stop" - $ORACLE_USER
+  su -c "$STOP_SRV_CMD" - $ORACLE_USER
+  su -c "$STOP_LSNR_CMD" - $ORACLE_USER
 
   RETVAL=$?
 
