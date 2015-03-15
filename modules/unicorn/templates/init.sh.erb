@@ -16,9 +16,6 @@ UNICORN_CONFIG=$APP_ROOT/config/unicorn.rb
 PID=/tmp/unicorn.pid
 CMD="cd $APP_ROOT; BUNDLE_GEMFILE=$GEMFILE $BUNDLE exec $UNICORN -D -c $UNICORN_CONFIG -E $ENV"
 
-mkdir -p /run/unicorn
-chown -R $USER:$GROUP /run/unicorn
-
 action="$1"
 
 set -u
@@ -39,6 +36,9 @@ sig () {
 
 case $action in
 start)
+  mkdir -p /run/unicorn
+  chown -R $USER:$GROUP /run/unicorn
+
   sig 0 && echo >&2 "Already running" && exit 0
   run
   ;;
