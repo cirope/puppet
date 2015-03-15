@@ -21,24 +21,18 @@ RETVAL=0
 
 
 start() {
-  status
+  [ `id -u` == '0' ] || (echo "$SIDEKIQ runs as root only .."; exit 5)
+  [ -d $APP_DIR ] || (echo "$APP_DIR not found!.. Exiting"; exit 6)
+  cd $APP_DIR
+  echo "Starting $SIDEKIQ message processor .. "
 
-  if [ $? -eq 1 ]; then
-    [ `id -u` == '0' ] || (echo "$SIDEKIQ runs as root only .."; exit 5)
-    [ -d $APP_DIR ] || (echo "$APP_DIR not found!.. Exiting"; exit 6)
-    cd $APP_DIR
-    echo "Starting $SIDEKIQ message processor .. "
+  su -c "$CMD" - $AS_USER
 
-    su -c "$CMD" - $AS_USER
-
-    RETVAL=$?
-    #Sleeping for 8 seconds for process to be precisely visible in process table - See status ()
-    sleep 8
-    [ $RETVAL -eq 0 ] && touch $LOCK_FILE
-    return $RETVAL
-  else
-    echo "$SIDEKIQ message processor is already running .. "
-  fi
+  RETVAL=$?
+  #Sleeping for 8 seconds for process to be precisely visible in process table
+  sleep 8
+  [ $RETVAL -eq 0 ] && touch $LOCK_FILE
+  return $RETVAL
 }
 
 stop() {
@@ -50,11 +44,6 @@ stop() {
   return $RETVAL
 }
 
-status() {
-  ps -ef | grep 'sidekiq' | grep -v grep
-  return $?
-}
-
 case "$1" in
   start)
     start
@@ -62,19 +51,8 @@ case "$1" in
   stop)
     stop
     ;;
-  status)
-    status
-
-    if [ $? -eq 0 ]; then
-      echo "$SIDEKIQ message processor is running .."
-      RETVAL=0
-    else
-      echo "$SIDEKIQ message processor is stopped .."
-      RETVAL=1
-    fi
-    ;;
   *)
-    echo "Usage: $0 {start|stop|status}"
+    echo "Usage: $0 {start|stop}"
     exit 0
     ;;
 esac
