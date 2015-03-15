@@ -13,20 +13,14 @@ RETVAL=0
 
 
 start() {
-  status
+  [ `id -u` == '0' ] || (echo "Oracle runs as root only .."; exit 5)
+  echo "Starting Oracle listener .. "
 
-  if [ $? -eq 1 ]; then
-    [ `id -u` == '0' ] || (echo "Oracle runs as root only .."; exit 5)
-    echo "Starting Oracle listener .. "
+  su -c "$CMD start" - $ORACLE_USER
 
-    su -c "$CMD start" - $ORACLE_USER
+  RETVAL=$?
 
-    RETVAL=$?
-
-    return $RETVAL
-  else
-    echo "Oracle listener is already running .. "
-  fi
+  return $RETVAL
 }
 
 stop() {
@@ -39,12 +33,6 @@ stop() {
   return $RETVAL
 }
 
-status() {
-  ps -ef | grep 'lsnrctl' | grep -v grep
-  return $?
-}
-
-
 case "$1" in
   start)
     start
@@ -52,19 +40,8 @@ case "$1" in
   stop)
     stop
     ;;
-  status)
-    status
-
-    if [ $? -eq 0 ]; then
-      echo "Oracle listener is running .."
-      RETVAL=0
-    else
-      echo "Oracle listener is stopped .."
-      RETVAL=1
-    fi
-    ;;
   *)
-    echo "Usage: $0 {start|stop|status}"
+    echo "Usage: $0 {start|stop}"
     exit 0
     ;;
 esac
