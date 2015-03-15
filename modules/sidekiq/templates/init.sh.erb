@@ -7,7 +7,6 @@ USER_HOME=<%= scope['user::deployer::home'] %>
 BUNDLE=$USER_HOME/.rbenv/shims/bundle
 APP_DIR=<%= scope['vars::apps_root'] %>/<%= @fqdn %>/current
 
-APP_CONFIG="${APP_DIR}/config"
 LOG_FILE="$APP_DIR/log/sidekiq.log"
 LOCK_FILE="$APP_DIR/tmp/pids/sidekiq.lock"
 PID_FILE="$APP_DIR/tmp/pids/sidekiq.pid"
