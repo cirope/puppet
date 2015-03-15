@@ -12,7 +12,6 @@ class oracle::server::db(
     downloadDir             => $oracle::server::download,
     action                  => 'create',
     dbName                  => $database,
-    dbDomain                => $hostname,
     dbPort                  => '1521',
     sysPassword             => $password,
     systemPassword          => $password,
