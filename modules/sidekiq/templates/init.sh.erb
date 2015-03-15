@@ -42,41 +42,40 @@ start() {
 }
 
 stop() {
-    echo "Stopping $SIDEKIQ message processor .."
-    SIG="INT"
-    kill -$SIG `cat  $PID_FILE`
-    RETVAL=$?
-    [ $RETVAL -eq 0 ] && rm -f $LOCK_FILE
-    return $RETVAL
+  echo "Stopping $SIDEKIQ message processor .."
+  SIG="INT"
+  kill -$SIG `cat  $PID_FILE`
+  RETVAL=$?
+  [ $RETVAL -eq 0 ] && rm -f $LOCK_FILE
+  return $RETVAL
 }
 
 status() {
-  ps -ef | grep 'sidekiq [0-9].[0-9].[0-9]' | grep -v grep
+  ps -ef | grep 'sidekiq' | grep -v grep
   return $?
 }
 
-
 case "$1" in
-    start)
-        start
-        ;;
-    stop)
-        stop
-        ;;
-    status)
-        status
+  start)
+    start
+    ;;
+  stop)
+    stop
+    ;;
+  status)
+    status
 
-        if [ $? -eq 0 ]; then
-             echo "$SIDEKIQ message processor is running .."
-             RETVAL=0
-         else
-             echo "$SIDEKIQ message processor is stopped .."
-             RETVAL=1
-         fi
-        ;;
-    *)
-        echo "Usage: $0 {start|stop|status}"
-        exit 0
-        ;;
+    if [ $? -eq 0 ]; then
+      echo "$SIDEKIQ message processor is running .."
+      RETVAL=0
+    else
+      echo "$SIDEKIQ message processor is stopped .."
+      RETVAL=1
+    fi
+    ;;
+  *)
+    echo "Usage: $0 {start|stop|status}"
+    exit 0
+    ;;
 esac
 exit $RETVAL
