@@ -5,8 +5,8 @@ set -e
 ORACLE_HOME="<%= scope['oracle::server::home'] %>"
 ORACLE_USER="<%= scope['oracle::server::user'] %>"
 
-START_DB_CMD="$EXPORTS; cd $ORACLE_HOME; $ORACLE_HOME/bin/dbstart $ORACLE_HOME"
-STOP_DB_CMD="$EXPORTS; cd $ORACLE_HOME; $ORACLE_HOME/bin/dbshut $ORACLE_HOME"
+START_DB_CMD="cd $ORACLE_HOME; $ORACLE_HOME/bin/dbstart $ORACLE_HOME"
+STOP_DB_CMD="cd $ORACLE_HOME; $ORACLE_HOME/bin/dbshut $ORACLE_HOME"
 
 RETVAL=0
 
