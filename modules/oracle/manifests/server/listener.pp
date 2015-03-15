@@ -7,7 +7,7 @@ class oracle::server::listener {
     require         => Oradb::Installdb["${oracle::server::version}_Linux-x86-64"]
   }
 
-  service { 'oradb':
+  service { 'dbora':
     enable  => true,
     require => Oradb::Installdb["${oracle::server::version}_Linux-x86-64"]
   }
