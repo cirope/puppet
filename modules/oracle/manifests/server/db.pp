@@ -31,4 +31,11 @@ class oracle::server::db(
     emConfiguration         => 'NONE',
     require                 => Db_listener['listener']
   }
+
+  oradb::autostartdatabase { $database:
+    oracleHome => $oracle::server::home,
+    user       => $oracle::server::user,
+    dbName     => $database,
+    require    => Oradb::Installdb["${oracle::server::version}_Linux-x86-64"]
+  }
 }
