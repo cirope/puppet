@@ -9,10 +9,10 @@ class oracle::server::listener {
 
   service { 'oracle_lsnr':
     enable  => true,
-    require => File['/etc/init.d/oracle_lsnr']
+    require => File['/etc/init.d/oracle']
   }
 
-  file { '/etc/init.d/oracle_lsnr':
+  file { '/etc/init.d/oracle':
     ensure  => file,
     owner   => 'root',
     group   => 'root',
