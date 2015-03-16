@@ -15,8 +15,8 @@ class oracle::server::db(
     dbPort                  => '1521',
     sysPassword             => $password,
     systemPassword          => $password,
-    dataFileDestination     => '/oracle/oradata',
-    recoveryAreaDestination => '/oracle/flash_recovery_area',
+    dataFileDestination     => "${oracle::server::base}/oradata",
+    recoveryAreaDestination => "${oracle::server::base}/flash_recovery_area",
     characterSet            => 'AL32UTF8',
     nationalCharacterSet    => 'UTF8',
     initParams              => {
