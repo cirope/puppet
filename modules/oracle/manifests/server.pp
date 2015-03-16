@@ -1,6 +1,6 @@
 class oracle::server(
-  $base          = '/oracle',
-  $home          = '/oracle/product/11.2/db',
+  $base          = '/var/oracle',
+  $home          = '/var/oracle/product/11.2/db',
   $version       = '11.2.0.4',
   $user          = 'oracle',
   $group         = 'dba',
