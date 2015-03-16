@@ -1,8 +1,0 @@
-<%= scope.function_template(['nginx/vhost/_unicorn.conf.erb']) %>
-
-server {
-  listen 80 default deferred;
-
-  <%= scope.function_template(['nginx/vhost/_rackserver.conf.erb']) %>
-  <%= scope.function_template(['nginx/vhost/_rackapp.conf.erb']) %>
-}

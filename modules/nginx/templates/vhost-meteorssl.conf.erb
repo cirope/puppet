@@ -1,5 +1,3 @@
-<%= scope.function_template(['nginx/vhost/_unicorn.conf.erb']) %>
-
 server {
   listen 80 default deferred;
   server_name  ~^(?<subdomain>.+)?(?<domain>\.<%= @fqdn.gsub('.', '\.') %>)$;
@@ -9,7 +7,7 @@ server {
 server {
   listen 443 default deferred spdy;
 
-  <%= scope.function_template(['nginx/vhost/_rackserver.conf.erb']) %>
+  <%= scope.function_template(['nginx/vhost/_meteorserver.conf.erb']) %>
   <%= scope.function_template(['nginx/vhost/_ssl.conf.erb']) %>
-  <%= scope.function_template(['nginx/vhost/_rackapp.conf.erb']) %>
+  <%= scope.function_template(['nginx/vhost/_meteorapp.conf.erb']) %>
 }

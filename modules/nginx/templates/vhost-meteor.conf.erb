@@ -1,0 +1,6 @@
+server {
+  listen 80 default deferred;
+
+  <%= scope.function_template(['nginx/vhost/_meteorserver.conf.erb']) %>
+  <%= scope.function_template(['nginx/vhost/_meteorapp.conf.erb']) %>
+}

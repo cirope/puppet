@@ -1,4 +1,4 @@
-# begin _rackserver.conf
+# begin _meteorserver.conf
   server_name <%= @fqdn %> *.<%= @fqdn %>;
 
   client_body_in_file_only clean;
@@ -10,5 +10,5 @@
   server_tokens off;
 
   # path for static files
-  root <%= scope['vars::apps_root'] %>/<%= @fqdn %>/current/public;
-  # end _rackserver.conf
+  root <%= scope['vars::apps_root'] %>/<%= @fqdn %>/public;
+  # end _meteorserver.conf
