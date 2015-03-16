@@ -1,18 +1,18 @@
 # Puppet configurations
 
-Puppet configurations used in Cirope's servers. All running Rails (or at least Rack) applications.
+Puppet configurations used in Cirope's servers running Meteor applications.
 
-The only _officially_ supported distribution is Ubuntu (the last LTS available) and Debian.
+The only _officially_ supported distribution is Debian.
 
 ## Installation
 
 Via `curl`
 
-    curl -L https://raw.githubusercontent.com/cirope/puppet/master/tools/install.sh | bash
+    curl -L https://raw.githubusercontent.com/cirope/puppet/meteor/tools/install.sh | bash
 
 Via `wget`
 
-    wget https://raw.githubusercontent.com/cirope/puppet/master/tools/install.sh -O - | bash
+    wget https://raw.githubusercontent.com/cirope/puppet/meteor/tools/install.sh -O - | bash
 
 ## (The MIT License)
 
