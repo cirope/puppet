@@ -36,6 +36,6 @@ class oracle::server::db(
     oracleHome => $oracle::server::home,
     user       => $oracle::server::user,
     dbName     => $database,
-    require    => Db_listener['listener']
+    require    => Oradb::Database[$database]
   }
 }
