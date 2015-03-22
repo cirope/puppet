@@ -49,7 +49,6 @@ start() {
   RETVAL=$?
 
   [ $RETVAL -eq 0 ] && touch $lockfile
-  [ $RETVAL -eq 0 ] && success $"$NAME startup" || failure $"$NAME startup"
 
   echo
 }
@@ -62,7 +61,6 @@ stop() {
   RETVAL=$?
 
   [ $RETVAL -eq 0 ] && rm -f $lockfile
-  [ $RETVAL -eq 0 ] && success $"$NAME shutdown" || failure $"$NAME shutdown"
 
   echo
 }
