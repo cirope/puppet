@@ -16,8 +16,12 @@ class mongo(
     require => Class['mongodb::server']
   }
 
-  mongodb::db { $database:
-    user          => $user,
-    password_hash => md5("${user}:mongo:${password}")
+  mongodb_user { $user:
+    username      => $user,
+    ensure        => present,
+    password_hash => md5("${user}:mongo:${password}"),
+    database      => $database,
+    roles         => ['readWrite', 'dbAdmin'],
+    require       => Class['mongodb::server']
   }
 }
