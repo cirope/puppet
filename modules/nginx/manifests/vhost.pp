@@ -1,7 +1,7 @@
 define nginx::vhost(
   $ensure   = undef,
   $vhost    = $fqdn,
-  $template = 'vhost-rack'
+  $template = 'vhost-meteor'
 ) {
   $ensure_available = $ensure ? {
     'absent' => 'absent',
