@@ -1,0 +1,109 @@
+<%= scope.function_template(["meteor/headers/_#{@osfamily.downcase}.sh.erb"]) %>
+
+. /etc/init.d/functions
+
+NAME=<%= @fqdn %>
+SOURCE_DIR=<%= scope['vars::apps_root'] %>/<%= @fqdn %>
+SOURCE_FILE=main.js
+SOURCE_FILE_PATH=$SOURCE_DIR/$SOURCE_FILE
+MONGO_BASE=mongodb://<%= scope['mongo::user'] %>:<%= scope['mongo::password'] %>@localhost:27017
+
+export PORT=80
+export ROOT_URL=http://<%= @fqdn %>
+export MONGO_URL=$MONGO_BASE/<%= scope['mongo::database'] %>
+export MONGO_OPLOG_URL=$MONGO_BASE/oplog
+export METEOR_SETTINGS=$(cat /etc/meteor/$NAME.json)
+export FOREVER_ROOT=/var/run/forever
+
+user=<%= scope['user::deployer::username'] %>
+pidfile=/var/run/$NAME.pid
+lockfile=/var/lock/subsys/$NAME
+logfile=/var/log/nodejs/$NAME-node.log
+
+forever=`which forever`
+
+if [ -z "$forever" ]; then
+  echo "ERROR: can't find forever"
+  exit 1
+fi
+
+runuser="runuser -s /bin/bash $user -c"
+
+export NODE_PATH=$NODE_PATH:/usr/lib/node_modules
+
+start() {
+  echo -n "Starting $NAME node instance: "
+
+  mkdir -p /var/log/nodejs
+  chown $user /var/log/nodejs
+
+  mkdir -p $FOREVER_ROOT
+  chown $user $FOREVER_ROOT
+
+  touch $logfile
+  chown $user $logfile
+
+  touch $pidfile
+  chown $user $pidfile
+
+  $runuser "$forever start \
+    -l $logfile \
+    -a \
+    --pidFile $pidfile \
+    --minUptime 5000 \
+    --spinSleepTime 2000 \
+    $SOURCE_FILE_PATH > /dev/null 2>&1"
+
+  RETVAL=$?
+
+  [ $RETVAL -eq 0 ] && touch $lockfile
+  [ $RETVAL -eq 0 ] && success $"$NAME startup" || failure $"$NAME startup"
+
+  echo
+}
+
+stop() {
+  echo -n "Stopping $NAME node instance: "
+
+  $runuser "$forever stop $SOURCE_FILE_PATH > /dev/null 2>&1"
+
+  RETVAL=$?
+
+  [ $RETVAL -eq 0 ] && rm -f $lockfile
+  [ $RETVAL -eq 0 ] && success $"$NAME shutdown" || failure $"$NAME shutdown"
+
+  echo
+}
+
+rh_status() {
+  status -p $pidfile $NAME
+}
+
+rh_status_q() {
+  rh_status >/dev/null 2>&1
+}
+
+
+case "$1" in
+  start)
+    rh_status_q && exit 0
+    start
+    ;;
+  stop)
+    rh_status_q || exit 0
+    stop
+    ;;
+  restart)
+    stop
+    start
+    ;;
+  status)
+    rh_status
+    ;;
+  *)
+    echo "Usage:  {start|stop|restart|status}"
+    exit 1
+    ;;
+esac
+
+exit $RETVAL
