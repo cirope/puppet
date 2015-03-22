@@ -14,7 +14,7 @@ export FOREVER_ROOT=/var/run/forever
 
 user=<%= scope['user::deployer::username'] %>
 pidfile=/var/run/$NAME.pid
-lockfile=/var/lock/subsys/$NAME
+lockfile=/var/lock/$NAME
 logfile=/var/log/nodejs/$NAME-node.log
 
 forever=`which forever`
