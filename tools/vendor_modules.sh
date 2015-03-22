@@ -21,7 +21,7 @@ if [ -f /etc/redhat-release ]; then
 fi
 
 if [[ $APP_SERVER ]]; then
-  ensure_module nodejs willdurand/nodejs;
+  ensure_module nodejs puppetlabs/nodejs;
 fi
 
 if [[ $DB_SERVER ]]; then
