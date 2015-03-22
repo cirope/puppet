@@ -10,6 +10,7 @@ class role::app {
 
 class role::db {
   include ::system::sysctl
+  include ::mongo
 }
 
 class role::all {

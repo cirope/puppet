@@ -17,7 +17,7 @@ if [ -f /etc/debian_version ]; then
 fi
 
 if [ -f /etc/redhat-release ]; then
-  ensure_module epel stahnma/epel
+  ensure_module epel stahnma/epel;
 fi
 
 if [[ $DB_SERVER ]]; then
