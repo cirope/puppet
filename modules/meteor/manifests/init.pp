@@ -1,6 +1,10 @@
 class meteor {
   $service_file = '/etc/init.d/meteor'
 
+  package { 'forever':
+    ensure => present
+  }
+
   service { 'meteor':
     enable  => true,
     require => File[$service_file]
