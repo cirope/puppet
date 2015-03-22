@@ -4,12 +4,11 @@ NAME=<%= @fqdn %>
 SOURCE_DIR=<%= scope['vars::apps_root'] %>/<%= @fqdn %>
 SOURCE_FILE=main.js
 SOURCE_FILE_PATH=$SOURCE_DIR/$SOURCE_FILE
-MONGO_BASE=mongodb://<%= scope['::mongo::user'] %>:<%= scope['::mongo::password'] %>@localhost:27017
+MONGO_BASE=mongodb://localhost:27017
 
 export PORT=8080
 export ROOT_URL=<%= @virtual ? 'http' : 'https' %>://<%= @fqdn %>
 export MONGO_URL=$MONGO_BASE/<%= scope['mongo::database'] %>
-export MONGO_OPLOG_URL=$MONGO_BASE/oplog
 export FOREVER_ROOT=/var/run/forever
 
 user=<%= scope['user::deployer::username'] %>
@@ -57,7 +56,7 @@ start() {
 stop() {
   echo -n "Stopping $NAME node instance: "
 
-  su -c "$stop_cmd" - $user
+  su -m -c "$stop_cmd" - $user
 
   RETVAL=$?
 

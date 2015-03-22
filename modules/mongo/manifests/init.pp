@@ -8,7 +8,6 @@ class mongo(
   }
 
   class { 'mongodb::server':
-    auth    => true,
     require => Class['mongodb::globals']
   }
 
@@ -17,7 +16,6 @@ class mongo(
   }
 
   mongodb_user { $user:
-    username      => $user,
     ensure        => present,
     password_hash => md5("${user}:mongo:${password}"),
     database      => $database,
