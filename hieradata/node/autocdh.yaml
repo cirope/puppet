@@ -1,2 +1,2 @@
 ---
-nginx::config::server: meteor
+nginx::config::server: vhost-meteor
