@@ -6,11 +6,11 @@ SOURCE_FILE=main.js
 SOURCE_FILE_PATH=$SOURCE_DIR/$SOURCE_FILE
 MONGO_BASE=mongodb://<%= scope['::mongo::user'] %>:<%= scope['::mongo::password'] %>@localhost:27017
 
-PORT=8080
-ROOT_URL=<%= @virtual ? 'http' : 'https' %>://<%= @fqdn %>
-MONGO_URL=$MONGO_BASE/<%= scope['mongo::database'] %>
-MONGO_OPLOG_URL=$MONGO_BASE/oplog
-FOREVER_ROOT=/var/run/forever
+export PORT=8080
+export ROOT_URL=<%= @virtual ? 'http' : 'https' %>://<%= @fqdn %>
+export MONGO_URL=$MONGO_BASE/<%= scope['mongo::database'] %>
+export MONGO_OPLOG_URL=$MONGO_BASE/oplog
+export FOREVER_ROOT=/var/run/forever
 
 user=<%= scope['user::deployer::username'] %>
 pidfile=/var/run/$NAME.pid
@@ -24,9 +24,8 @@ if [ -z "$forever" ]; then
   exit 1
 fi
 
-variables="PORT=$PORT; ROOT_URL=$ROOT_URL; MONGO_URL=$MONGO_URL; MONGO_OPLOG_URL=$MONGO_OPLOG_URL"
 start_options="-l $logfile -a --pidFile $pidfile --minUptime 5000 --spinSleepTime 2000"
-start_cmd="$variables; $forever start $start_options $SOURCE_FILE_PATH > /dev/null 2>&1"
+start_cmd="$forever start $start_options $SOURCE_FILE_PATH > /dev/null 2>&1"
 stop_cmd="$forever stop $SOURCE_FILE_PATH > /dev/null 2>&1"
 
 export NODE_PATH=$NODE_PATH:/usr/lib/node_modules
@@ -46,7 +45,7 @@ start() {
   touch $pidfile
   chown $user $pidfile
 
-  su -c "$start_cmd" - $user
+  su -c -m "$start_cmd" - $user
 
   RETVAL=$?
 
