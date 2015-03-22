@@ -1,7 +1,9 @@
 class meteor {
   include ::mongo
 
-  class { 'nodejs': }
+  class { 'nodejs':
+    manage_repo => true
+  }
 
   $service_file = '/etc/init.d/meteor'
 
