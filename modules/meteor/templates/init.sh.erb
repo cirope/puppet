@@ -1,7 +1,5 @@
 <%= scope.function_template(["meteor/headers/_#{@osfamily.downcase}.sh.erb"]) %>
 
-. /etc/init.d/functions
-
 NAME=<%= @fqdn %>
 SOURCE_DIR=<%= scope['vars::apps_root'] %>/<%= @fqdn %>
 SOURCE_FILE=main.js
@@ -12,7 +10,6 @@ export PORT=8080
 export ROOT_URL=<%= @virtual ? 'http' : 'https' %>://<%= @fqdn %>
 export MONGO_URL=$MONGO_BASE/<%= scope['mongo::database'] %>
 export MONGO_OPLOG_URL=$MONGO_BASE/oplog
-export METEOR_SETTINGS=$(cat /etc/meteor/$NAME.json)
 export FOREVER_ROOT=/var/run/forever
 
 user=<%= scope['user::deployer::username'] %>
@@ -27,7 +24,7 @@ if [ -z "$forever" ]; then
   exit 1
 fi
 
-runuser="runuser -s /bin/bash $user -c"
+runuser="su -l $user -c"
 
 export NODE_PATH=$NODE_PATH:/usr/lib/node_modules
 
