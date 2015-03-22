@@ -45,7 +45,7 @@ start() {
   touch $pidfile
   chown $user $pidfile
 
-  su -c -m "$start_cmd" - $user
+  su -m -c "$start_cmd" - $user
 
   RETVAL=$?
 
