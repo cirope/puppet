@@ -24,7 +24,7 @@ if [ -z "$forever" ]; then
   exit 1
 fi
 
-runuser="su -l $user -c"
+runuser="sudo -u $user "
 
 export NODE_PATH=$NODE_PATH:/usr/lib/node_modules
 
