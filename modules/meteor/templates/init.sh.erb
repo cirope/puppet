@@ -7,7 +7,7 @@ SOURCE_FILE_PATH=$SOURCE_DIR/$SOURCE_FILE
 MONGO_BASE=mongodb://localhost:27017
 
 export PORT=8080
-export ROOT_URL=<%= @virtual ? 'http' : 'https' %>://<%= @fqdn %>
+export ROOT_URL=<%= @virtual ? 'http' : 'https' %>://app.<%= @fqdn %>
 export MONGO_URL=$MONGO_BASE/<%= scope['mongo::database'] %>
 export FOREVER_ROOT=/var/run/forever
 
