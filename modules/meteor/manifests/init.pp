@@ -16,6 +16,7 @@ class meteor {
     group   => 'root',
     mode    => '0755',
     notify  => Service['meteor'],
+    require => Class['mongo'],
     content => template('meteor/init.sh.erb')
   }
 }
