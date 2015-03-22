@@ -12,18 +12,18 @@ ensure_module () {
   fi
 }
 
-if [ -f /etc/debian_version ]; then
-  ensure_module apt puppetlabs/apt;
-fi
-
-if [ -f /etc/redhat-release ]; then
-  ensure_module epel stahnma/epel;
-fi
-
 if [[ $APP_SERVER ]]; then
   ensure_module nodejs puppetlabs/nodejs;
 fi
 
 if [[ $DB_SERVER ]]; then
   ensure_module mongodb puppetlabs/mongodb;
+fi
+
+if [ -f /etc/debian_version ]; then
+  ensure_module apt puppetlabs/apt;
+fi
+
+if [ -f /etc/redhat-release ]; then
+  ensure_module epel stahnma/epel;
 fi
