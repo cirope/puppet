@@ -50,5 +50,4 @@ class user::deployer {
   }
 
   include user::deployer::apps_root
-  include user::deployer::rbenv
 }
