@@ -6,7 +6,6 @@ class role::app {
   include ::system::environment
   include ::system::logrotate
   include ::user::deployer
-  include ::nodejs
   include ::meteor
 }
 

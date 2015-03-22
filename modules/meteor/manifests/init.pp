@@ -1,13 +1,16 @@
 class meteor {
+  include nodejs
+
   $service_file = '/etc/init.d/meteor'
 
   package { 'forever':
-    ensure => present
+    ensure   => present,
+    provider => 'npm'
   }
 
   service { 'meteor':
     enable  => true,
-    require => File[$service_file]
+    require => [Package['forever'], File[$service_file]]
   }
 
   file { $service_file:
