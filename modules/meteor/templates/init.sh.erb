@@ -60,7 +60,7 @@ start() {
 stop() {
   echo -n "Stopping $NAME node instance: "
 
-  su -m -c "$stop_cmd" - $user
+  test -f $lockfile && su -m -c "$stop_cmd" - $user
 
   RETVAL=$?
 
