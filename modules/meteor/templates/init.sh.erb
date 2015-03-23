@@ -1,5 +1,7 @@
 <%= scope.function_template(["meteor/headers/_#{@osfamily.downcase}.sh.erb"]) %>
 
+set -e
+
 NAME=<%= @fqdn %>
 SOURCE_DIR=<%= scope['vars::apps_root'] %>/<%= @fqdn %>
 SOURCE_FILE=main.js
@@ -28,6 +30,8 @@ start_cmd="$forever start $start_options $SOURCE_FILE_PATH > /dev/null 2>&1"
 stop_cmd="$forever stop $SOURCE_FILE_PATH > /dev/null 2>&1"
 
 export NODE_PATH=$NODE_PATH:/usr/lib/node_modules
+
+set -u
 
 start() {
   echo -n "Starting $NAME node instance: "
@@ -65,33 +69,19 @@ stop() {
   echo
 }
 
-rh_status() {
-  status -p $pidfile $NAME
-}
-
-rh_status_q() {
-  rh_status >/dev/null 2>&1
-}
-
-
 case "$1" in
   start)
-    rh_status_q && exit 0
     start
     ;;
   stop)
-    rh_status_q || exit 0
     stop
     ;;
   restart)
     stop
     start
     ;;
-  status)
-    rh_status
-    ;;
   *)
-    echo "Usage:  {start|stop|restart|status}"
+    echo "Usage:  {start|stop|restart}"
     exit 1
     ;;
 esac
