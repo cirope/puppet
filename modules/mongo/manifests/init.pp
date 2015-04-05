@@ -22,4 +22,9 @@ class mongo(
     roles         => ['readWrite', 'dbAdmin'],
     require       => Class['mongodb::server']
   }
+
+  package { 'mongodb-org-tools':
+    ensure  => present,
+    require => Class['mongodb::server']
+  }
 }
