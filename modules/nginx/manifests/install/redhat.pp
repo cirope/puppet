@@ -7,7 +7,7 @@ class nginx::install::redhat {
 
   yumrepo { 'nginx':
     name     => 'nginx',
-    baseurl  => "http://nginx.org/packages/${os}/\$releasever/\$basearch/",
+    baseurl  => "http://nginx.org/packages/${os}/${operatingsystemmajrelease}/\$basearch/",
     gpgcheck => '0',
     enabled  => '1'
   }
