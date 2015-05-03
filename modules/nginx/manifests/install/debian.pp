@@ -4,7 +4,10 @@ class nginx::install::debian {
   apt::source { 'nginx':
     location => "http://nginx.org/packages/${distro}",
     repos    => 'nginx',
-    key      => '7BD9BF62'
+    key      => {
+      id     => '7BD9BF62',
+      source => 'http://nginx.org/keys/nginx_signing.key'
+    }
   }
 
   package { 'nginx':
