@@ -1,2 +1,7 @@
 ---
 nginx::config::server: vhost-meteor
+packages::extra:
+  Debian:
+    imagemagick: {}
+  RedHat:
+    ImageMagick: {}
