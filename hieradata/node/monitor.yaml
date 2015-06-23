@@ -1,0 +1,8 @@
+---
+nginx::config::server: vhost-rack
+packages::extra:
+  Debian:
+    libpq-dev: {}
+  RedHat:
+    postgresql-libs: {}
+    postgresql-devel: {}
