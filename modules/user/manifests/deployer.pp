@@ -45,6 +45,13 @@ class user::deployer {
     group => $group
   }
 
+  if $::osfamily == 'redhat' {
+    user::dotfiles::bashrc { $username:
+      user  => $username,
+      group => $group
+    }
+  }
+
   user::ssh { $username:
     user => $username
   }
