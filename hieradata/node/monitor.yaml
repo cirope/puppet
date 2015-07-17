@@ -5,6 +5,8 @@ packages::extra:
     libpq-dev: {}
     unixodbc: {}
     freetds-bin: {}
+    freetds-dev: {}
+    tdsodbc: {}
   RedHat:
     postgresql-libs: {}
     postgresql-devel: {}
