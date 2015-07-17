@@ -3,6 +3,8 @@ nginx::config::server: vhost-rack
 packages::extra:
   Debian:
     libpq-dev: {}
+    unixodbc: {}
   RedHat:
     postgresql-libs: {}
     postgresql-devel: {}
+    unixODBC: {}
