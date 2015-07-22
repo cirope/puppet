@@ -4,6 +4,7 @@ packages::extra:
   Debian:
     libpq-dev: {}
     unixodbc: {}
+    unixodbc-dev: {}
     freetds-bin: {}
     freetds-dev: {}
     tdsodbc: {}
