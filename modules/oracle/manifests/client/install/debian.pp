@@ -5,6 +5,7 @@ class oracle::client::install::debian {
   $basic_client_path   = "${base_path}/oracle-instantclient12.1-basic-12.1.0.2.0-1.x86_64"
   $devel_client_path   = "${base_path}/oracle-instantclient12.1-devel-12.1.0.2.0-1.x86_64"
   $sqlplus_client_path = "${base_path}/oracle-instantclient12.1-sqlplus-12.1.0.2.0-1.x86_64"
+  $odbc_client_path    = "${base_path}/oracle-instantclient12.1-odbc-12.1.0.2.0-1.x86_64"
 
   package { 'alien':
     ensure => present
@@ -15,7 +16,7 @@ class oracle::client::install::debian {
   }
 
   exec { 'alien':
-    command => "alien -i ${basic_client_path}.rpm; alien -i ${devel_client_path}.rpm; alien -i ${sqlplus_client_path}.rpm",
+    command => "alien -i ${basic_client_path}.rpm; alien -i ${devel_client_path}.rpm; alien -i ${sqlplus_client_path}.rpm; alien -i ${odbc_client_path}.rpm",
     unless  => 'dpkg -s oracle-instantclient12.1-basic',
     require => [Package['alien'], Package['libaio1']]
   }

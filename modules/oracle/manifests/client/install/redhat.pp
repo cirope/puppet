@@ -5,6 +5,7 @@ class oracle::client::install::redhat {
   $basic_client_path   = "${base_path}/oracle-instantclient12.1-basic-12.1.0.2.0-1.x86_64.rpm"
   $devel_client_path   = "${base_path}/oracle-instantclient12.1-devel-12.1.0.2.0-1.x86_64.rpm"
   $sqlplus_client_path = "${base_path}/oracle-instantclient12.1-sqlplus-12.1.0.2.0-1.x86_64.rpm"
+  $odbc_client_path    = "${base_path}/oracle-instantclient12.1-odbc-12.1.0.2.0-1.x86_64.rpm"
 
   package { 'oracle-instantclient12.1-basic':
     provider => 'rpm',
@@ -24,6 +25,13 @@ class oracle::client::install::redhat {
     provider => 'rpm',
     ensure   => present,
     source   => $sqlplus_client_path,
+    require  => Package['oracle-instantclient12.1-basic']
+  }
+
+  package { 'oracle-instantclient12.1-odbc':
+    provider => 'rpm',
+    ensure   => present,
+    source   => $odbc_client_path,
     require  => Package['oracle-instantclient12.1-basic']
   }
 }
