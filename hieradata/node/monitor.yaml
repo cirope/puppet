@@ -8,6 +8,7 @@ packages::extra:
     freetds-bin: {}
     freetds-dev: {}
     tdsodbc: {}
+    monit: {}
   RedHat:
     postgresql-libs: {}
     postgresql-devel: {}
