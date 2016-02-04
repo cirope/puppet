@@ -4,7 +4,7 @@ define user::dotfiles::zsh(
   $home  = "/home/${user}"
 ) {
   $oh_my_zsh_path = "${home}/.oh-my-zsh"
-  $oh_my_zsh_repo = 'git://github.com/robbyrussell/oh-my-zsh.git'
+  $oh_my_zsh_repo = 'https://github.com/robbyrussell/oh-my-zsh.git'
 
   file { "${home}/.zshrc":
     ensure  => file,
