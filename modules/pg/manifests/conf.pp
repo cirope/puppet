@@ -18,10 +18,6 @@ class pg::conf {
     value => "${$vars::memory / 64}MB"
   }
 
-  postgresql::server::config_entry { 'checkpoint_segments':
-    value => '10'
-  }
-
   postgresql::server::config_entry { 'checkpoint_completion_target':
     value => '0.9'
   }
