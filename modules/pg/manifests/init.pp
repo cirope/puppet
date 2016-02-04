@@ -6,8 +6,10 @@ class pg {
   }
 
   class { 'postgresql::globals':
-    encoding => 'UTF8',
-    locale   => 'es_AR.utf8'
+    manage_package_repo => true,
+    version             => '9.5',
+    encoding            => 'UTF8',
+    locale              => 'es_AR.utf8'
   }
 
   class { 'postgresql::server':
