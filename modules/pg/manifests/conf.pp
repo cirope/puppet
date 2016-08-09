@@ -38,10 +38,6 @@ class pg::conf {
     value => '1000'
   }
 
-  postgresql::server::config_entry { 'log_line_prefix':
-    value => '%t:%r:%u@%d:[%p]: '
-  }
-
   postgresql::server::config_entry { 'log_temp_files':
     value => '1024'
   }
