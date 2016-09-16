@@ -1,4 +1,8 @@
 class packages::install::redhat {
+  package { 'bzip2':
+    ensure => present
+  }
+
   package { 'curl':
     ensure => present
   }
