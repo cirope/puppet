@@ -16,7 +16,8 @@ class packages::install::redhat {
   }
 
   package { 'htop':
-    ensure => present
+    ensure  => present,
+    require => Class['system::initializers::redhat']
   }
 
   package { 'libffi-devel':

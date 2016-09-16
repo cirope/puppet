@@ -1,12 +1,27 @@
 class nodejs {
-  if $::operatingsystem == 'Debian' {
-    package { 'nodejs':
-      ensure  => present,
-      require => Class['apt::backports']
+  case $::osfamily {
+    archlinux: {
+      package { 'nodejs':
+        ensure => present
+      }
     }
-  } else {
-    package { 'nodejs':
-      ensure => present
+
+    debian: {
+      package { 'nodejs':
+        ensure  => present,
+        require => Class['apt::backports']
+      }
+    }
+
+    redhat: {
+      package { 'nodejs':
+        ensure  => present,
+        require => Class['system::initializers::redhat']
+      }
+    }
+
+    default: {
+      fail('Unrecognized operating system')
     }
   }
 }

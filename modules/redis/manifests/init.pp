@@ -1,18 +1,8 @@
 class redis {
-  $package = $::osfamily ? {
-    debian  => 'redis-server',
-    default => 'redis'
-  }
-
-  $service = $package
-
-  package { $package:
-    ensure => present
-  }
-
-  service { $service:
-    ensure  => running,
-    enable  => true,
-    require => Package[$package]
+  case $::osfamily {
+    archlinux: { include packages::install::archlinux }
+    debian:    { include packages::install::debian }
+    redhat:    { include packages::install::redhat }
+    default:   { fail('Unrecognized operating system') }
   }
 }
