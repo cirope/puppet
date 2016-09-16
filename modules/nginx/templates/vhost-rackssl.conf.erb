@@ -1,9 +1,9 @@
 <%= scope.function_template(['nginx/vhost/_unicorn.conf.erb']) %>
 
 server {
-  listen 80 default deferred;
-  server_name  ~^(?<subdomain>.+)?(?<domain>\.<%= @fqdn.gsub('.', '\.') %>)$;
-  rewrite      ^ https://$subdomain$domain$request_uri? permanent;
+  listen      80 default deferred;
+  server_name <%= @fqdn %> *.<%= @fqdn %>;
+  return      301 https://$host$request_uri;
 }
 
 server {
