@@ -4,6 +4,7 @@ class user::deployer::rbenv {
   rbenv::install { 'deployer':
     group   => $user::deployer::group,
     require => [
+      Package['bzip2'],
       User::Dotfiles::Gem[$user::deployer::username],
       User::Dotfiles::Zsh[$user::deployer::username]
     ]
