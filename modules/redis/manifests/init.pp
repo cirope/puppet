@@ -1,8 +1,8 @@
 class redis {
   case $::osfamily {
-    archlinux: { include packages::install::archlinux }
-    debian:    { include packages::install::debian }
-    redhat:    { include packages::install::redhat }
+    archlinux: { include redis::install::archlinux }
+    debian:    { include redis::install::debian }
+    redhat:    { include redis::install::redhat }
     default:   { fail('Unrecognized operating system') }
   }
 }
