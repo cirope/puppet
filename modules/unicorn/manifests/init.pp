@@ -1,24 +1,10 @@
 class unicorn {
-  $service_file = $::osfamily ? {
-    archlinux => '/etc/systemd/system/unicorn.service',
-    default   => '/etc/init.d/unicorn'
-  }
-  $template = $::osfamily ? {
-    archlinux => 'unicorn/unicorn.service.erb',
-    default   => 'unicorn/init.sh.erb'
-  }
-  $run_directory = '/run/unicorn'
+  $service_file = '/lib/systemd/system/unicorn.service'
+  $template     = 'unicorn/unicorn.service.erb'
 
   service { 'unicorn':
     enable  => true,
-    require => [File[$service_file], File[$run_directory]]
-  }
-
-  file { $run_directory:
-    ensure  => directory,
-    owner   => $user::deployer::username,
-    group   => $user::deployer::group,
-    require => User[$user::deployer::username]
+    require => File[$service_file]
   }
 
   file { $service_file:

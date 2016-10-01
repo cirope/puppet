@@ -57,5 +57,6 @@ class user::deployer {
   }
 
   include user::deployer::apps_root
+  include user::deployer::sudoers
   include user::deployer::rbenv
 }
