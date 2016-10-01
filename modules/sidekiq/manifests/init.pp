@@ -1,6 +1,11 @@
 class sidekiq {
-  $service_file  = '/etc/init.d/sidekiq'
-  $template      = 'sidekiq/init.sh.erb'
+  $service_dir  = $::osfamily ? {
+    redhat  => '/usr/lib/systemd/system',
+    default => '/lib/systemd/system'
+  }
+
+  $service_file = "${service_dir}/sidekiq.service"
+  $template     = 'sidekiq/sidekiq.service.erb'
 
   service { 'sidekiq':
     enable  => true,

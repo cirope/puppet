@@ -1,0 +1,20 @@
+[Unit]
+Description=Sidekiq
+Requires=redis.service
+After=redis.service syslog.target network.target
+
+[Service]
+Type=simple
+User=<%= scope['user::deployer::username'] %>
+Group=<%= scope['user::deployer::group'] %>
+UMask=0002
+WorkingDirectory=<%= scope['vars::apps_root'] %>/<%= @fqdn %>/current
+
+ExecStart=/bin/bash -lc 'bundle exec sidekiq -e <%= @productname == 'VirtualBox' ? 'sandbox' : 'production' %>'
+
+# if we crash, restart
+RestartSec=1
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
