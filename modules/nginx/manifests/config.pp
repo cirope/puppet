@@ -37,8 +37,8 @@ class nginx::config($server = undef, $long_proxy_timeout = false) {
   }
 
   if $server {
-    $template = $virtual ? {
-      virtualbox => $server,
+    $template = $productname ? {
+      VirtualBox => $server,
       default    => "${server}ssl"
     }
 
