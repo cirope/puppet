@@ -10,7 +10,7 @@ PermissionsStartOnly=true
 User=<%= scope['user::deployer::username'] %>
 Group=<%= scope['user::deployer::group'] %>
 WorkingDirectory=<%= scope['vars::apps_root'] %>/<%= @fqdn %>/current
-Environment=RAILS_ENV=<%= @virtual == 'virtualbox' ? 'sandbox' : 'production' %>
+Environment=RAILS_ENV=<%= @productname == 'VirtualBox' ? 'sandbox' : 'production' %>
 SyslogIdentifier=unicorn
 KillSignal=SIGQUIT
 PIDFile=/tmp/unicorn.pid
@@ -20,7 +20,7 @@ ExecStartPre=/bin/chown -R deployer:www-data /run/unicorn
 ExecStart=<%= scope['user::deployer::home'] %>/.rbenv/shims/bundle exec \
   "<%= scope['vars::apps_root'] %>/<%= @fqdn %>/current/bin/unicorn -D -c \
   <%= scope['vars::apps_root'] %>/<%= @fqdn %>/current/config/unicorn.rb -E \
-  <%= @virtual == 'virtualbox' ? 'sandbox' : 'production' %>"
+  <%= @productname == 'VirtualBox' ? 'sandbox' : 'production' %>"
 
 ExecStop=/bin/kill -s QUIT $MAINPID
 ExecReload=/bin/kill -s USR2 $MAINPID

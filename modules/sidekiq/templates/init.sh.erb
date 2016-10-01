@@ -12,7 +12,7 @@ LOCK_FILE="$APP_DIR/tmp/pids/sidekiq.lock"
 PID_FILE="$APP_DIR/tmp/pids/sidekiq.pid"
 GEMFILE="$APP_DIR/Gemfile"
 SIDEKIQ="sidekiq"
-APP_ENV=<%= @virtual == 'virtualbox' ? 'sandbox' : 'production' %>
+APP_ENV=<%= @productname == 'VirtualBox' ? 'sandbox' : 'production' %>
 
 START_CMD="$BUNDLE exec $SIDEKIQ -e $APP_ENV -P $PID_FILE"
 CMD="cd ${APP_DIR}; ${START_CMD} >> ${LOG_FILE} 2>&1 &"
