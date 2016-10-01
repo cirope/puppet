@@ -7,6 +7,6 @@ class redis::install::redhat {
   service { 'redis':
     ensure  => running,
     enable  => true,
-    require => Package['redis-server']
+    require => Package['redis']
   }
 }
