@@ -16,7 +16,7 @@ class sidekiq {
     ensure  => file,
     owner   => 'root',
     group   => 'root',
-    mode    => '0755',
+    mode    => '0644',
     notify  => Service['sidekiq'],
     content => template($template)
   }

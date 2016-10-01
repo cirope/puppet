@@ -16,7 +16,7 @@ class unicorn {
     ensure  => file,
     owner   => 'root',
     group   => 'root',
-    mode    => '0755',
+    mode    => '0644',
     notify  => Service['unicorn'],
     content => template($template)
   }
