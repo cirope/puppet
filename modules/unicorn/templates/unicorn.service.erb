@@ -1,5 +1,5 @@
 [Unit]
-Description=Unicorn Server
+Description=unicorn
 Requires=redis.service
 Wants=postgresql.service
 After=redis.service postgresql.service
@@ -15,7 +15,7 @@ SyslogIdentifier=unicorn
 KillSignal=SIGQUIT
 PIDFile=/tmp/unicorn.pid
 ExecStartPre=/bin/mkdir -p /run/unicorn
-ExecStartPre=/bin/chown -R deployer:www-data /run/unicorn
+ExecStartPre=/bin/chown -R <%= scope['user::deployer::username'] %>:<%= scope['user::deployer::group'] %> /run/unicorn
 
 ExecStart=<%= scope['user::deployer::home'] %>/.rbenv/shims/bundle exec \
   "<%= scope['vars::apps_root'] %>/<%= @fqdn %>/current/bin/unicorn -D -c \
