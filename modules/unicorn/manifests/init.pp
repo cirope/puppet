@@ -1,5 +1,10 @@
 class unicorn {
-  $service_file = '/lib/systemd/system/unicorn.service'
+  $service_dir  = $::osfamily ? {
+    redhat  => '/usr/lib/systemd/system',
+    default => '/lib/systemd/system'
+  }
+
+  $service_file = "${service_dir}/unicorn.service"
   $template     = 'unicorn/unicorn.service.erb'
 
   service { 'unicorn':
