@@ -6,4 +6,4 @@ git clean -f -d
 git pull
 
 source /etc/puppet/tools/vendor_modules.sh
-puppet apply /etc/puppet
+puppet apply /etc/puppet/manifests
