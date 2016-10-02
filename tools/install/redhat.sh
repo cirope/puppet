@@ -1,7 +1,13 @@
 #!/usr/bin/env bash
 
+set -eu
+
 yum -y update
 yum -y install git
 
-rpm -ivh http://yum.puppetlabs.com/el/7/products/x86_64/puppetlabs-release-7-11.noarch.rpm
+COLLECTION=pc1
+OS=el
+VERSION=7
+
+rpm -ivh https://yum.puppetlabs.com/puppetlabs-release-$COLLECTION-$OS-$VERSION.noarch.rpm
 yum -y install puppet
