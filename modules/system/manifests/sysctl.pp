@@ -6,7 +6,7 @@ class system::sysctl {
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
-    content => template('system/sysctl.local.conf.erb')
+    content => inline_template('system/sysctl.local.conf.erb')
   }
 
   exec { 'sysctl':

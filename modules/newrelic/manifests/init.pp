@@ -13,7 +13,7 @@ class newrelic($license = undef) {
       owner   => 'root',
       group   => 'newrelic',
       mode    => '0640',
-      content => template('newrelic/nrsysmond.cfg.erb'),
+      content => inline_template('newrelic/nrsysmond.cfg.erb'),
       notify  => Service['newrelic-sysmond'],
       require => Package['newrelic-sysmond']
     }
