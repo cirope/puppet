@@ -2,7 +2,7 @@
 
 set +u
 
-HN=`facter hostname`
+HN=`/opt/puppetlabs/bin/facter hostname`
 
 if [[ $HN == 'php' || $HN == 'owncloud' ]]; then PHP_SERVER=true; fi
 if [[ $HN == 'app' || ($HN != 'web' && $HN != 'db' && ! $PHP_SERVER) ]]; then APP_SERVER=true; fi
