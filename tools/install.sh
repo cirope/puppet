@@ -11,6 +11,8 @@ URL=https://raw.githubusercontent.com/cirope/puppet/master/tools/install/$SCRIPT
 
 source <(wget $URL -O - 2>/dev/null || curl -L $URL)
 
+source ~/.bashrc
+
 if [ ! -d /etc/puppet/.git ]; then
   rm -rf /etc/puppet
   git clone https://github.com/cirope/puppet.git /etc/puppet
