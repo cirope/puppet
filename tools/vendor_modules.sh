@@ -2,7 +2,8 @@
 
 set +u
 
-HN=`/opt/puppetlabs/bin/facter hostname`
+PATH=/opt/puppetlabs/bin/
+HN=`$PATH/facter hostname`
 
 if [[ $HN == 'php' || $HN == 'owncloud' ]]; then PHP_SERVER=true; fi
 if [[ $HN == 'app' || ($HN != 'web' && $HN != 'db' && ! $PHP_SERVER) ]]; then APP_SERVER=true; fi
@@ -10,7 +11,7 @@ if [[ $HN == 'db'  || ($HN != 'web' && $HN != 'app') ]]; then DB_SERVER=true; fi
 
 ensure_module () {
   if [ ! -d /etc/puppet/modules/$1 ]; then
-    puppet module install $2;
+    $PATH/puppet module install $2;
   fi
 }
 
