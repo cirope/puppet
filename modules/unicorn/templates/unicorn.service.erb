@@ -25,5 +25,8 @@ ExecStart=<%= scope['user::deployer::home'] %>/.rbenv/shims/bundle exec \
 ExecStop=/bin/kill -s QUIT $MAINPID
 ExecReload=/bin/kill -s USR2 $MAINPID
 
+RestartSec=1
+Restart=on-failure
+
 [Install]
 WantedBy=multi-user.target
