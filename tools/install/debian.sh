@@ -6,7 +6,14 @@ DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confold" d
 apt-get install -y git wget
 
 COLLECTION=pc1
-PACKAGE=puppetlabs-release-$COLLECTION-$(lsb_release -s -c).deb
+RELEASE_NAME=$(lsb_release -s -c)
+
+if [ "$RELEASE_NAME" == "xenial" ]; then
+  PACKAGE=puppetlabs-release-$COLLECTION-$RELEASE_NAME.deb
+else
+  PACKAGE=puppetlabs-release-$RELEASE_NAME.deb
+fi
+
 SERVER=http://apt.puppetlabs.com/
 
 wget $SERVER$PACKAGE
