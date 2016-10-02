@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -eu
+
 pacman -Syu --noconfirm
 pacman -S --needed --noconfirm git base-devel wget
 
