@@ -4,15 +4,16 @@ Requires=redis.service
 After=redis.service syslog.target network.target
 
 [Service]
-Type=simple
+Type=forking
 User=<%= scope['user::deployer::username'] %>
 Group=<%= scope['user::deployer::group'] %>
 UMask=0002
 WorkingDirectory=<%= scope['vars::apps_root'] %>/<%= @fqdn %>/current
+PIDFile=tmp/pids/sidekiq-0.pid
 
 ExecStart=<%= scope['user::deployer::home'] %>/.rbenv/shims/bundle exec \
   "sidekiq -e <%= @productname == 'VirtualBox' ? 'sandbox' : 'production' %> \
-  -C config/sidekiq.yml -L log/sidekiq.log -P tmp/pids/sidekiq-0.pid -i 0"
+  -C config/sidekiq.yml -L log/sidekiq.log -P tmp/pids/sidekiq-0.pid -i 0 -d"
 
 ExecReload=/bin/kill -s USR1 $MAINPID
 
