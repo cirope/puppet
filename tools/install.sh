@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 set -eu
 
 if   [ -f /etc/arch-release ];   then export SCRIPT=archlinux.sh

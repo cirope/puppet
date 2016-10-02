@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-set -eu
-
 apt-get update
 DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confold" dist-upgrade
 
