@@ -4,6 +4,6 @@ class system::logrotate {
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
-    content => inline_template('system/logrotate.erb')
+    content => template('system/logrotate.erb')
   }
 }

@@ -4,6 +4,6 @@ class system::environment {
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
-    content => inline_template('system/environment.erb')
+    content => template('system/environment.erb')
   }
 }

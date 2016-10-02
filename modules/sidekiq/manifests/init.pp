@@ -18,6 +18,6 @@ class sidekiq {
     group   => 'root',
     mode    => '0644',
     notify  => Service['sidekiq'],
-    content => inline_template($template)
+    content => template($template)
   }
 }

@@ -18,6 +18,6 @@ class unicorn {
     group   => 'root',
     mode    => '0644',
     notify  => Service['unicorn'],
-    content => inline_template($template)
+    content => template($template)
   }
 }

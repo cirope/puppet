@@ -15,7 +15,7 @@ define nginx::vhost(
     mode    => '0644',
     require => File['/etc/nginx/sites-available'],
     notify  => Service['nginx'],
-    content => inline_template("nginx/${template}.conf.erb")
+    content => template("nginx/${template}.conf.erb")
   }
 
   $ensure_enabled = $ensure ? {

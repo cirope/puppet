@@ -17,7 +17,7 @@ class nginx::config($server = undef, $long_proxy_timeout = false) {
     mode    => '0644',
     require => Package['nginx'],
     notify  => Service['nginx'],
-    content => inline_template('nginx/nginx.conf.erb')
+    content => template('nginx/nginx.conf.erb')
   }
 
   file { '/etc/nginx/sites-available':
