@@ -7,5 +7,3 @@
 <%= scope['user::deployer::username'] %> ALL= NOPASSWD: /bin/systemctl start sidekiq
 <%= scope['user::deployer::username'] %> ALL= NOPASSWD: /bin/systemctl stop sidekiq
 <%= scope['user::deployer::username'] %> ALL= NOPASSWD: /bin/systemctl restart sidekiq
-<%= scope['user::deployer::username'] %> ALL= NOPASSWD: /bin/systemctl reload sidekiq
-<%= scope['user::deployer::username'] %> ALL= NOPASSWD: /bin/systemctl try-reload-or-restart sidekiq
