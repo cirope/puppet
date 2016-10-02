@@ -14,6 +14,8 @@ ExecStart=<%= scope['user::deployer::home'] %>/.rbenv/shims/bundle exec \
   "sidekiq -e <%= @productname == 'VirtualBox' ? 'sandbox' : 'production' %> \
   -C config/sidekiq.yml -L log/sidekiq.log -P tmp/pids/sidekiq-0.pid -i 0"
 
+ExecReload=/bin/kill -s USR1 $MAINPID
+
 RestartSec=1
 Restart=on-failure
 
