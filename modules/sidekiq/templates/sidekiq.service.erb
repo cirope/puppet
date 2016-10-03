@@ -1,7 +1,7 @@
 [Unit]
 Description=sidekiq
-Requires=redis.service
-After=redis.service syslog.target network.target
+Requires=<%= @osfamily == 'Debian' ? 'redis-server' : 'redis' %>.service
+After=<%= @osfamily == 'Debian' ? 'redis-server' : 'redis' %>.service syslog.target network.target
 
 [Service]
 Type=forking
