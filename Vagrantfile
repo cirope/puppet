@@ -9,7 +9,7 @@ Vagrant.configure VAGRANTFILE_API_VERSION do |config|
   config.vm.network :forwarded_port, guest: 80, host: 8080
 
   config.vm.provider 'virtualbox' do |vb|
-    vb.name = 'Monitor Debian 8.1'
+    vb.name = 'Monitor Debian 8.6'
     vb.customize ['modifyvm', :id, '--memory', '1024']
   end
 end
