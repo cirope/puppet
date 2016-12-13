@@ -11,7 +11,7 @@ User=<%= scope['user::deployer::username'] %>
 Group=<%= scope['user::deployer::group'] %>
 WorkingDirectory=<%= scope['vars::apps_root'] %>/<%= @fqdn %>/current
 Environment=RAILS_ENV=<%= @productname == 'VirtualBox' ? 'sandbox' : 'production' %>
-Environment=BUNDLE_GEMFILE=<%= scope['vars::apps_root'] %>/Gemfile
+Environment=BUNDLE_GEMFILE=<%= scope['vars::apps_root'] %>/<%= @fqdn %>/current/Gemfile
 SyslogIdentifier=unicorn
 KillSignal=SIGQUIT
 PIDFile=/tmp/unicorn.pid
